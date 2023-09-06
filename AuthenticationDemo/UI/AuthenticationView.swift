@@ -2,12 +2,15 @@
 //  ContentView.swift
 //  AuthenticationDemo
 //
-//  Created by セイタカイト on 2023/09/06.
+//  Created by kaito seita on 2023/09/06.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct AuthenticationView: View {
+    // FIXME: init()でイニシャライズに変更
+    @State private var presenter: AuthenticationPresenter = AuthenticationPresenter()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -19,8 +22,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct AuthenticationView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AuthenticationView()
     }
 }
