@@ -6,7 +6,30 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 final class SignUpPresenter: ObservableObject {
+    @Published var userInfo: UserInfo
     
+    init() {
+        userInfo = UserInfo(id: "", displayName: "", email: "")
+    }
+    
+    func onTap(email: String, password: String) {
+        Task {
+            await signUpWithEmailAndPassword(email: email, password: password)
+        }
+    }
+    
+    private func signUpWithEmailAndPassword(email: String, password: String) async {
+        do {
+            let result = try await Auth.auth().createUser(withEmail: email, password: password)
+            userInfo = UserInfo(id: result.user.uid,
+                                displayName: result.user.displayName ?? "",
+                                email: result.user.email ?? ""
+            )
+        } catch {
+            print("error")
+        }
+    }
 }
