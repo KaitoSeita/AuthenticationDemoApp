@@ -2,14 +2,18 @@
 //  ContentView.swift
 //  AuthenticationDemo
 //
-//  Created by kaito seita on 2023/09/06.
+//  Created by kaito-seita on 2023/09/06.
 //
 
 import SwiftUI
 
+// MARK: HOME VIEW
 struct AuthenticationView: View {
-    // FIXME: init()でイニシャライズに変更
-    @State private var presenter: AuthenticationPresenter = AuthenticationPresenter()
+    @StateObject private var presenter: AuthenticationPresenter
+    
+    init() {
+        _presenter = StateObject(wrappedValue: AuthenticationPresenter())
+    }
     
     var body: some View {
         VStack {
@@ -19,11 +23,5 @@ struct AuthenticationView: View {
             Text("Hello, world!")
         }
         .padding()
-    }
-}
-
-struct AuthenticationView_Previews: PreviewProvider {
-    static var previews: some View {
-        AuthenticationView()
     }
 }

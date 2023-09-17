@@ -17,6 +17,13 @@
 		3594565B2AA8B9FC00238B39 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594565A2AA8B9FC00238B39 /* UserInfo.swift */; };
 		3594565D2AA8BAB100238B39 /* AuthenticationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594565C2AA8BAB100238B39 /* AuthenticationPresenter.swift */; };
 		3594565F2AA8C06500238B39 /* AuthenticationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594565E2AA8C06500238B39 /* AuthenticationRouter.swift */; };
+		359456652AA8CE1500238B39 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456642AA8CE1500238B39 /* SignInView.swift */; };
+		359456672AA8CE1F00238B39 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456662AA8CE1F00238B39 /* SignUpView.swift */; };
+		359456692AA8CE2C00238B39 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456682AA8CE2C00238B39 /* SignUpPresenter.swift */; };
+		3594566B2AA8CE3800238B39 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594566A2AA8CE3800238B39 /* SignInPresenter.swift */; };
+		3594566E2AA8E4DC00238B39 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 3594566D2AA8E4DC00238B39 /* RswiftLibrary */; };
+		359456732AA9EFA400238B39 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 359456722AA9EFA400238B39 /* Lottie */; };
+		359456762AA9F01400238B39 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 359456752AA9F01400238B39 /* PartialSheet */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +36,10 @@
 		3594565A2AA8B9FC00238B39 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		3594565C2AA8BAB100238B39 /* AuthenticationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationPresenter.swift; sourceTree = "<group>"; };
 		3594565E2AA8C06500238B39 /* AuthenticationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRouter.swift; sourceTree = "<group>"; };
+		359456642AA8CE1500238B39 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		359456662AA8CE1F00238B39 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		359456682AA8CE2C00238B39 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		3594566A2AA8CE3800238B39 /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +49,9 @@
 			files = (
 				359456532AA8B90500238B39 /* FirebaseAnalytics in Frameworks */,
 				359456552AA8B90500238B39 /* FirebaseAuth in Frameworks */,
+				3594566E2AA8E4DC00238B39 /* RswiftLibrary in Frameworks */,
+				359456732AA9EFA400238B39 /* Lottie in Frameworks */,
+				359456762AA9F01400238B39 /* PartialSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +80,7 @@
 				359456432AA8B8D000238B39 /* AuthenticationDemoApp.swift */,
 				359456582AA8B99600238B39 /* UI */,
 				359456592AA8B99D00238B39 /* Entity */,
+				359456782AAB354100238B39 /* Error */,
 				359456472AA8B8D200238B39 /* Assets.xcassets */,
 				359456562AA8B97100238B39 /* GoogleService-Info.plist */,
 				359456492AA8B8D200238B39 /* Preview Content */,
@@ -84,6 +99,8 @@
 		359456582AA8B99600238B39 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				359456632AA8CDF300238B39 /* SignUp */,
+				359456622AA8CDDB00238B39 /* SignIn */,
 				359456452AA8B8D000238B39 /* AuthenticationView.swift */,
 				3594565C2AA8BAB100238B39 /* AuthenticationPresenter.swift */,
 				3594565E2AA8C06500238B39 /* AuthenticationRouter.swift */,
@@ -97,6 +114,31 @@
 				3594565A2AA8B9FC00238B39 /* UserInfo.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		359456622AA8CDDB00238B39 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				359456642AA8CE1500238B39 /* SignInView.swift */,
+				3594566A2AA8CE3800238B39 /* SignInPresenter.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		359456632AA8CDF300238B39 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				359456662AA8CE1F00238B39 /* SignUpView.swift */,
+				359456682AA8CE2C00238B39 /* SignUpPresenter.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		359456782AAB354100238B39 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -113,11 +155,15 @@
 			buildRules = (
 			);
 			dependencies = (
+				359456702AA8E52C00238B39 /* PBXTargetDependency */,
 			);
 			name = AuthenticationDemo;
 			packageProductDependencies = (
 				359456522AA8B90500238B39 /* FirebaseAnalytics */,
 				359456542AA8B90500238B39 /* FirebaseAuth */,
+				3594566D2AA8E4DC00238B39 /* RswiftLibrary */,
+				359456722AA9EFA400238B39 /* Lottie */,
+				359456752AA9F01400238B39 /* PartialSheet */,
 			);
 			productName = AuthenticationDemo;
 			productReference = 359456402AA8B8D000238B39 /* AuthenticationDemo.app */;
@@ -149,6 +195,9 @@
 			mainGroup = 359456372AA8B8D000238B39;
 			packageReferences = (
 				359456512AA8B90500238B39 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				3594566C2AA8E4DC00238B39 /* XCRemoteSwiftPackageReference "R" */,
+				359456712AA9EFA400238B39 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				359456742AA9F01400238B39 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 			);
 			productRefGroup = 359456412AA8B8D000238B39 /* Products */;
 			projectDirPath = "";
@@ -177,15 +226,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				359456652AA8CE1500238B39 /* SignInView.swift in Sources */,
 				3594565D2AA8BAB100238B39 /* AuthenticationPresenter.swift in Sources */,
 				359456462AA8B8D000238B39 /* AuthenticationView.swift in Sources */,
+				3594566B2AA8CE3800238B39 /* SignInPresenter.swift in Sources */,
+				359456672AA8CE1F00238B39 /* SignUpView.swift in Sources */,
 				3594565F2AA8C06500238B39 /* AuthenticationRouter.swift in Sources */,
 				3594565B2AA8B9FC00238B39 /* UserInfo.swift in Sources */,
+				359456692AA8CE2C00238B39 /* SignUpPresenter.swift in Sources */,
 				359456442AA8B8D000238B39 /* AuthenticationDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		359456702AA8E52C00238B39 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 3594566F2AA8E52C00238B39 /* RswiftGenerateInternalResources */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3594564C2AA8B8D200238B39 /* Debug */ = {
@@ -392,6 +452,30 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		3594566C2AA8E4DC00238B39 /* XCRemoteSwiftPackageReference "R" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		359456712AA9EFA400238B39 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		359456742AA9F01400238B39 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -404,6 +488,25 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 359456512AA8B90500238B39 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		3594566D2AA8E4DC00238B39 /* RswiftLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3594566C2AA8E4DC00238B39 /* XCRemoteSwiftPackageReference "R" */;
+			productName = RswiftLibrary;
+		};
+		3594566F2AA8E52C00238B39 /* RswiftGenerateInternalResources */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "plugin:RswiftGenerateInternalResources";
+		};
+		359456722AA9EFA400238B39 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 359456712AA9EFA400238B39 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		359456752AA9F01400238B39 /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 359456742AA9F01400238B39 /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
