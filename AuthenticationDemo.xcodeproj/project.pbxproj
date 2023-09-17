@@ -98,9 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				359456432AA8B8D000238B39 /* AuthenticationDemoApp.swift */,
-				359456982AB727F300238B39 /* Localizable.strings */,
 				359456582AA8B99600238B39 /* UI */,
 				359456592AA8B99D00238B39 /* Entity */,
+				359456982AB727F300238B39 /* Localizable.strings */,
 				359456472AA8B8D200238B39 /* Assets.xcassets */,
 				359456562AA8B97100238B39 /* GoogleService-Info.plist */,
 				359456492AA8B8D200238B39 /* Preview Content */,
