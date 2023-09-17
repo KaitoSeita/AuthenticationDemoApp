@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  AuthenticationDemo
+
+  Created by セイタカイト on 2023/09/17.
+  
+*/
+
+"appTitle" = "Authentication\nDemo App";
+"signInButton" = "Sign In";
+"signUpButton" = "Create a new account";

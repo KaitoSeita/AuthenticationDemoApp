@@ -14,7 +14,7 @@ struct AuthenticationDemoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            AuthenticationView()
+            AuthenticationTopView()
         }
     }
 }
