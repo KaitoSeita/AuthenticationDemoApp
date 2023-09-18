@@ -1,5 +1,5 @@
 //
-//  SignUpPresenter.swift
+//  SignInPresenter.swift
 //  AuthenticationDemo
 //
 //  Created by kaito-seita on 2023/09/07.
@@ -8,34 +8,46 @@
 import Foundation
 import FirebaseAuth
 
-final class SignUpPresenter: ObservableObject {
+final class SignInWithEmailPasswordPresenter: ObservableObject {
     @Published var userInfo: UserInfo
     @Published var errorMessage: String
     
-    init() {
+    private let interactor: SignInWithEmailPasswordInteractor
+    
+    init(interactor: SignInWithEmailPasswordInteractor) {
         userInfo = UserInfo(id: "", displayName: "", email: "")
         errorMessage = ""
+        self.interactor = interactor
     }
     
-    func onTap(email: String, password: String) {
+    func onTapSignInWithEmailPasswordButton(email: String, password: String) {
         Task {
-            await signUpWithEmailAndPassword(email: email, password: password)
+            await signInWithEmailPassword(email: email, password: password)
         }
     }
     
-    private func signUpWithEmailAndPassword(email: String, password: String) async {
-        do {
-            let result = try await Auth.auth().createUser(withEmail: email, password: password)
-            userInfo = UserInfo(id: result.user.uid,
-                                displayName: result.user.displayName ?? "",
-                                email: result.user.email ?? ""
-            )
-        } catch {
+    func onTapResetPasswordButton(email: String) {
+        Task {
+            await resetPassWord(email: email)
+        }
+    }
+    
+    // FIXME: interactorから受け取ったresultをクロージャ形式で記述したい、、、
+    private func signInWithEmailPassword(email: String, password: String) async {
+        let result = interactor.fetchUserInfo(email: email, password: password)
+        
+        switch result {
+        case .success(let userInfo):
+            self.userInfo = userInfo
+        case .failure(let error):
             setErrorMessage(error: error)
         }
     }
     
-    // MARK: asyncである必要はない
+    private func resetPassWord(email: String) async {
+        interactor.resetPassword(email: email)
+    }
+    
     private func setErrorMessage(error: Error?) {
         if let error = error as NSError? {
             if let errorCode = AuthErrorCode.Code(rawValue: error.code) {

@@ -15,10 +15,10 @@
 		359456552AA8B90500238B39 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 359456542AA8B90500238B39 /* FirebaseAuth */; };
 		359456572AA8B97100238B39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 359456562AA8B97100238B39 /* GoogleService-Info.plist */; };
 		3594565B2AA8B9FC00238B39 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594565A2AA8B9FC00238B39 /* UserInfo.swift */; };
-		3594565F2AA8C06500238B39 /* AuthenticationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594565E2AA8C06500238B39 /* AuthenticationRouter.swift */; };
+		3594565F2AA8C06500238B39 /* AuthenticationTopRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594565E2AA8C06500238B39 /* AuthenticationTopRouter.swift */; };
 		359456652AA8CE1500238B39 /* SignInWithEmailPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456642AA8CE1500238B39 /* SignInWithEmailPasswordView.swift */; };
 		359456692AA8CE2C00238B39 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456682AA8CE2C00238B39 /* SignUpPresenter.swift */; };
-		3594566B2AA8CE3800238B39 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594566A2AA8CE3800238B39 /* SignInPresenter.swift */; };
+		3594566B2AA8CE3800238B39 /* SignInWithEmailPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594566A2AA8CE3800238B39 /* SignInWithEmailPasswordPresenter.swift */; };
 		3594566E2AA8E4DC00238B39 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 3594566D2AA8E4DC00238B39 /* RswiftLibrary */; };
 		359456732AA9EFA400238B39 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 359456722AA9EFA400238B39 /* Lottie */; };
 		359456762AA9F01400238B39 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 359456752AA9F01400238B39 /* PartialSheet */; };
@@ -31,9 +31,11 @@
 		3594568E2AB721AA00238B39 /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594568D2AB721AA00238B39 /* SignInWithAppleView.swift */; };
 		359456902AB721B900238B39 /* SignInWithGoogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594568F2AB721B900238B39 /* SignInWithGoogleView.swift */; };
 		359456922AB7223900238B39 /* SignInTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456912AB7223900238B39 /* SignInTopView.swift */; };
-		359456942AB7225000238B39 /* SignInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456932AB7225000238B39 /* SignInRouter.swift */; };
+		359456942AB7225000238B39 /* SignInTopRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456932AB7225000238B39 /* SignInTopRouter.swift */; };
 		359456962AB7227400238B39 /* SignUpTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456952AB7227400238B39 /* SignUpTopView.swift */; };
 		359456992AB727F300238B39 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 359456982AB727F300238B39 /* Localizable.strings */; };
+		3594569E2AB7F93600238B39 /* SignInWithEmailPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594569D2AB7F93600238B39 /* SignInWithEmailPasswordInteractor.swift */; };
+		359456A02AB7F94900238B39 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594569F2AB7F94900238B39 /* SignUpInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,10 +46,10 @@
 		3594564A2AA8B8D200238B39 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		359456562AA8B97100238B39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3594565A2AA8B9FC00238B39 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		3594565E2AA8C06500238B39 /* AuthenticationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRouter.swift; sourceTree = "<group>"; };
+		3594565E2AA8C06500238B39 /* AuthenticationTopRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTopRouter.swift; sourceTree = "<group>"; };
 		359456642AA8CE1500238B39 /* SignInWithEmailPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailPasswordView.swift; sourceTree = "<group>"; };
 		359456682AA8CE2C00238B39 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
-		3594566A2AA8CE3800238B39 /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
+		3594566A2AA8CE3800238B39 /* SignInWithEmailPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailPasswordPresenter.swift; sourceTree = "<group>"; };
 		359456812AB7205000238B39 /* SignUpUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserProfileView.swift; sourceTree = "<group>"; };
 		359456832AB7207D00238B39 /* SignUpEmailPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailPasswordView.swift; sourceTree = "<group>"; };
 		359456852AB720CC00238B39 /* SignUpUploadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUploadImageView.swift; sourceTree = "<group>"; };
@@ -57,9 +59,11 @@
 		3594568D2AB721AA00238B39 /* SignInWithAppleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleView.swift; sourceTree = "<group>"; };
 		3594568F2AB721B900238B39 /* SignInWithGoogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithGoogleView.swift; sourceTree = "<group>"; };
 		359456912AB7223900238B39 /* SignInTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTopView.swift; sourceTree = "<group>"; };
-		359456932AB7225000238B39 /* SignInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRouter.swift; sourceTree = "<group>"; };
+		359456932AB7225000238B39 /* SignInTopRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTopRouter.swift; sourceTree = "<group>"; };
 		359456952AB7227400238B39 /* SignUpTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTopView.swift; sourceTree = "<group>"; };
 		359456982AB727F300238B39 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		3594569D2AB7F93600238B39 /* SignInWithEmailPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailPasswordInteractor.swift; sourceTree = "<group>"; };
+		3594569F2AB7F94900238B39 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +126,7 @@
 				359456632AA8CDF300238B39 /* SignUp */,
 				359456622AA8CDDB00238B39 /* SignIn */,
 				359456452AA8B8D000238B39 /* AuthenticationTopView.swift */,
-				3594565E2AA8C06500238B39 /* AuthenticationRouter.swift */,
+				3594565E2AA8C06500238B39 /* AuthenticationTopRouter.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -139,11 +143,10 @@
 			isa = PBXGroup;
 			children = (
 				359456912AB7223900238B39 /* SignInTopView.swift */,
-				359456642AA8CE1500238B39 /* SignInWithEmailPasswordView.swift */,
-				3594568D2AB721AA00238B39 /* SignInWithAppleView.swift */,
-				3594568F2AB721B900238B39 /* SignInWithGoogleView.swift */,
-				3594566A2AA8CE3800238B39 /* SignInPresenter.swift */,
-				359456932AB7225000238B39 /* SignInRouter.swift */,
+				359456932AB7225000238B39 /* SignInTopRouter.swift */,
+				359456A42AB80A6500238B39 /* SignInWithEmailPassword */,
+				359456A12AB809BE00238B39 /* SignInWithApple */,
+				359456A22AB809C900238B39 /* SignInWithGoogle */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -152,23 +155,50 @@
 			isa = PBXGroup;
 			children = (
 				359456952AB7227400238B39 /* SignUpTopView.swift */,
-				359456972AB7228900238B39 /* SignUpWithEmailPasswordView */,
+				359456972AB7228900238B39 /* SignUpWithEmailPassword */,
 				359456872AB7211B00238B39 /* SignUpWithAppleView.swift */,
 				359456892AB7214B00238B39 /* SignUpWithGoogleView.swift */,
 				359456682AA8CE2C00238B39 /* SignUpPresenter.swift */,
+				3594569F2AB7F94900238B39 /* SignUpInteractor.swift */,
 				3594568B2AB7218700238B39 /* SignUpRouter.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
 		};
-		359456972AB7228900238B39 /* SignUpWithEmailPasswordView */ = {
+		359456972AB7228900238B39 /* SignUpWithEmailPassword */ = {
 			isa = PBXGroup;
 			children = (
 				359456832AB7207D00238B39 /* SignUpEmailPasswordView.swift */,
 				359456812AB7205000238B39 /* SignUpUserProfileView.swift */,
 				359456852AB720CC00238B39 /* SignUpUploadImageView.swift */,
 			);
-			path = SignUpWithEmailPasswordView;
+			path = SignUpWithEmailPassword;
+			sourceTree = "<group>";
+		};
+		359456A12AB809BE00238B39 /* SignInWithApple */ = {
+			isa = PBXGroup;
+			children = (
+				3594568D2AB721AA00238B39 /* SignInWithAppleView.swift */,
+			);
+			path = SignInWithApple;
+			sourceTree = "<group>";
+		};
+		359456A22AB809C900238B39 /* SignInWithGoogle */ = {
+			isa = PBXGroup;
+			children = (
+				3594568F2AB721B900238B39 /* SignInWithGoogleView.swift */,
+			);
+			path = SignInWithGoogle;
+			sourceTree = "<group>";
+		};
+		359456A42AB80A6500238B39 /* SignInWithEmailPassword */ = {
+			isa = PBXGroup;
+			children = (
+				359456642AA8CE1500238B39 /* SignInWithEmailPasswordView.swift */,
+				3594566A2AA8CE3800238B39 /* SignInWithEmailPasswordPresenter.swift */,
+				3594569D2AB7F93600238B39 /* SignInWithEmailPasswordInteractor.swift */,
+			);
+			name = SignInWithEmailPassword;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				359456942AB7225000238B39 /* SignInRouter.swift in Sources */,
+				359456942AB7225000238B39 /* SignInTopRouter.swift in Sources */,
 				359456922AB7223900238B39 /* SignInTopView.swift in Sources */,
 				359456962AB7227400238B39 /* SignUpTopView.swift in Sources */,
 				359456862AB720CC00238B39 /* SignUpUploadImageView.swift in Sources */,
@@ -266,14 +296,16 @@
 				3594568C2AB7218700238B39 /* SignUpRouter.swift in Sources */,
 				359456652AA8CE1500238B39 /* SignInWithEmailPasswordView.swift in Sources */,
 				359456462AA8B8D000238B39 /* AuthenticationTopView.swift in Sources */,
-				3594566B2AA8CE3800238B39 /* SignInPresenter.swift in Sources */,
-				3594565F2AA8C06500238B39 /* AuthenticationRouter.swift in Sources */,
+				3594566B2AA8CE3800238B39 /* SignInWithEmailPasswordPresenter.swift in Sources */,
+				3594565F2AA8C06500238B39 /* AuthenticationTopRouter.swift in Sources */,
 				359456882AB7211B00238B39 /* SignUpWithAppleView.swift in Sources */,
 				359456842AB7207D00238B39 /* SignUpEmailPasswordView.swift in Sources */,
 				359456822AB7205000238B39 /* SignUpUserProfileView.swift in Sources */,
 				3594568E2AB721AA00238B39 /* SignInWithAppleView.swift in Sources */,
 				3594565B2AA8B9FC00238B39 /* UserInfo.swift in Sources */,
 				359456692AA8CE2C00238B39 /* SignUpPresenter.swift in Sources */,
+				3594569E2AB7F93600238B39 /* SignInWithEmailPasswordInteractor.swift in Sources */,
+				359456A02AB7F94900238B39 /* SignUpInteractor.swift in Sources */,
 				359456442AA8B8D000238B39 /* AuthenticationDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

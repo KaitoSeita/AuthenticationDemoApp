@@ -18,3 +18,5 @@ struct SignInTopView_Previews: PreviewProvider {
         SignInTopView()
     }
 }
+
+// SignInTopPresenterは必要か Routerは必要だが通信処理などは一切ないので不要では
