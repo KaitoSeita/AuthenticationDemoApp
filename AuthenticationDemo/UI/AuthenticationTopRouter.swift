@@ -6,13 +6,20 @@
 //
 
 import Foundation
+import SwiftUI
 
-// PresenterがRouterへ画面遷移を依頼する
+// FIXME: selectionに対してsignInとsignUpが各2回ずつ格納される
 struct AuthenticationTopRouter {
     
+    func setDestination(selection: AuthenticationTopSelection) -> AnyView? {
+        
+        switch selection {
+        case .signIn:
+            return AnyView(SignInTopView())
+        case .signUp:
+            return AnyView(SignUpTopView())
+        case .home:
+            return nil
+        }
+    }
 }
-
-// NavigationLinkを使ってViewを返すメソッドを定義
-// AuthenticationTopViewからはSignInTopViewとSignUpTopViewへの遷移のみ存在
-// SceneState?みたいなのをEnvironmentでSignInTopViewとSignUpTopViewで管理しておく必要がある
-// Switch文で分岐させるだけ(returnでviewの返却？)
