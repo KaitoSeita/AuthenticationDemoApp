@@ -12,3 +12,10 @@ enum AuthenticationTopSelection {
     case signIn
     case signUp
 }
+
+enum SignInTopSelection {
+    case home
+    case email
+    case google
+    case apple
+}

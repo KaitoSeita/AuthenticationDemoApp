@@ -1,5 +1,5 @@
 //
-//  SignInInteractor.swift
+//  SignInInWithEmailteractor.swift
 //  AuthenticationDemo
 //
 //  Created by kaito-seita on 2023/09/18.
@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseAuth
 
-protocol SignInWithEmailPasswordInteractor {
+protocol SignInWithEmailInteractor {
     func fetchUserInfo(email: String, password: String) -> Result<UserInfo, Error>
     func resetPassword(email: String)
 }
