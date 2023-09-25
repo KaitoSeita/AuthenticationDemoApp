@@ -20,7 +20,7 @@ final class SignInWithEmailPresenter: ObservableObject {
         self.interactor = interactor
     }
     
-    func onTapSignInWithEmailPasswordButton(email: String, password: String) {
+    func onTapSignInButton(email: String, password: String) {
         Task {
             await signInWithEmailPassword(email: email, password: password)
         }
@@ -34,7 +34,7 @@ final class SignInWithEmailPresenter: ObservableObject {
     
     // FIXME: interactorから受け取ったresultをクロージャ形式で記述したい、、、
     private func signInWithEmailPassword(email: String, password: String) async {
-        let result = interactor.fetchUserInfo(email: email, password: password)
+        let result = await interactor.fetchUserInfo(email: email, password: password)
         
         switch result {
         case .success(let userInfo):
@@ -45,7 +45,7 @@ final class SignInWithEmailPresenter: ObservableObject {
     }
     
     private func resetPassWord(email: String) async {
-        interactor.resetPassword(email: email)
+//        interactor.resetPassword(email: email)
     }
     
     private func setErrorMessage(error: Error?) {

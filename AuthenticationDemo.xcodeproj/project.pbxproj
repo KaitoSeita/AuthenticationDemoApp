@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		358672872ABA8BD900F10606 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358672862ABA8BD900F10606 /* Selection.swift */; };
+		358672902ABBE66900F10606 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586728F2ABBE66900F10606 /* Coordinator.swift */; };
+		358672932ABBE79700F10606 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358672922ABBE79700F10606 /* Presenter.swift */; };
+		358672952ABBE7DE00F10606 /* SignInUpWithAppleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358672942ABBE7DE00F10606 /* SignInUpWithAppleButtonView.swift */; };
+		3586729A2AC1192E00F10606 /* SignInWithEmailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358672992AC1192E00F10606 /* SignInWithEmailButton.swift */; };
+		3586729C2AC1193A00F10606 /* SignInWithGoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586729B2AC1193A00F10606 /* SignInWithGoogleButton.swift */; };
+		3586729E2AC1194700F10606 /* SignInWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586729D2AC1194700F10606 /* SignInWithAppleButton.swift */; };
+		358672A02AC11BE900F10606 /* SignInTopPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586729F2AC11BE900F10606 /* SignInTopPresenter.swift */; };
+		358672A42AC11FA100F10606 /* AuthenticationTopPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358672A32AC11FA100F10606 /* AuthenticationTopPresenter.swift */; };
 		359456442AA8B8D000238B39 /* AuthenticationDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456432AA8B8D000238B39 /* AuthenticationDemoApp.swift */; };
 		359456462AA8B8D000238B39 /* AuthenticationTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456452AA8B8D000238B39 /* AuthenticationTopView.swift */; };
 		359456482AA8B8D200238B39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 359456472AA8B8D200238B39 /* Assets.xcassets */; };
@@ -39,6 +47,14 @@
 
 /* Begin PBXFileReference section */
 		358672862ABA8BD900F10606 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
+		3586728F2ABBE66900F10606 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		358672922ABBE79700F10606 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		358672942ABBE7DE00F10606 /* SignInUpWithAppleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpWithAppleButtonView.swift; sourceTree = "<group>"; };
+		358672992AC1192E00F10606 /* SignInWithEmailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailButton.swift; sourceTree = "<group>"; };
+		3586729B2AC1193A00F10606 /* SignInWithGoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithGoogleButton.swift; sourceTree = "<group>"; };
+		3586729D2AC1194700F10606 /* SignInWithAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButton.swift; sourceTree = "<group>"; };
+		3586729F2AC11BE900F10606 /* SignInTopPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTopPresenter.swift; sourceTree = "<group>"; };
+		358672A32AC11FA100F10606 /* AuthenticationTopPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTopPresenter.swift; sourceTree = "<group>"; };
 		359456402AA8B8D000238B39 /* AuthenticationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthenticationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		359456432AA8B8D000238B39 /* AuthenticationDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDemoApp.swift; sourceTree = "<group>"; };
 		359456452AA8B8D000238B39 /* AuthenticationTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTopView.swift; sourceTree = "<group>"; };
@@ -104,6 +120,26 @@
 			path = SignUpWithApple;
 			sourceTree = "<group>";
 		};
+		3586728D2ABBDF1E00F10606 /* SignInUpWithApple */ = {
+			isa = PBXGroup;
+			children = (
+				358672942ABBE7DE00F10606 /* SignInUpWithAppleButtonView.swift */,
+				358672922ABBE79700F10606 /* Presenter.swift */,
+				3586728F2ABBE66900F10606 /* Coordinator.swift */,
+			);
+			path = SignInUpWithApple;
+			sourceTree = "<group>";
+		};
+		358672982AC1190D00F10606 /* SignInButton */ = {
+			isa = PBXGroup;
+			children = (
+				358672992AC1192E00F10606 /* SignInWithEmailButton.swift */,
+				3586729B2AC1193A00F10606 /* SignInWithGoogleButton.swift */,
+				3586729D2AC1194700F10606 /* SignInWithAppleButton.swift */,
+			);
+			path = SignInButton;
+			sourceTree = "<group>";
+		};
 		359456372AA8B8D000238B39 = {
 			isa = PBXGroup;
 			children = (
@@ -147,7 +183,9 @@
 			children = (
 				359456622AA8CDDB00238B39 /* SignIn */,
 				359456632AA8CDF300238B39 /* SignUp */,
+				3586728D2ABBDF1E00F10606 /* SignInUpWithApple */,
 				359456452AA8B8D000238B39 /* AuthenticationTopView.swift */,
+				358672A32AC11FA100F10606 /* AuthenticationTopPresenter.swift */,
 				3594565E2AA8C06500238B39 /* AuthenticationTopRouter.swift */,
 			);
 			path = UI;
@@ -166,7 +204,9 @@
 			isa = PBXGroup;
 			children = (
 				359456912AB7223900238B39 /* SignInTopView.swift */,
+				3586729F2AC11BE900F10606 /* SignInTopPresenter.swift */,
 				359456932AB7225000238B39 /* SignInTopRouter.swift */,
+				358672982AC1190D00F10606 /* SignInButton */,
 				359456A42AB80A6500238B39 /* SignInWithEmail */,
 				359456A12AB809BE00238B39 /* SignInWithApple */,
 				359456A22AB809C900238B39 /* SignInWithGoogle */,
@@ -308,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3586729E2AC1194700F10606 /* SignInWithAppleButton.swift in Sources */,
 				358672872ABA8BD900F10606 /* Selection.swift in Sources */,
 				359456942AB7225000238B39 /* SignInTopRouter.swift in Sources */,
 				359456922AB7223900238B39 /* SignInTopView.swift in Sources */,
@@ -319,11 +360,18 @@
 				359456652AA8CE1500238B39 /* SignInWithEmailView.swift in Sources */,
 				359456462AA8B8D000238B39 /* AuthenticationTopView.swift in Sources */,
 				3594566B2AA8CE3800238B39 /* SignInWithEmailPresenter.swift in Sources */,
+				358672A42AC11FA100F10606 /* AuthenticationTopPresenter.swift in Sources */,
 				3594565F2AA8C06500238B39 /* AuthenticationTopRouter.swift in Sources */,
+				358672902ABBE66900F10606 /* Coordinator.swift in Sources */,
 				359456882AB7211B00238B39 /* SignUpWithAppleView.swift in Sources */,
+				3586729A2AC1192E00F10606 /* SignInWithEmailButton.swift in Sources */,
 				359456842AB7207D00238B39 /* SignUpWithEmailView.swift in Sources */,
+				358672932ABBE79700F10606 /* Presenter.swift in Sources */,
+				358672A02AC11BE900F10606 /* SignInTopPresenter.swift in Sources */,
 				359456822AB7205000238B39 /* SignUpMakeUserInfoView.swift in Sources */,
 				3594568E2AB721AA00238B39 /* SignInWithAppleView.swift in Sources */,
+				358672952ABBE7DE00F10606 /* SignInUpWithAppleButtonView.swift in Sources */,
+				3586729C2AC1193A00F10606 /* SignInWithGoogleButton.swift in Sources */,
 				3594565B2AA8B9FC00238B39 /* UserInfo.swift in Sources */,
 				3594569E2AB7F93600238B39 /* SignInWithEmailInteractor.swift in Sources */,
 				359456442AA8B8D000238B39 /* AuthenticationDemoApp.swift in Sources */,

@@ -10,7 +10,11 @@ import RswiftResources
 
 // MARK: Default View
 struct AuthenticationTopView: View {
-    @State private var selection: AuthenticationTopSelection = .home
+    @StateObject private var presenter: AuthenticationTopPresenter
+    
+    init() {
+        _presenter = StateObject(wrappedValue: AuthenticationTopPresenter())
+    }
     
     var body: some View {
         NavigationStack {
@@ -19,8 +23,8 @@ struct AuthenticationTopView: View {
                     .font(.system(.largeTitle, design: .rounded))
                     .bold()
                 Spacer()
-                SignInButton()
-                SignUpButton()
+                SignInButton(presenter: presenter)
+                SignUpButton(presenter: presenter)
             }
             .padding(EdgeInsets(top: 120, leading: 0, bottom: 150, trailing: 0))
         }
@@ -28,10 +32,11 @@ struct AuthenticationTopView: View {
 }
 
 private struct SignInButton: View {
+    let presenter: AuthenticationTopPresenter
     
     var body: some View {
         NavigationLink {
-            AuthenticationTopRouter().setDestination(selection: .signIn)
+            presenter.onTapSignInButton()
         } label: {
             RoundedRectangle(cornerRadius: 20)
                 .frame(width: 330, height: 60)
@@ -49,10 +54,11 @@ private struct SignInButton: View {
 }
 
 private struct SignUpButton: View {
+    let presenter: AuthenticationTopPresenter
 
     var body: some View {
         NavigationLink {
-            AuthenticationTopRouter().setDestination(selection: .signUp)
+            presenter.onTapSignUpButton()
         } label: {
             RoundedRectangle(cornerRadius: 20)
                 .frame(width: 330, height: 60)

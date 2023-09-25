@@ -8,20 +8,23 @@
 import Foundation
 import FirebaseAuth
 
-protocol SignInWithEmailInteractor {
+protocol SignInWithEmailInteractorInterface {
     func fetchUserInfo(email: String, password: String) -> Result<UserInfo, Error>
     func resetPassword(email: String)
 }
 
-func fetchUserInfo(email: String, password: String) async -> Result<UserInfo, Error> {
-    do {
-        let result = try await Auth.auth().signIn(withEmail: email, password: password)
-        let userInfo = UserInfo(id: result.user.uid,
-                            displayName: result.user.displayName ?? "",
-                            email: result.user.email ?? ""
-        )
-        return .success(userInfo)
-    } catch {
-        return .failure(error)
+final class SignInWithEmailInteractor {
+    
+    func fetchUserInfo(email: String, password: String) async -> Result<UserInfo, Error> {
+        do {
+            let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            let userInfo = UserInfo(id: result.user.uid,
+                                displayName: result.user.displayName ?? "",
+                                email: result.user.email ?? ""
+            )
+            return .success(userInfo)
+        } catch {
+            return .failure(error)
+        }
     }
 }

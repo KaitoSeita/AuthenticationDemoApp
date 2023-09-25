@@ -8,7 +8,10 @@
 import Foundation
 import SwiftUI
 
+// SignInTopPresenterから受けた画面遷移の依頼に従ってViewを返す
+
 struct SignInTopRouter {
+    private let interactor: SignInWithEmailInteractor = SignInWithEmailInteractor()
     
     func setDestination(selection: SignInTopSelection) -> AnyView? {
         
