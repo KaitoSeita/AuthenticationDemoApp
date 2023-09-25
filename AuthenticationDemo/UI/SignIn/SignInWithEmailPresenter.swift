@@ -5,6 +5,8 @@
 //  Created by kaito-seita on 2023/09/07.
 //
 
+// メインスレッド
+
 import Foundation
 import SwiftUI
 import FirebaseAuth
@@ -21,9 +23,16 @@ final class SignInWithEmailPresenter: ObservableObject {
         self.interactor = interactor
     }
     
+    // エラー内容をViewで表示させるためにメインスレッドで処理をさせる
     func onTapSignInButton(email: String, password: String) {
-        Task {
-            await signInWithEmailPassword(email: email, password: password)
+        Task { @MainActor in
+            let result = await signInWithEmailPassword(email: email, password: password)
+            switch result {
+            case .success(let userInfo):
+                self.userInfo = userInfo
+            case .failure(let error):
+                setErrorMessage(error: error)
+            }
         }
     }
     
@@ -34,15 +43,8 @@ final class SignInWithEmailPresenter: ObservableObject {
     }
     
     // FIXME: interactorから受け取ったresultをクロージャ形式で記述したい、、、
-    private func signInWithEmailPassword(email: String, password: String) async {
-        let result = await interactor.fetchUserInfo(email: email, password: password)
-        
-        switch result {
-        case .success(let userInfo):
-            self.userInfo = userInfo
-        case .failure(let error):
-            setErrorMessage(error: error)
-        }
+    private func signInWithEmailPassword(email: String, password: String) async -> Result<User, Error>{
+        return await interactor.fetchUserInfo(email: email, password: password)
     }
     
     // エラーに関してはviewの方でonChangeのエラーメッセージ監視

@@ -30,10 +30,14 @@ struct SignInWithEmailView: View {
         // FIXME: トースト的な感じで自動でフラグ変更などを備えたものを別で用意しちゃうというのが一番いい
         VStack(spacing: 15) {
             if !isShowingSuccessView {
+                Text(presenter.errorMessage)
                 SignInButton(presenter: presenter, email: email, password: password)
             } else {
                 EmptyView()
             }
+        }
+        .onChange(of: presenter.userInfo) { newValue in
+            isShowingSuccessView = true
         }
     }
 }
