@@ -2,10 +2,12 @@
 //  SignInWithGoogleButton.swift
 //  AuthenticationDemo
 //
-//  Created by セイタカイト on 2023/09/25.
+//  Created by kaito-seita on 2023/09/25.
 //
 
 import SwiftUI
+
+// FIXME: ボタンの配色など規約に対応したものに変更
 
 struct SignInWithGoogleButton: View {
     let presenter: SignInTopPresenter
@@ -20,7 +22,7 @@ struct SignInWithGoogleButton: View {
                 .shadow(color: .white.opacity(0.8), radius: 10, x: -7, y: -7)
                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 8, y: 8)
                 .overlay{
-                    Text(R.string.localizable.signInWithEmail)
+                    Text(R.string.localizable.signInWithGoogle)
                         .font(.system(size: 20, design: .rounded))
                         .foregroundColor(.black)
                         .bold()

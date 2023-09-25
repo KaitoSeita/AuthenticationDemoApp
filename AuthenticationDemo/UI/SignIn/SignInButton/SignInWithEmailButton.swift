@@ -20,7 +20,7 @@ struct SignInWithEmailButton: View {
                 .shadow(color: .white.opacity(0.8), radius: 10, x: -7, y: -7)
                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 8, y: 8)
                 .overlay{
-                    Text(R.string.localizable.signInWithGoogle)
+                    Text(R.string.localizable.signInWithEmail)
                         .font(.system(size: 20, design: .rounded))
                         .foregroundColor(.black)
                         .bold()

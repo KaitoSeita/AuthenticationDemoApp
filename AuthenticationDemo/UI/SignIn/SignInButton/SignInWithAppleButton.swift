@@ -2,10 +2,12 @@
 //  SignInWithAppleButton.swift
 //  AuthenticationDemo
 //
-//  Created by セイタカイト on 2023/09/25.
+//  Created by kaito-seita on 2023/09/25.
 //
 
 import SwiftUI
+
+// FIXME: ボタンの配色など規約に対応したものに変更
 
 struct SignInWithAppleButton: View {
     let presenter: SignInTopPresenter

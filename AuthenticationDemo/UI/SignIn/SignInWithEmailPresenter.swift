@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import SwiftUI
 import FirebaseAuth
 
 final class SignInWithEmailPresenter: ObservableObject {
-    @Published var userInfo: UserInfo
+    @Published var userInfo: User
     @Published var errorMessage: String
     
     private let interactor: SignInWithEmailInteractor
     
     init(interactor: SignInWithEmailInteractor) {
-        userInfo = UserInfo(id: "", displayName: "", email: "")
+        userInfo = User(id: "", displayName: "", email: "")
         errorMessage = ""
         self.interactor = interactor
     }
@@ -43,6 +44,9 @@ final class SignInWithEmailPresenter: ObservableObject {
             setErrorMessage(error: error)
         }
     }
+    
+    // エラーに関してはviewの方でonChangeのエラーメッセージ監視
+    // サインイン成功に関してもviewの方でFirebaseの方からCurrentUserで確認するか, userInfoのonChangeかといった感じ
     
     private func resetPassWord(email: String) async {
 //        interactor.resetPassword(email: email)
