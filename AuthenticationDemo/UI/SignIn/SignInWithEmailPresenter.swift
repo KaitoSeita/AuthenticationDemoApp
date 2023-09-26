@@ -26,7 +26,10 @@ final class SignInWithEmailPresenter: ObservableObject {
         isShowingErrorMessage = false
         self.interactor = interactor
     }
-    
+}
+
+// MARK: SignInWithEmailPresenterのメソッド
+extension SignInWithEmailPresenter {
     // エラー内容をViewで表示させるためにメインスレッドで処理をさせる
     func onTapSignInButton(email: String, password: String) {
         Task { @MainActor in

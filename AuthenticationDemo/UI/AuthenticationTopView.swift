@@ -39,10 +39,9 @@ private struct SignInButton: View {
             presenter.onTapSignInButton()
         } label: {
             RoundedRectangle(cornerRadius: 20)
-                .frame(width: 330, height: 60)
+                .grayShadow()
+                .frame(width: 330, height: 55)
                 .foregroundColor(.white)
-                .shadow(color: .white.opacity(0.8), radius: 10, x: -7, y: -7)
-                .shadow(color: .gray.opacity(0.3), radius: 10, x: 8, y: 8)
                 .overlay{
                     Text(R.string.localizable.signInButton)
                         .font(.system(size: 20, design: .rounded))
@@ -61,10 +60,9 @@ private struct SignUpButton: View {
             presenter.onTapSignUpButton()
         } label: {
             RoundedRectangle(cornerRadius: 20)
-                .frame(width: 330, height: 60)
-                .foregroundColor(.black.opacity(0.85))
-                .shadow(color: .white.opacity(0.8), radius: 10, x: -7, y: -7)
-                .shadow(color: .gray.opacity(0.3), radius: 10, x: 8, y: 8)
+                .grayShadow()
+                .frame(width: 330, height: 55)
+                .foregroundColor(.black)
                 .overlay{
                     Text(R.string.localizable.signUpButton)
                         .font(.system(size: 20, design: .rounded))

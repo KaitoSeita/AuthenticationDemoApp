@@ -1,18 +1,18 @@
 //
-//  SignInWithAppleButton.swift
+//  SignUpWithAppleButton.swift
 //  AuthenticationDemo
 //
-//  Created by kaito-seita on 2023/09/25.
+//  Created by kaito-seita on 2023/09/17.
 //
 
 import SwiftUI
 import AuthenticationServices
 
-struct SignInWithAppleButton: UIViewRepresentable {
+struct SignUpWithAppleButton: UIViewRepresentable {
     typealias UIViewType = ASAuthorizationAppleIDButton
 
     func makeUIView(context: Context) -> ASAuthorizationAppleIDButton {
-        return ASAuthorizationAppleIDButton(type: .signIn, style: .black)
+        return ASAuthorizationAppleIDButton(type: .signUp, style: .black)
     }
 
     func updateUIView(_ uiView: ASAuthorizationAppleIDButton, context: Context) {}

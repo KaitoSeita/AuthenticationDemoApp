@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignInTopView: View {
     @StateObject private var presenter: SignInTopPresenter
+    @State private var signInWithAppleObject: SignInWithAppleObject = SignInWithAppleObject()
     
     init() {
         _presenter = StateObject(wrappedValue: SignInTopPresenter())
@@ -22,10 +23,15 @@ struct SignInTopView: View {
                     .font(.system(.largeTitle, design: .rounded))
                     .bold()
                 Spacer()
-                // FIXME: ボタンのUIを規約に基づいたものに変更
-                SignInWithEmailButton(presenter: presenter)
-                SignInWithGoogleButton(presenter: presenter)
+                SignInWithEmailButton()
+                SignInWithGoogleButton()
                 SignInWithAppleButton()
+                    .grayShadow()
+                    .frame(width: 330, height: 55)
+                    .cornerRadius(20)
+                    .onTapGesture {
+                        signInWithAppleObject.signInWithApple()
+                    }
             }
             .padding(EdgeInsets(top: 120, leading: 0, bottom: 150, trailing: 0))
         }
