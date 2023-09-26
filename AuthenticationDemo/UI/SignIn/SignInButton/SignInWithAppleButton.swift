@@ -6,27 +6,25 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
 // FIXME: ボタンの配色など規約に対応したものに変更
+// 基本的には自分でViewを用意して画面遷移させるといった対応は不要
 
 struct SignInWithAppleButton: View {
-    let presenter: SignInTopPresenter
-    
     var body: some View {
-        NavigationLink {
-            presenter.onTapSignInWithAppleButton()
-        } label: {
-            RoundedRectangle(cornerRadius: 20)
-                .frame(width: 330, height: 60)
-                .foregroundColor(.white)
-                .shadow(color: .white.opacity(0.8), radius: 10, x: -7, y: -7)
-                .shadow(color: .gray.opacity(0.3), radius: 10, x: 8, y: 8)
-                .overlay{
-                    Text(R.string.localizable.signInWithApple)
-                        .font(.system(size: 20, design: .rounded))
-                        .foregroundColor(.black)
-                        .bold()
-                }
-        }
+        AppleIDButton()
+            .frame(width: 330, height: 50)
+            .cornerRadius(20)
     }
+}
+
+private struct AppleIDButton: UIViewRepresentable {
+    typealias UIViewType = ASAuthorizationAppleIDButton
+
+    func makeUIView(context: Context) -> ASAuthorizationAppleIDButton {
+        return ASAuthorizationAppleIDButton(type: .signIn, style: .black)
+    }
+
+    func updateUIView(_ uiView: ASAuthorizationAppleIDButton, context: Context) {}
 }

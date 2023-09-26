@@ -19,11 +19,9 @@ struct SignInTopRouter {
         case .email:
             return AnyView(SignInWithEmailView(interactor: interactor))
         case .google:
-            return AnyView(SignInWithGoogleView())
+            return AnyView(EmptyView())
         case .apple:
-            return AnyView(SignInWithAppleView())
-        case .home:
-            return nil
+            return AnyView(EmptyView())
         }
     }
 }

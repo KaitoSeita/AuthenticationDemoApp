@@ -14,12 +14,16 @@ import FirebaseAuth
 final class SignInWithEmailPresenter: ObservableObject {
     @Published var userInfo: User
     @Published var errorMessage: String
+    @Published var isShowingSuccessView: Bool
+    @Published var isShowingErrorMessage: Bool
     
     private let interactor: SignInWithEmailInteractor
     
     init(interactor: SignInWithEmailInteractor) {
         userInfo = User(id: "", displayName: "", email: "")
         errorMessage = ""
+        isShowingSuccessView = false
+        isShowingErrorMessage = false
         self.interactor = interactor
     }
     
@@ -30,8 +34,10 @@ final class SignInWithEmailPresenter: ObservableObject {
             switch result {
             case .success(let userInfo):
                 self.userInfo = userInfo
+                isShowingSuccessView = true
             case .failure(let error):
                 setErrorMessage(error: error)
+                isShowingErrorMessage = true
             }
         }
     }

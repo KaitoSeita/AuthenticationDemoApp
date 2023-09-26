@@ -38,8 +38,6 @@
 		359456882AB7211B00238B39 /* SignUpWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456872AB7211B00238B39 /* SignUpWithAppleView.swift */; };
 		3594568A2AB7214B00238B39 /* SignUpWithGoogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456892AB7214B00238B39 /* SignUpWithGoogleView.swift */; };
 		3594568C2AB7218700238B39 /* SignUpTopRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594568B2AB7218700238B39 /* SignUpTopRouter.swift */; };
-		3594568E2AB721AA00238B39 /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594568D2AB721AA00238B39 /* SignInWithAppleView.swift */; };
-		359456902AB721B900238B39 /* SignInWithGoogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594568F2AB721B900238B39 /* SignInWithGoogleView.swift */; };
 		359456922AB7223900238B39 /* SignInTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456912AB7223900238B39 /* SignInTopView.swift */; };
 		359456942AB7225000238B39 /* SignInTopRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456932AB7225000238B39 /* SignInTopRouter.swift */; };
 		359456962AB7227400238B39 /* SignUpTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456952AB7227400238B39 /* SignUpTopView.swift */; };
@@ -75,8 +73,6 @@
 		359456872AB7211B00238B39 /* SignUpWithAppleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithAppleView.swift; sourceTree = "<group>"; };
 		359456892AB7214B00238B39 /* SignUpWithGoogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithGoogleView.swift; sourceTree = "<group>"; };
 		3594568B2AB7218700238B39 /* SignUpTopRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTopRouter.swift; sourceTree = "<group>"; };
-		3594568D2AB721AA00238B39 /* SignInWithAppleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleView.swift; sourceTree = "<group>"; };
-		3594568F2AB721B900238B39 /* SignInWithGoogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithGoogleView.swift; sourceTree = "<group>"; };
 		359456912AB7223900238B39 /* SignInTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTopView.swift; sourceTree = "<group>"; };
 		359456932AB7225000238B39 /* SignInTopRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTopRouter.swift; sourceTree = "<group>"; };
 		359456952AB7227400238B39 /* SignUpTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTopView.swift; sourceTree = "<group>"; };
@@ -222,8 +218,6 @@
 				359456932AB7225000238B39 /* SignInTopRouter.swift */,
 				358672982AC1190D00F10606 /* SignInButton */,
 				359456A42AB80A6500238B39 /* SignInWithEmail */,
-				359456A12AB809BE00238B39 /* SignInWithApple */,
-				359456A22AB809C900238B39 /* SignInWithGoogle */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -248,22 +242,6 @@
 				359456852AB720CC00238B39 /* SignUpUploadImageView.swift */,
 			);
 			path = SignUpWithEmail;
-			sourceTree = "<group>";
-		};
-		359456A12AB809BE00238B39 /* SignInWithApple */ = {
-			isa = PBXGroup;
-			children = (
-				3594568D2AB721AA00238B39 /* SignInWithAppleView.swift */,
-			);
-			path = SignInWithApple;
-			sourceTree = "<group>";
-		};
-		359456A22AB809C900238B39 /* SignInWithGoogle */ = {
-			isa = PBXGroup;
-			children = (
-				3594568F2AB721B900238B39 /* SignInWithGoogleView.swift */,
-			);
-			path = SignInWithGoogle;
 			sourceTree = "<group>";
 		};
 		359456A42AB80A6500238B39 /* SignInWithEmail */ = {
@@ -367,7 +345,6 @@
 				359456922AB7223900238B39 /* SignInTopView.swift in Sources */,
 				359456962AB7227400238B39 /* SignUpTopView.swift in Sources */,
 				359456862AB720CC00238B39 /* SignUpUploadImageView.swift in Sources */,
-				359456902AB721B900238B39 /* SignInWithGoogleView.swift in Sources */,
 				3594568A2AB7214B00238B39 /* SignUpWithGoogleView.swift in Sources */,
 				3594568C2AB7218700238B39 /* SignUpTopRouter.swift in Sources */,
 				359456652AA8CE1500238B39 /* SignInWithEmailView.swift in Sources */,
@@ -383,7 +360,6 @@
 				358672932ABBE79700F10606 /* Presenter.swift in Sources */,
 				358672A02AC11BE900F10606 /* SignInTopPresenter.swift in Sources */,
 				359456822AB7205000238B39 /* SignUpMakeUserInfoView.swift in Sources */,
-				3594568E2AB721AA00238B39 /* SignInWithAppleView.swift in Sources */,
 				358672952ABBE7DE00F10606 /* SignInUpWithAppleButtonView.swift in Sources */,
 				3586729C2AC1193A00F10606 /* SignInWithGoogleButton.swift in Sources */,
 				3594565B2AA8B9FC00238B39 /* User.swift in Sources */,

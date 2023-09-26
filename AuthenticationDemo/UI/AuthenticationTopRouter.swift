@@ -18,8 +18,6 @@ struct AuthenticationTopRouter {
             return AnyView(SignInTopView())
         case .signUp:
             return AnyView(SignUpTopView())
-        case .home:
-            return nil
         }
     }
 }
