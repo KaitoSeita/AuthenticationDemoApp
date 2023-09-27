@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		358672902ABBE66900F10606 /* SignInUpWithAppleObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586728F2ABBE66900F10606 /* SignInUpWithAppleObject.swift */; };
+		358672902ABBE66900F10606 /* SignInUpWithApplePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586728F2ABBE66900F10606 /* SignInUpWithApplePresenter.swift */; };
 		3586729A2AC1192E00F10606 /* SignInWithEmailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358672992AC1192E00F10606 /* SignInWithEmailButton.swift */; };
 		3586729C2AC1193A00F10606 /* SignInWithGoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586729B2AC1193A00F10606 /* SignInWithGoogleButton.swift */; };
 		3586729E2AC1194700F10606 /* SignInWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586729D2AC1194700F10606 /* SignInWithAppleButton.swift */; };
-		358672A02AC11BE900F10606 /* SignInTopPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586729F2AC11BE900F10606 /* SignInTopPresenter.swift */; };
 		358672A42AC11FA100F10606 /* AuthenticationTopPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358672A32AC11FA100F10606 /* AuthenticationTopPresenter.swift */; };
 		358672A92AC139B700F10606 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358672A82AC139B700F10606 /* Selection.swift */; };
 		358672AD2AC1434700F10606 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358672AC2AC1434700F10606 /* Toast.swift */; };
@@ -36,22 +35,20 @@
 		359456882AB7211B00238B39 /* SignUpWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456872AB7211B00238B39 /* SignUpWithAppleButton.swift */; };
 		3594568C2AB7218700238B39 /* SignUpTopRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594568B2AB7218700238B39 /* SignUpTopRouter.swift */; };
 		359456922AB7223900238B39 /* SignInTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456912AB7223900238B39 /* SignInTopView.swift */; };
-		359456942AB7225000238B39 /* SignInTopRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456932AB7225000238B39 /* SignInTopRouter.swift */; };
 		359456962AB7227400238B39 /* SignUpTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456952AB7227400238B39 /* SignUpTopView.swift */; };
 		359456992AB727F300238B39 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 359456982AB727F300238B39 /* Localizable.strings */; };
 		3594569E2AB7F93600238B39 /* SignInWithEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594569D2AB7F93600238B39 /* SignInWithEmailInteractor.swift */; };
 		35F5E4062AC2999000756A8D /* SignUpTopPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F5E4052AC2999000756A8D /* SignUpTopPresenter.swift */; };
 		35F5E4082AC2B09D00756A8D /* SignUpWithEmailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F5E4072AC2B09D00756A8D /* SignUpWithEmailButton.swift */; };
 		35F5E4102AC2C70200756A8D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 35F5E40F2AC2C70200756A8D /* GoogleSignIn */; };
-		35F5E4142AC2C75100756A8D /* SignInUpWithGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F5E4132AC2C75100756A8D /* SignInUpWithGoogle.swift */; };
+		35F5E4142AC2C75100756A8D /* SignInUpWithGooglePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F5E4132AC2C75100756A8D /* SignInUpWithGooglePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3586728F2ABBE66900F10606 /* SignInUpWithAppleObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpWithAppleObject.swift; sourceTree = "<group>"; };
+		3586728F2ABBE66900F10606 /* SignInUpWithApplePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpWithApplePresenter.swift; sourceTree = "<group>"; };
 		358672992AC1192E00F10606 /* SignInWithEmailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailButton.swift; sourceTree = "<group>"; };
 		3586729B2AC1193A00F10606 /* SignInWithGoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithGoogleButton.swift; sourceTree = "<group>"; };
 		3586729D2AC1194700F10606 /* SignInWithAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButton.swift; sourceTree = "<group>"; };
-		3586729F2AC11BE900F10606 /* SignInTopPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTopPresenter.swift; sourceTree = "<group>"; };
 		358672A32AC11FA100F10606 /* AuthenticationTopPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTopPresenter.swift; sourceTree = "<group>"; };
 		358672A82AC139B700F10606 /* Selection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Selection.swift; path = ../../../../.Trash/Selection.swift; sourceTree = "<group>"; };
 		358672AC2AC1434700F10606 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -72,14 +69,20 @@
 		359456872AB7211B00238B39 /* SignUpWithAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithAppleButton.swift; sourceTree = "<group>"; };
 		3594568B2AB7218700238B39 /* SignUpTopRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTopRouter.swift; sourceTree = "<group>"; };
 		359456912AB7223900238B39 /* SignInTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTopView.swift; sourceTree = "<group>"; };
-		359456932AB7225000238B39 /* SignInTopRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTopRouter.swift; sourceTree = "<group>"; };
 		359456952AB7227400238B39 /* SignUpTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTopView.swift; sourceTree = "<group>"; };
 		359456982AB727F300238B39 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		3594569D2AB7F93600238B39 /* SignInWithEmailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailInteractor.swift; sourceTree = "<group>"; };
 		35F5E4052AC2999000756A8D /* SignUpTopPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTopPresenter.swift; sourceTree = "<group>"; };
 		35F5E4072AC2B09D00756A8D /* SignUpWithEmailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailButton.swift; sourceTree = "<group>"; };
 		35F5E40C2AC2BE0300756A8D /* AuthenticationDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AuthenticationDemo.entitlements; sourceTree = "<group>"; };
-		35F5E4132AC2C75100756A8D /* SignInUpWithGoogle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpWithGoogle.swift; sourceTree = "<group>"; };
+		35F5E4132AC2C75100756A8D /* SignInUpWithGooglePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpWithGooglePresenter.swift; sourceTree = "<group>"; };
+		35F5E4152AC2C83C00756A8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		35F5E4182AC2D06200756A8D /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "../../../../Roboto/Roboto-Light.ttf"; sourceTree = "<group>"; };
+		35F5E4192AC2D06200756A8D /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "../../../../Roboto/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		35F5E41A2AC2D06200756A8D /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Black.ttf"; path = "../../../../Roboto/Roboto-Black.ttf"; sourceTree = "<group>"; };
+		35F5E41B2AC2D06200756A8D /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Thin.ttf"; path = "../../../../Roboto/Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		35F5E41C2AC2D06200756A8D /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "../../../../Roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		35F5E41D2AC2D06200756A8D /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "../../../../Roboto/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,7 @@
 		358672892ABA8E8900F10606 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				35F5E4162AC2D04C00756A8D /* Fonts */,
 				359456982AB727F300238B39 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -119,7 +123,7 @@
 		3586728D2ABBDF1E00F10606 /* SignInUpWithApple */ = {
 			isa = PBXGroup;
 			children = (
-				3586728F2ABBE66900F10606 /* SignInUpWithAppleObject.swift */,
+				3586728F2ABBE66900F10606 /* SignInUpWithApplePresenter.swift */,
 			);
 			path = SignInUpWithApple;
 			sourceTree = "<group>";
@@ -162,6 +166,7 @@
 		359456422AA8B8D000238B39 /* AuthenticationDemo */ = {
 			isa = PBXGroup;
 			children = (
+				35F5E4152AC2C83C00756A8D /* Info.plist */,
 				35F5E40C2AC2BE0300756A8D /* AuthenticationDemo.entitlements */,
 				359456432AA8B8D000238B39 /* AuthenticationDemoApp.swift */,
 				358672892ABA8E8900F10606 /* Resources */,
@@ -210,8 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				359456912AB7223900238B39 /* SignInTopView.swift */,
-				3586729F2AC11BE900F10606 /* SignInTopPresenter.swift */,
-				359456932AB7225000238B39 /* SignInTopRouter.swift */,
 				358672982AC1190D00F10606 /* SignInButton */,
 				359456A42AB80A6500238B39 /* SignInWithEmail */,
 			);
@@ -253,9 +256,22 @@
 		35F5E4122AC2C73300756A8D /* SignInUpWithGoogle */ = {
 			isa = PBXGroup;
 			children = (
-				35F5E4132AC2C75100756A8D /* SignInUpWithGoogle.swift */,
+				35F5E4132AC2C75100756A8D /* SignInUpWithGooglePresenter.swift */,
 			);
 			path = SignInUpWithGoogle;
+			sourceTree = "<group>";
+		};
+		35F5E4162AC2D04C00756A8D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				35F5E41A2AC2D06200756A8D /* Roboto-Black.ttf */,
+				35F5E41D2AC2D06200756A8D /* Roboto-Bold.ttf */,
+				35F5E4182AC2D06200756A8D /* Roboto-Light.ttf */,
+				35F5E4192AC2D06200756A8D /* Roboto-Medium.ttf */,
+				35F5E41C2AC2D06200756A8D /* Roboto-Regular.ttf */,
+				35F5E41B2AC2D06200756A8D /* Roboto-Thin.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,7 +363,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3586729E2AC1194700F10606 /* SignInWithAppleButton.swift in Sources */,
-				359456942AB7225000238B39 /* SignInTopRouter.swift in Sources */,
 				359456922AB7223900238B39 /* SignInTopView.swift in Sources */,
 				359456962AB7227400238B39 /* SignUpTopView.swift in Sources */,
 				35F5E4082AC2B09D00756A8D /* SignUpWithEmailButton.swift in Sources */,
@@ -358,13 +373,12 @@
 				3594566B2AA8CE3800238B39 /* SignInWithEmailPresenter.swift in Sources */,
 				358672A42AC11FA100F10606 /* AuthenticationTopPresenter.swift in Sources */,
 				3594565F2AA8C06500238B39 /* AuthenticationTopRouter.swift in Sources */,
-				35F5E4142AC2C75100756A8D /* SignInUpWithGoogle.swift in Sources */,
+				35F5E4142AC2C75100756A8D /* SignInUpWithGooglePresenter.swift in Sources */,
 				358672AD2AC1434700F10606 /* Toast.swift in Sources */,
-				358672902ABBE66900F10606 /* SignInUpWithAppleObject.swift in Sources */,
+				358672902ABBE66900F10606 /* SignInUpWithApplePresenter.swift in Sources */,
 				359456882AB7211B00238B39 /* SignUpWithAppleButton.swift in Sources */,
 				3586729A2AC1192E00F10606 /* SignInWithEmailButton.swift in Sources */,
 				359456842AB7207D00238B39 /* SignUpWithEmailView.swift in Sources */,
-				358672A02AC11BE900F10606 /* SignInTopPresenter.swift in Sources */,
 				35F5E4062AC2999000756A8D /* SignUpTopPresenter.swift in Sources */,
 				359456822AB7205000238B39 /* SignUpMakeUserInfoView.swift in Sources */,
 				3586729C2AC1193A00F10606 /* SignInWithGoogleButton.swift in Sources */,
@@ -512,6 +526,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AuthenticationDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -542,6 +557,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AuthenticationDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

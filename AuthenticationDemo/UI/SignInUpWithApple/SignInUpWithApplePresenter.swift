@@ -1,5 +1,5 @@
 //
-//  Coordinator.swift
+//  SignInWithApplePresenter.swift
 //  AuthenticationDemo
 //
 //  Created by kaito-seita on 2023/09/21.
@@ -9,7 +9,7 @@ import AuthenticationServices
 import CryptoKit
 import FirebaseAuth
 
-final class SignInWithAppleObject: NSObject {
+final class SignInUpWithApplePresenter: NSObject {
     private var currentNonce: String?
 
     public func signInWithApple() {
@@ -68,7 +68,7 @@ final class SignInWithAppleObject: NSObject {
 
 }
 
-extension SignInWithAppleObject: ASAuthorizationControllerDelegate {
+extension SignInUpWithApplePresenter: ASAuthorizationControllerDelegate {
 
     public func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
 
@@ -92,7 +92,7 @@ extension SignInWithAppleObject: ASAuthorizationControllerDelegate {
             
             Auth.auth().signIn(with: credential) { result, error in
                 guard error == nil else {
-                    print(error!.localizedDescription)
+                    print("Firebase SignIn Error: \(error!.localizedDescription)")
                     return
                 }
             }

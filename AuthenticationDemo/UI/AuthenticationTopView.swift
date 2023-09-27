@@ -28,6 +28,7 @@ struct AuthenticationTopView: View {
             }
             .padding(EdgeInsets(top: 120, leading: 0, bottom: 150, trailing: 0))
         }
+        .accentColor(.black)
     }
 }
 

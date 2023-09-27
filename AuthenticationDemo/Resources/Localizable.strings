@@ -12,6 +12,8 @@
 "signInWithApple" = "Sign In With Apple";
 "signInButton" = "Sign In";
 "signUpButton" = "Create a new account";
+"signInTitle" = "Hello";
+"signUpTitle" = "Welcome";
 "invalidEmail" = "メールアドレスの形式が違います";
 "emailAlreadyInUse" = "このメールアドレスはすでに使われています";
 "weakPassword" = "パスワードが弱すぎます";

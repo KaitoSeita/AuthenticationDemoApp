@@ -7,23 +7,29 @@
 
 import SwiftUI
 
-// FIXME: ボタンの配色など規約に対応したものに変更
-
-struct SignInWithGoogleButton: View {    
+struct SignInWithGoogleButton: View {
+    @State private var signInWithGoogleObject: SignInUpWithGooglePresenter = SignInUpWithGooglePresenter()
+    
     var body: some View {
-        NavigationLink {
-
-        } label: {
-            RoundedRectangle(cornerRadius: 20)
-                .frame(width: 330, height: 55)
-                .foregroundColor(.white)
-                .grayShadow()
-                .overlay{
+        RoundedRectangle(cornerRadius: 20)
+            .frame(width: 330, height: 55)
+            .foregroundColor(.white)
+            .grayShadow()
+            .overlay{
+                HStack {
+                    Image(R.image.gLogo)
+                        .resizable()
+                        .frame(width: 18, height: 18)
+                    Spacer()
+                        .frame(width: 24)
                     Text(R.string.localizable.signInWithGoogle)
-                        .font(.system(size: 18, design: .rounded))
+                        .font(.custom("Robot-Black", size: 18))
                         .foregroundColor(.black)
                         .bold()
                 }
-        }
+            }
+            .onTapGesture {
+                signInWithGoogleObject.signInWIthGoogle()
+            }
     }
 }
