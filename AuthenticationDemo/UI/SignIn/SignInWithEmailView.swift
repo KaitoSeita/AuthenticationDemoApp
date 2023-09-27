@@ -8,7 +8,7 @@
 import SwiftUI
 import RswiftResources
 
-// TODO: 入力フォームのUI作成
+// FIXME: 入力完了前後でサインインボタンの色を切り替える
 
 struct SignInWithEmailView: View {
     @State private var isShowingErrorMessage = false
@@ -26,27 +26,104 @@ struct SignInWithEmailView: View {
     }
 
     var body: some View {
+        // FIXME: NavigationLinkで遷移させるが, 戻るボタンをなくすこと
         // FIXME: トースト的な感じで自動でフラグ変更などを備えたものを別で用意しちゃうというのが一番いい
         VStack(spacing: 15) {
             if !presenter.isShowingSuccessView {
-
-                SignInButton(presenter: presenter, email: email, password: password)
+                SignInForm(presenter: presenter,
+                           type: .email,
+                           email: $email,
+                           password: $password)
+                SignInForm(presenter: presenter,
+                           type: .password,
+                           email: $email,
+                           password: $password)
+                HeightSpacer(height: 30)
+                SignInButton(presenter: presenter,
+                             email: email,
+                             password: password)
             } else {
                 EmptyView()
             }
         }
+        .customBackwardButton()
     }
 }
 
 private struct SignInForm: View {
+    let presenter: SignInWithEmailPresenter
+    let type: InputFormType
+    
     @Binding var email: String
     @Binding var password: String
     
+    @State private var isShowingPassword = false
+    
     var body: some View {
-        VStack{
-            Form {
-                
-            }
+        CustomizedRoundedRectangle(color: Color.white, content: {
+            HStack{
+                switch type {
+                case .email:
+                    Image(systemName: String(resource: R.string.localizable.emailSymbol))
+                        .foregroundColor(.gray.opacity(0.5))
+                        .frame(width: 10, height: 10)
+                    
+                    WidthSpacer(width: 20)
+                    
+                    TextField(String(resource: R.string.localizable.emailTag), text: $email)
+                        .font(.system(.body, design: .rounded))
+                        .keyboardType(.alphabet)
+                        .autocapitalization(.none)
+                    
+                    Spacer()
+                    
+                    if presenter.isValidEmail(email: email){
+                        Image(systemName: String(resource: R.string.localizable.checkmarkSymbol))
+                            .foregroundColor(.green.opacity(0.5))
+                            .frame(width: 10, height: 10)
+                    }else{
+                        Image(systemName: String(resource: R.string.localizable.xmarkSymbol))
+                            .foregroundColor(.red.opacity(0.5))
+                            .frame(width: 10, height: 10)
+                    }
+                case .password:
+                    Image(systemName: String(resource: R.string.localizable.passwordSymbol))
+                        .foregroundColor(.gray.opacity(0.5))
+                        .frame(width: 10, height: 10)
+                    
+                    WidthSpacer(width: 20)
+                    
+                    PasswordForm(isShowingPassword: isShowingPassword, password: $password)
+                    
+                    Spacer()
+                    
+                    Image(systemName: isShowingPassword ? "eye.slash.fill" : "eye.fill")
+                        .resizable()
+                        .frame(width: 18, height: 12)
+                        .foregroundColor(.gray.opacity(0.5))
+                        .onTapGesture{
+                            isShowingPassword.toggle()
+                        }
+                }
+            }.padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 25))
+        })
+    }
+}
+
+private struct PasswordForm: View {
+    let isShowingPassword: Bool
+        
+    @Binding var password: String
+    
+    var body: some View {
+        if isShowingPassword {
+            TextField(String(resource: R.string.localizable.passwordTag), text: $password)
+                .font(.system(.body, design: .rounded))
+                .keyboardType(.alphabet)
+        } else {
+            SecureField(String(resource: R.string.localizable.passwordTag), text: $password)
+                .font(.system(.body, design: .rounded))
+                .keyboardType(.alphabet)
         }
     }
 }
@@ -60,17 +137,10 @@ private struct SignInButton: View {
         Button(action: {
             presenter.onTapSignInButton(email: email, password: password)
         }, label: {
-            RoundedRectangle(cornerRadius: 20)
-                .frame(width: 330, height: 60)
-                .foregroundColor(.white)
-                .shadow(color: .white.opacity(0.8), radius: 10, x: -7, y: -7)
-                .shadow(color: .gray.opacity(0.3), radius: 10, x: 8, y: 8)
-                .overlay{
-                    Text(R.string.localizable.signInButton)
-                        .font(.system(size: 20, design: .rounded))
-                        .foregroundColor(.black)
-                        .bold()
-                }
+            CustomizedRoundedRectangle(color: Color.black, content: {
+                Text(R.string.localizable.signInButton)
+                    .customizedFont(color: .white)
+            })
         })
     }
 }

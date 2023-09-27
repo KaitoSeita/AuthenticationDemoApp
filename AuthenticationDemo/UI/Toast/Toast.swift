@@ -15,5 +15,3 @@ struct Toast: View {
         
     }
 }
-
-// modifierとしてtoastも用意しておくといい

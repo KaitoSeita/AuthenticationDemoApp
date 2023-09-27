@@ -51,13 +51,15 @@ extension SignInWithEmailPresenter {
         }
     }
     
-    // FIXME: interactorから受け取ったresultをクロージャ形式で記述したい、、、
+    func isValidEmail(email: String) -> Bool {
+        let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailCheck = NSPredicate(format:"SELF MATCHES %@", pattern)
+        return emailCheck.evaluate(with: email)
+    }
+    
     private func signInWithEmailPassword(email: String, password: String) async -> Result<User, Error>{
         return await interactor.fetchUserInfo(email: email, password: password)
     }
-    
-    // エラーに関してはviewの方でonChangeのエラーメッセージ監視
-    // サインイン成功に関してもviewの方でFirebaseの方からCurrentUserで確認するか, userInfoのonChangeかといった感じ
     
     private func resetPassWord(email: String) async {
 //        interactor.resetPassword(email: email)

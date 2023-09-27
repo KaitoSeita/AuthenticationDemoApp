@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RswiftResources
 
 struct SignInWithEmailButton: View {
     private let interactor: SignInWithEmailInteractor = SignInWithEmailInteractor()
@@ -14,16 +15,17 @@ struct SignInWithEmailButton: View {
         NavigationLink {
             SignInWithEmailView(interactor: interactor)
         } label: {
-            RoundedRectangle(cornerRadius: 20)
-                .grayShadow()
-                .frame(width: 330, height: 55)
-                .foregroundColor(.white)
-                .overlay{
-                    Text(R.string.localizable.signInWithEmail)
-                        .font(.system(size: 18, design: .rounded))
+            CustomizedRoundedRectangle(color: Color.white, content: {
+                HStack {
+                    Image(systemName: "envelope")
+                        .resizable()
+                        .frame(width: 16, height: 12)
                         .foregroundColor(.black)
-                        .bold()
+                    WidthSpacer(width: 12)
+                    Text(R.string.localizable.signInWithEmail)
+                        .customizedFont(color: .black)
                 }
+            })
         }
     }
 }

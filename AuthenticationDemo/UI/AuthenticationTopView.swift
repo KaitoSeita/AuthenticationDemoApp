@@ -39,16 +39,10 @@ private struct SignInButton: View {
         NavigationLink {
             presenter.onTapSignInButton()
         } label: {
-            RoundedRectangle(cornerRadius: 20)
-                .grayShadow()
-                .frame(width: 330, height: 55)
-                .foregroundColor(.white)
-                .overlay{
-                    Text(R.string.localizable.signInButton)
-                        .font(.system(size: 20, design: .rounded))
-                        .foregroundColor(.black)
-                        .bold()
-                }
+            CustomizedRoundedRectangle(color: Color.white, content: {
+                Text(R.string.localizable.signInButton)
+                    .customizedFont(color: .black)
+            })
         }
     }
 }
@@ -60,16 +54,10 @@ private struct SignUpButton: View {
         NavigationLink {
             presenter.onTapSignUpButton()
         } label: {
-            RoundedRectangle(cornerRadius: 20)
-                .grayShadow()
-                .frame(width: 330, height: 55)
-                .foregroundColor(.black)
-                .overlay{
-                    Text(R.string.localizable.signUpButton)
-                        .font(.system(size: 20, design: .rounded))
-                        .foregroundColor(.white)
-                        .bold()
-                }
+            CustomizedRoundedRectangle(color: Color.black, content: {
+                Text(R.string.localizable.signUpButton)
+                    .customizedFont(color: .white)
+            })
         }
     }
 }

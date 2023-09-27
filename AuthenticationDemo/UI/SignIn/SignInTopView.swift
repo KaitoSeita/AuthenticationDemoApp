@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct SignInTopView: View {
+    
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 15){
-                Text(R.string.localizable.signInTitle)
-                    .font(.system(.largeTitle, design: .rounded))
-                    .bold()
-                Spacer()
-                SignInWithEmailButton()
-                SignInWithGoogleButton()
-                SignInWithAppleButton()
-            }
-            .padding(EdgeInsets(top: 120, leading: 0, bottom: 150, trailing: 0))
+        VStack(spacing: 15){
+            Text(R.string.localizable.signInTitle)
+                .font(.system(.largeTitle, design: .rounded))
+                .bold()
+            Spacer()
+            SignInWithEmailButton()
+            SignInWithGoogleButton()
+            SignInWithAppleButton()
         }
-        .accentColor(.black)
+        .padding(EdgeInsets(top: 120, leading: 0, bottom: 150, trailing: 0))
+        .customBackwardButton()
     }
 }
