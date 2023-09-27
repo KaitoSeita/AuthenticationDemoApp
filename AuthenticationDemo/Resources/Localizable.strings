@@ -27,3 +27,5 @@
 "xmarkSymbol" = "xmark.circle";
 "emailTag" = "email";
 "passwordTag" = "password";
+"eyeSymbol" = "eye.fill";
+"eyeSlashSymbol" = "eye.slash.fill";

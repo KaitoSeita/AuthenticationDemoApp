@@ -12,7 +12,6 @@ import SwiftUI
 import FirebaseAuth
 
 final class SignInWithEmailPresenter: ObservableObject {
-    @Published var userInfo: User
     @Published var errorMessage: String
     @Published var isShowingSuccessView: Bool
     @Published var isShowingErrorMessage: Bool
@@ -20,7 +19,6 @@ final class SignInWithEmailPresenter: ObservableObject {
     private let interactor: SignInWithEmailInteractor
     
     init(interactor: SignInWithEmailInteractor) {
-        userInfo = User(id: "", displayName: "", email: "")
         errorMessage = ""
         isShowingSuccessView = false
         isShowingErrorMessage = false
@@ -35,8 +33,7 @@ extension SignInWithEmailPresenter {
         Task { @MainActor in
             let result = await signInWithEmailPassword(email: email, password: password)
             switch result {
-            case .success(let userInfo):
-                self.userInfo = userInfo
+            case .success(_):
                 isShowingSuccessView = true
             case .failure(let error):
                 setErrorMessage(error: error)
@@ -51,12 +48,28 @@ extension SignInWithEmailPresenter {
         }
     }
     
-    func isValidEmail(email: String) -> Bool {
+    func onInputEmail(email: String) -> Bool {
+        return isValidEmail(email: email)
+    }
+    
+    func onInputEmailAndPassword(email: String, password: String) -> Bool {
+        return isValidEmailAndPassword(email: email, password: password)
+    }
+    
+    private func isValidEmailAndPassword(email: String, password: String) -> Bool {
+        if isValidEmail(email: email) && password.count >= 6 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    private func isValidEmail(email: String) -> Bool {
         let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailCheck = NSPredicate(format:"SELF MATCHES %@", pattern)
         return emailCheck.evaluate(with: email)
     }
-    
+        
     private func signInWithEmailPassword(email: String, password: String) async -> Result<User, Error>{
         return await interactor.fetchUserInfo(email: email, password: password)
     }

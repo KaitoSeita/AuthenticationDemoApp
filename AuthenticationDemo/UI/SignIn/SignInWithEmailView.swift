@@ -16,37 +16,37 @@ struct SignInWithEmailView: View {
     @State private var email = ""
     @State private var password = ""
     
-    @StateObject private var presenter: SignInWithEmailPresenter
+    @ObservedObject private var presenter: SignInWithEmailPresenter
     
     private let interactor: SignInWithEmailInteractor
     
     init(interactor: SignInWithEmailInteractor) {
         self.interactor = interactor
-        _presenter = StateObject(wrappedValue: SignInWithEmailPresenter(interactor: interactor))
+        _presenter = ObservedObject(wrappedValue: SignInWithEmailPresenter(interactor: interactor))
     }
 
     var body: some View {
-        // FIXME: NavigationLinkで遷移させるが, 戻るボタンをなくすこと
         // FIXME: トースト的な感じで自動でフラグ変更などを備えたものを別で用意しちゃうというのが一番いい
+        
         VStack(spacing: 15) {
-            if !presenter.isShowingSuccessView {
-                SignInForm(presenter: presenter,
-                           type: .email,
-                           email: $email,
-                           password: $password)
-                SignInForm(presenter: presenter,
-                           type: .password,
-                           email: $email,
-                           password: $password)
-                HeightSpacer(height: 30)
-                SignInButton(presenter: presenter,
-                             email: email,
-                             password: password)
-            } else {
-                EmptyView()
-            }
+            SignInForm(presenter: presenter,
+                       type: .email,
+                       email: $email,
+                       password: $password)
+            SignInForm(presenter: presenter,
+                       type: .password,
+                       email: $email,
+                       password: $password)
+            HeightSpacer(height: 30)
+            SignInButton(presenter: presenter,
+                         email: email,
+                         password: password)
         }
         .customBackwardButton()
+        .navigationDestination(isPresented: $presenter.isShowingSuccessView, destination: {
+            SuccessView()
+                .navigationBarBackButtonHidden(true)
+        })
     }
 }
 
@@ -77,7 +77,7 @@ private struct SignInForm: View {
                     
                     Spacer()
                     
-                    if presenter.isValidEmail(email: email){
+                    if presenter.onInputEmail(email: email){
                         Image(systemName: String(resource: R.string.localizable.checkmarkSymbol))
                             .foregroundColor(.green.opacity(0.5))
                             .frame(width: 10, height: 10)
@@ -97,7 +97,7 @@ private struct SignInForm: View {
                     
                     Spacer()
                     
-                    Image(systemName: isShowingPassword ? "eye.slash.fill" : "eye.fill")
+                    Image(systemName: isShowingPassword ? String(resource: R.string.localizable.eyeSlashSymbol) : String(resource: R.string.localizable.eyeSymbol))
                         .resizable()
                         .frame(width: 18, height: 12)
                         .foregroundColor(.gray.opacity(0.5))
@@ -132,16 +132,27 @@ private struct SignInButton: View {
     let presenter: SignInWithEmailPresenter
     let email: String
     let password: String
-    
+        
     var body: some View {
-        Button(action: {
-            presenter.onTapSignInButton(email: email, password: password)
-        }, label: {
-            CustomizedRoundedRectangle(color: Color.black, content: {
-                Text(R.string.localizable.signInButton)
-                    .customizedFont(color: .white)
+        VStack {
+            Button(action: {
+                presenter.onTapSignInButton(email: email, password: password)
+                // ローディングアニメーションのフラグ発火
+                
+            }, label: {
+                if presenter.onInputEmailAndPassword(email: email, password: password) {
+                    CustomizedRoundedRectangle(color: Color.black, content: {
+                        Text(R.string.localizable.signInButton)
+                            .customizedFont(color: .white)
+                    })
+                } else {
+                    CustomizedRoundedRectangle(color: Color.white, content: {
+                        Text(R.string.localizable.signInButton)
+                            .customizedFont(color: .black)
+                    })
+                }
             })
-        })
+        }
     }
 }
 
