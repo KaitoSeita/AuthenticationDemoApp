@@ -15,6 +15,7 @@ final class SignInWithEmailPresenter: ObservableObject {
     @Published var errorMessage: String
     @Published var isShowingSuccessView: Bool
     @Published var isShowingErrorMessage: Bool
+    @Published var isShowingLoadingToast: Bool
     
     private let interactor: SignInWithEmailInteractor
     
@@ -22,6 +23,7 @@ final class SignInWithEmailPresenter: ObservableObject {
         errorMessage = ""
         isShowingSuccessView = false
         isShowingErrorMessage = false
+        isShowingLoadingToast = false
         self.interactor = interactor
     }
 }
@@ -35,9 +37,11 @@ extension SignInWithEmailPresenter {
             switch result {
             case .success(_):
                 isShowingSuccessView = true
+                isShowingLoadingToast = false
             case .failure(let error):
                 setErrorMessage(error: error)
                 isShowingErrorMessage = true
+                isShowingLoadingToast = false
             }
         }
     }

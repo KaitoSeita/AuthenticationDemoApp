@@ -43,6 +43,9 @@
 		359456962AB7227400238B39 /* SignUpTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456952AB7227400238B39 /* SignUpTopView.swift */; };
 		359456992AB727F300238B39 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 359456982AB727F300238B39 /* Localizable.strings */; };
 		3594569E2AB7F93600238B39 /* SignInWithEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594569D2AB7F93600238B39 /* SignInWithEmailInteractor.swift */; };
+		35F221EE2AC5166B008DD5E9 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 35F221ED2AC5166B008DD5E9 /* AlertToast */; };
+		35F221F22AC54B77008DD5E9 /* SignUpWithGoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F221F12AC54B77008DD5E9 /* SignUpWithGoogleButton.swift */; };
+		35F221F52AC54DC9008DD5E9 /* SignInUpWithGoogleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F221F42AC54DC9008DD5E9 /* SignInUpWithGoogleInteractor.swift */; };
 		35F5E4062AC2999000756A8D /* SignUpTopPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F5E4052AC2999000756A8D /* SignUpTopPresenter.swift */; };
 		35F5E4082AC2B09D00756A8D /* SignUpWithEmailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F5E4072AC2B09D00756A8D /* SignUpWithEmailButton.swift */; };
 		35F5E4102AC2C70200756A8D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 35F5E40F2AC2C70200756A8D /* GoogleSignIn */; };
@@ -82,6 +85,8 @@
 		359456952AB7227400238B39 /* SignUpTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTopView.swift; sourceTree = "<group>"; };
 		359456982AB727F300238B39 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		3594569D2AB7F93600238B39 /* SignInWithEmailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailInteractor.swift; sourceTree = "<group>"; };
+		35F221F12AC54B77008DD5E9 /* SignUpWithGoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithGoogleButton.swift; sourceTree = "<group>"; };
+		35F221F42AC54DC9008DD5E9 /* SignInUpWithGoogleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpWithGoogleInteractor.swift; sourceTree = "<group>"; };
 		35F5E4052AC2999000756A8D /* SignUpTopPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTopPresenter.swift; sourceTree = "<group>"; };
 		35F5E4072AC2B09D00756A8D /* SignUpWithEmailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailButton.swift; sourceTree = "<group>"; };
 		35F5E40C2AC2BE0300756A8D /* AuthenticationDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AuthenticationDemo.entitlements; sourceTree = "<group>"; };
@@ -105,6 +110,7 @@
 				3594566E2AA8E4DC00238B39 /* RswiftLibrary in Frameworks */,
 				359456732AA9EFA400238B39 /* Lottie in Frameworks */,
 				359456762AA9F01400238B39 /* PartialSheet in Frameworks */,
+				35F221EE2AC5166B008DD5E9 /* AlertToast in Frameworks */,
 				35F5E4102AC2C70200756A8D /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				35F5E4072AC2B09D00756A8D /* SignUpWithEmailButton.swift */,
+				35F221F12AC54B77008DD5E9 /* SignUpWithGoogleButton.swift */,
 				359456872AB7211B00238B39 /* SignUpWithAppleButton.swift */,
 			);
 			path = SignUpButton;
@@ -320,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				35F5E4132AC2C75100756A8D /* SignInUpWithGooglePresenter.swift */,
+				35F221F42AC54DC9008DD5E9 /* SignInUpWithGoogleInteractor.swift */,
 			);
 			path = SignInUpWithGoogle;
 			sourceTree = "<group>";
@@ -361,6 +369,7 @@
 				359456722AA9EFA400238B39 /* Lottie */,
 				359456752AA9F01400238B39 /* PartialSheet */,
 				35F5E40F2AC2C70200756A8D /* GoogleSignIn */,
+				35F221ED2AC5166B008DD5E9 /* AlertToast */,
 			);
 			productName = AuthenticationDemo;
 			productReference = 359456402AA8B8D000238B39 /* AuthenticationDemo.app */;
@@ -396,6 +405,7 @@
 				359456712AA9EFA400238B39 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				359456742AA9F01400238B39 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 				35F5E40E2AC2C70100756A8D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				35F221EC2AC5166B008DD5E9 /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = 359456412AA8B8D000238B39 /* Products */;
 			projectDirPath = "";
@@ -433,6 +443,7 @@
 				359456962AB7227400238B39 /* SignUpTopView.swift in Sources */,
 				358DCD7A2AC45E9D0076524D /* RoundedRectangle.swift in Sources */,
 				35F5E4082AC2B09D00756A8D /* SignUpWithEmailButton.swift in Sources */,
+				35F221F22AC54B77008DD5E9 /* SignUpWithGoogleButton.swift in Sources */,
 				358DCD762AC459140076524D /* Form.swift in Sources */,
 				3594568C2AB7218700238B39 /* SignUpTopRouter.swift in Sources */,
 				359456652AA8CE1500238B39 /* SignInWithEmailView.swift in Sources */,
@@ -446,6 +457,7 @@
 				359456882AB7211B00238B39 /* SignUpWithAppleButton.swift in Sources */,
 				3586729A2AC1192E00F10606 /* SignInWithEmailButton.swift in Sources */,
 				358DCD6C2AC4482B0076524D /* View+Shadow.swift in Sources */,
+				35F221F52AC54DC9008DD5E9 /* SignInUpWithGoogleInteractor.swift in Sources */,
 				358DCD812AC49BC70076524D /* User.swift in Sources */,
 				359456842AB7207D00238B39 /* SignUpWithEmailView.swift in Sources */,
 				358DCD892AC4A3B00076524D /* LoadingView.swift in Sources */,
@@ -700,6 +712,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		35F221EC2AC5166B008DD5E9 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		35F5E40E2AC2C70100756A8D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -739,6 +759,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 359456742AA9F01400238B39 /* XCRemoteSwiftPackageReference "PartialSheet" */;
 			productName = PartialSheet;
+		};
+		35F221ED2AC5166B008DD5E9 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35F221EC2AC5166B008DD5E9 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
 		};
 		35F5E40F2AC2C70200756A8D /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;

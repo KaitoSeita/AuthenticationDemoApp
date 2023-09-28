@@ -2,13 +2,15 @@
 //  SuccessView.swift
 //  AuthenticationDemo
 //
-//  Created by セイタカイト on 2023/09/28.
+//  Created by kaito-seita on 2023/09/28.
 //
 
 import SwiftUI
+import RswiftResources
 
 struct SuccessView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(R.string.localizable.successViewTitle)
+            .customizedFont(color: .black)
     }
 }

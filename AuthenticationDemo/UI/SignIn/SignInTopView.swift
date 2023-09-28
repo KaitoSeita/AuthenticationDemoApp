@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignInTopView: View {
+    private let interactor = SignInUpWithGoogleInteractor()
     
     var body: some View {
         VStack(spacing: 15){
@@ -16,7 +17,7 @@ struct SignInTopView: View {
                 .bold()
             Spacer()
             SignInWithEmailButton()
-            SignInWithGoogleButton()
+            SignInWithGoogleButton(interactor: interactor)
             SignInWithAppleButton()
         }
         .padding(EdgeInsets(top: 120, leading: 0, bottom: 150, trailing: 0))

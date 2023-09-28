@@ -1,16 +1,14 @@
 //
-//  SignInWithGoogleButton.swift
+//  SignUpWithGoogleButton.swift
 //  AuthenticationDemo
 //
-//  Created by kaito-seita on 2023/09/25.
+//  Created by kaito-seita on 2023/09/28.
 //
 
 import SwiftUI
-import RswiftResources
-import AlertToast
 
-struct SignInWithGoogleButton: View {
-    private let interactor: SignInUpWithGoogleInteractor
+struct SignUpWithGoogleButton: View {
+    let interactor: SignInUpWithGoogleInteractor
 
     @ObservedObject private var presenter: SignInUpWithGooglePresenter
     
@@ -26,29 +24,17 @@ struct SignInWithGoogleButton: View {
                         .resizable()
                         .frame(width: 18, height: 18)
                     WidthSpacer(width: 8)
-                    Text(R.string.localizable.signInWithGoogle)
+                    Text(R.string.localizable.signUpWithGoogle)
                         .customizedFont(color: .black)
                 }
             })
             .onTapGesture {
                 presenter.onTapSignInWithGoogleButton()
-                presenter.isShowingLoadingToast = true
             }
             .navigationBarBackButtonHidden(true)
             .navigationDestination(isPresented: $presenter.isShowingSuccessView, destination: {
                 SuccessView()
                     .navigationBarBackButtonHidden(true)
-                    .onAppear {
-                        presenter.isShowingLoadingToast = false
-                    }
-            })
-            .toast(isPresenting: $presenter.isShowingErrorMessage, alert: {
-                AlertToast(displayMode: .hud ,
-                           type: .systemImage(String(resource: R.string.localizable.alertSymbol), .red.opacity(0.5)),
-                           subTitle:  presenter.errorMessage)
-            })
-            .toast(isPresenting: $presenter.isShowingLoadingToast, alert: {
-                AlertToast(type: .loading)
             })
     }
 }

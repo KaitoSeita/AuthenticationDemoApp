@@ -7,15 +7,12 @@
 
 import SwiftUI
 import RswiftResources
-
-// FIXME: 入力完了前後でサインインボタンの色を切り替える
+import AlertToast
 
 struct SignInWithEmailView: View {
-    @State private var isShowingErrorMessage = false
-    @State private var isShowingSuccessView = false
     @State private var email = ""
     @State private var password = ""
-    
+        
     @ObservedObject private var presenter: SignInWithEmailPresenter
     
     private let interactor: SignInWithEmailInteractor
@@ -26,8 +23,6 @@ struct SignInWithEmailView: View {
     }
 
     var body: some View {
-        // FIXME: トースト的な感じで自動でフラグ変更などを備えたものを別で用意しちゃうというのが一番いい
-        
         VStack(spacing: 15) {
             SignInForm(presenter: presenter,
                        type: .email,
@@ -46,6 +41,14 @@ struct SignInWithEmailView: View {
         .navigationDestination(isPresented: $presenter.isShowingSuccessView, destination: {
             SuccessView()
                 .navigationBarBackButtonHidden(true)
+        })
+        .toast(isPresenting: $presenter.isShowingErrorMessage, alert: {
+            AlertToast(displayMode: .hud ,
+                       type: .systemImage(String(resource: R.string.localizable.alertSymbol), .red.opacity(0.5)),
+                       subTitle:  presenter.errorMessage)
+        })
+        .toast(isPresenting: $presenter.isShowingLoadingToast, alert: {
+            AlertToast(type: .loading)
         })
     }
 }
@@ -137,8 +140,7 @@ private struct SignInButton: View {
         VStack {
             Button(action: {
                 presenter.onTapSignInButton(email: email, password: password)
-                // ローディングアニメーションのフラグ発火
-                
+                presenter.isShowingLoadingToast.toggle()
             }, label: {
                 if presenter.onInputEmailAndPassword(email: email, password: password) {
                     CustomizedRoundedRectangle(color: Color.black, content: {
