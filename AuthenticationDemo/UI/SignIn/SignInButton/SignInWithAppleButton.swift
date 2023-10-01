@@ -9,7 +9,7 @@ import SwiftUI
 import AuthenticationServices
 
 struct SignInWithAppleButton: View {
-    @State private var signInWithAppleObject: SignInUpWithApplePresenter = SignInUpWithApplePresenter()
+    @ObservedObject private var presenter = SignInUpWithApplePresenter()
     
     var body: some View {
         AppleSignInButton()
@@ -17,7 +17,7 @@ struct SignInWithAppleButton: View {
             .frame(width: 330, height: 55)
             .cornerRadius(20)
             .onTapGesture {
-                signInWithAppleObject.signInWithApple()
+                presenter.onTapSignInWithAppleButton()
             }
     }
 }

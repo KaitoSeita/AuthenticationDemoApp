@@ -29,7 +29,6 @@ final class SignInUpWithGooglePresenter: ObservableObject {
 
 extension SignInUpWithGooglePresenter {
     
-    // GoogleSignInのエラー処理をasyncで書くとメインスレッド警告が発生 ドキュメント通りのコードで全部メインスレッドの方が良さそう
     func onTapSignInWithGoogleButton() {
         let rootViewController = self.interactor.makeButtonUI()
         Task { @MainActor in

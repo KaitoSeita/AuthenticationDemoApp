@@ -9,9 +9,30 @@ import AuthenticationServices
 import CryptoKit
 import FirebaseAuth
 
-final class SignInUpWithApplePresenter: NSObject {
+// Appleの場合動作チェックのしようがないのでパス
+final class SignInUpWithApplePresenter: NSObject, ObservableObject {
+    @Published var isShowingSuccessView = false
+    @Published var isShowingErrorMessage = false
+    @Published var isShowingLoadingToast = false
+    @Published var errorMessage = ""
+    
     private var currentNonce: String?
+    private var result: Result<User, Error>?
 
+    func onTapSignInWithAppleButton() {
+        signInWithApple()
+        switch result {
+        case .success(_):
+            self.isShowingSuccessView = true
+            self.isShowingLoadingToast = false
+        case .failure(let error):
+            setFirebaseAuthErrorMessage(error: error)
+            self.isShowingErrorMessage = true
+        case .none:
+            break
+        }
+    }
+    
     public func signInWithApple() {
         let request = ASAuthorizationAppleIDProvider().createRequest()
         request.requestedScopes = [.email, .fullName]
@@ -65,7 +86,27 @@ final class SignInUpWithApplePresenter: NSObject {
 
         return hashString
     }
-
+    
+    private func setFirebaseAuthErrorMessage(error: Error?) {
+        if let error = error as NSError? {
+            if let errorCode = AuthErrorCode.Code(rawValue: error.code) {
+                switch errorCode {
+                case .invalidEmail:
+                    errorMessage = R.string.localizable.invalidEmail()
+                case .emailAlreadyInUse:
+                    errorMessage = R.string.localizable.emailAlreadyInUse()
+                case .weakPassword:
+                    errorMessage = R.string.localizable.weakPassword()
+                case .userNotFound, .wrongPassword:
+                    errorMessage = R.string.localizable.userNotFoundOrWrongPassword()
+                case .userDisabled:
+                    errorMessage = R.string.localizable.userDisabled()
+                default:
+                    errorMessage = R.string.localizable.default()
+                }
+            }
+        }
+    }
 }
 
 extension SignInUpWithApplePresenter: ASAuthorizationControllerDelegate {
@@ -90,10 +131,15 @@ extension SignInUpWithApplePresenter: ASAuthorizationControllerDelegate {
 
             let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
             
-            Auth.auth().signIn(with: credential) { result, error in
-                guard error == nil else {
-                    print("Firebase SignIn Error: \(error!.localizedDescription)")
-                    return
+            func signInWithFirebase() async {
+                do {
+                    let result = try await Auth.auth().signIn(with: credential)
+                    let userInfo = User(id: result.user.uid,
+                                        displayName: result.user.displayName,
+                                        email: result.user.email)
+                    self.result = .success(userInfo)
+                } catch {
+                    self.result = .failure(error)
                 }
             }
         }
