@@ -33,10 +33,12 @@ struct SignInWithEmailView: View {
                        email: $email,
                        password: $password)
             HeightSpacer(height: 30)
-            SignInButton(presenter: presenter,
-                         email: email,
-                         password: password)
-            ResetPasswordButton()
+            VStack(alignment: .leading, spacing: 20) {
+                SignInButton(presenter: presenter,
+                             email: email,
+                             password: password)
+                ResetPasswordButton()
+            }
         }
         .customBackwardButton()
         .navigationDestination(isPresented: $presenter.isShowingSuccessView, destination: {
@@ -85,7 +87,7 @@ private struct SignInForm: View {
                         Image(systemName: String(resource: R.string.localizable.checkmarkSymbol))
                             .foregroundColor(.green.opacity(0.5))
                             .frame(width: 10, height: 10)
-                    }else{
+                    } else {
                         Image(systemName: String(resource: R.string.localizable.xmarkSymbol))
                             .foregroundColor(.red.opacity(0.5))
                             .frame(width: 10, height: 10)
@@ -165,7 +167,7 @@ private struct ResetPasswordButton: View {
         NavigationLink(destination: {
             ResetPasswordView()
         }, label: {
-            Text("")
+            Text(R.string.localizable.resetPasswordButtonTitle)
         })
     }
 }

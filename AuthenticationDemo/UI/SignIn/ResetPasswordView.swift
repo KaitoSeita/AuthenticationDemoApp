@@ -2,10 +2,12 @@
 //  ResetPasswordView.swift
 //  AuthenticationDemo
 //
-//  Created by セイタカイト on 2023/10/02.
+//  Created by kaito-seita on 2023/10/02.
 //
 
 import SwiftUI
+
+// 登録済みメールアドレスを入力するフォーム, 再設定の方法の説明の表示
 
 struct ResetPasswordView: View {
     var body: some View {
