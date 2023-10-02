@@ -9,7 +9,21 @@ import SwiftUI
 
 struct SignUpWithEmailButton: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationLink {
+            SignUpWithEmailView()
+        } label: {
+            CustomizedRoundedRectangle(color: Color.white, content: {
+                HStack {
+                    Image(systemName: String(resource: R.string.localizable.emailSymbol))
+                        .resizable()
+                        .frame(width: 16, height: 12)
+                        .foregroundColor(.black)
+                    WidthSpacer(width: 12)
+                    Text(R.string.localizable.signUpWithEmail)
+                        .customizedFont(color: .black)
+                }
+            })
+        }
     }
 }
 

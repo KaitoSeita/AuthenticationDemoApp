@@ -8,8 +8,8 @@
 import AuthenticationServices
 import CryptoKit
 import FirebaseAuth
+import RswiftResources
 
-// Appleの場合動作チェックのしようがないのでパス
 final class SignInUpWithApplePresenter: NSObject, ObservableObject {
     @Published var isShowingSuccessView = false
     @Published var isShowingErrorMessage = false
@@ -19,8 +19,8 @@ final class SignInUpWithApplePresenter: NSObject, ObservableObject {
     private var currentNonce: String?
     private var result: Result<User, Error>?
 
-    func onTapSignInWithAppleButton() {
-        signInWithApple()
+    func onTapSignInUpWithAppleButton() {
+        signInUpWithApple()
         switch result {
         case .success(_):
             self.isShowingSuccessView = true
@@ -33,7 +33,7 @@ final class SignInUpWithApplePresenter: NSObject, ObservableObject {
         }
     }
     
-    public func signInWithApple() {
+    public func signInUpWithApple() {
         let request = ASAuthorizationAppleIDProvider().createRequest()
         request.requestedScopes = [.email, .fullName]
         let nonce = randomNonceString()

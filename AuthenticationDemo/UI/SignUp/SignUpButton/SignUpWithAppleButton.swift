@@ -8,7 +8,21 @@
 import SwiftUI
 import AuthenticationServices
 
-struct SignUpWithAppleButton: UIViewRepresentable {
+struct SignUpWithAppleButton: View {
+    @ObservedObject private var presenter = SignInUpWithApplePresenter()
+
+    var body: some View {
+        AppleSignUpButton()
+            .grayShadow()
+            .frame(width: 330, height: 55)
+            .cornerRadius(20)
+            .onTapGesture {
+                presenter.onTapSignInUpWithAppleButton()
+            }
+    }
+}
+
+struct AppleSignUpButton: UIViewRepresentable {
     typealias UIViewType = ASAuthorizationAppleIDButton
 
     func makeUIView(context: Context) -> ASAuthorizationAppleIDButton {

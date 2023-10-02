@@ -36,6 +36,7 @@ struct SignInWithEmailView: View {
             SignInButton(presenter: presenter,
                          email: email,
                          password: password)
+            ResetPasswordButton()
         }
         .customBackwardButton()
         .navigationDestination(isPresented: $presenter.isShowingSuccessView, destination: {
@@ -155,6 +156,17 @@ private struct SignInButton: View {
                 }
             })
         }
+    }
+}
+
+private struct ResetPasswordButton: View {
+    
+    var body: some View {
+        NavigationLink(destination: {
+            ResetPasswordView()
+        }, label: {
+            Text("")
+        })
     }
 }
 

@@ -9,6 +9,8 @@ import FirebaseCore
 import GoogleSignIn
 import FirebaseAuth
 
+// FIXME: すべてPresenterでの記述に変更
+
 protocol SignInUpWithGoogleIntaractorProtocol {
     func signInGoogle() async -> Result<GIDUser, Error>
     func signInFirebaseAuth(credential: AuthCredential) async -> Result<User, Error>

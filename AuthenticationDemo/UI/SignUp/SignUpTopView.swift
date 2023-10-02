@@ -6,10 +6,20 @@
 //
 
 import SwiftUI
+import RswiftResources
 
 struct SignUpTopView: View {
+    
     var body: some View {
-        Text("Sign Up")
+        VStack(spacing: 15){
+            Text(R.string.localizable.signUpTitle)
+                .font(.system(.largeTitle, design: .rounded))
+                .bold()
+            Spacer()
+            
+        }
+        .padding(EdgeInsets(top: 120, leading: 0, bottom: 150, trailing: 0))
+        .customBackwardButton()
     }
 }
 

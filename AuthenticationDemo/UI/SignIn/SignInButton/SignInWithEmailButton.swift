@@ -17,7 +17,7 @@ struct SignInWithEmailButton: View {
         } label: {
             CustomizedRoundedRectangle(color: Color.white, content: {
                 HStack {
-                    Image(systemName: "envelope")
+                    Image(systemName: String(resource: R.string.localizable.emailSymbol))
                         .resizable()
                         .frame(width: 16, height: 12)
                         .foregroundColor(.black)

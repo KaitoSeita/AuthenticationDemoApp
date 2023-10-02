@@ -36,3 +36,4 @@
 "alertTitle" = "Error";
 "alertSymbol" = "exclamationmark.triangle";
 "successViewTitle" = "Welcome back.";
+"resetPasswordButtonTitle" = "パスワードを忘れた方はこちら";

@@ -17,7 +17,7 @@ struct SignInWithAppleButton: View {
             .frame(width: 330, height: 55)
             .cornerRadius(20)
             .onTapGesture {
-                presenter.onTapSignInWithAppleButton()
+                presenter.onTapSignInUpWithAppleButton()
             }
     }
 }
