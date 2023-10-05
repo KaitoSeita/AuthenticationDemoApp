@@ -1,65 +1,43 @@
 //
-//  SignInWithEmailPasswordView.swift
+//  SignUpEmailForm.swift
 //  AuthenticationDemo
 //
-//  Created by kaito-seita on 2023/09/07.
+//  Created by kaito-seita on 2023/10/02.
 //
 
 import SwiftUI
 import RswiftResources
-import AlertToast
 
-struct SignInWithEmailView: View {
+struct SignUpEmailForm: View {
+    let presenter: SignUpWithEmailPresenter
+    
+    @State private var selection: SignUpSelection = .email
     @State private var email = ""
     @State private var password = ""
-        
-    @ObservedObject private var presenter: SignInWithEmailPresenter
+    @State private var reInputPasword = ""
     
-    private let interactor: SignInWithEmailInteractor
-    
-    init(interactor: SignInWithEmailInteractor) {
-        self.interactor = interactor
-        _presenter = ObservedObject(wrappedValue: SignInWithEmailPresenter(interactor: interactor))
-    }
-
     var body: some View {
         VStack(spacing: 15) {
-            SignInForm(presenter: presenter,
+            SignUpForm(presenter: presenter,
                        type: .email,
                        email: $email,
                        password: $password)
-            SignInForm(presenter: presenter,
+            SignUpForm(presenter: presenter,
                        type: .password,
                        email: $email,
                        password: $password)
+            SignUpForm(presenter: presenter,
+                       type: .password,
+                       email: $email,
+                       password: $reInputPasword)
             HeightSpacer(height: 30)
-            VStack(alignment: .leading, spacing: 20) {
-                SignInButton(presenter: presenter,
-                             email: email,
-                             password: password)
-                ResetPasswordButton()
-            }
-            Spacer()
+            ContinueButton(selection: selection, presenter: presenter, email: email, password: password, reInputPassword: reInputPasword)
         }
-        .padding(EdgeInsets(top: 120, leading: 0, bottom: 0, trailing: 0))
-        .customBackwardButton()
-        .navigationDestination(isPresented: $presenter.isShowingSuccessView, destination: {
-            SuccessView()
-                .navigationBarBackButtonHidden(true)
-        })
-        .toast(isPresenting: $presenter.isShowingErrorMessage, alert: {
-            AlertToast(displayMode: .hud ,
-                       type: .systemImage(String(resource: R.string.localizable.alertSymbol), .red.opacity(0.5)),
-                       subTitle:  presenter.errorMessage)
-        })
-        .toast(isPresenting: $presenter.isShowingLoadingToast, alert: {
-            AlertToast(type: .loading)
-        })
     }
 }
 
-private struct SignInForm: View {
-    let presenter: SignInWithEmailPresenter
+private struct SignUpForm: View {
+    let presenter: SignUpWithEmailPresenter
     let type: InputFormType
     
     @Binding var email: String
@@ -136,44 +114,29 @@ private struct PasswordForm: View {
     }
 }
 
-private struct SignInButton: View {
-    let presenter: SignInWithEmailPresenter
+private struct ContinueButton: View {
+    let selection: SignUpSelection
+    let presenter: SignUpWithEmailPresenter
     let email: String
     let password: String
-        
-    var body: some View {
-        VStack {
-            Button(action: {
-                presenter.onTapSignInButton(email: email, password: password)
-            }, label: {
-                if presenter.onInputEmailAndPassword(email: email, password: password) {
-                    CustomizedRoundedRectangle(color: Color.black, content: {
-                        Text(R.string.localizable.signInButton)
-                            .customizedFont(color: .white)
-                    })
-                } else {
-                    CustomizedRoundedRectangle(color: Color.white, content: {
-                        Text(R.string.localizable.signInButton)
-                            .customizedFont(color: .black)
-                    })
-                }
-            })
-            .disabled(!presenter.onInputEmailAndPassword(email: email, password: password))
-        }
-    }
-}
-
-private struct ResetPasswordButton: View {
+    let reInputPassword: String
     
     var body: some View {
-        NavigationLink(destination: {
-            ResetPasswordView()
+        Button(action: {
+            // ここで単純に次の画面への遷移フラグだけ発火(Viewもらっても意味なし)
+//            presenter.onTapContinueButton(selection: selection)
         }, label: {
-            Text(R.string.localizable.resetPasswordButtonTitle)
-                .font(.system(size: 15, design: .rounded))
-                .bold()
-                .padding(10)
+            if presenter.onInputEmailAndPassword(email: email, password: password, reInputPassword: reInputPassword) {
+                CustomizedRoundedRectangle(color: Color.black, content: {
+                    Text(R.string.localizable.signInButton)
+                        .customizedFont(color: .white)
+                })
+            } else {
+                CustomizedRoundedRectangle(color: Color.white, content: {
+                    Text(R.string.localizable.signInButton)
+                        .customizedFont(color: .black)
+                })
+            }
         })
     }
 }
-

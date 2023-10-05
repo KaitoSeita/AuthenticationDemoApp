@@ -9,8 +9,6 @@ import FirebaseCore
 import GoogleSignIn
 import FirebaseAuth
 
-// FIXME: すべてPresenterでの記述に変更
-
 protocol SignInUpWithGoogleIntaractorProtocol {
     func signInGoogle() async -> Result<GIDUser, Error>
     func signInFirebaseAuth(credential: AuthCredential) async -> Result<User, Error>
@@ -18,11 +16,11 @@ protocol SignInUpWithGoogleIntaractorProtocol {
 
 final class SignInUpWithGoogleInteractor {
     
-    func makeButtonUI() -> UIViewController? {
+    func makeButtonUI() async -> UIViewController? {
         let clientID: String = FirebaseApp.app()?.options.clientID ?? ""
         let config: GIDConfiguration = GIDConfiguration(clientID: clientID)
-        let windowScene: UIWindowScene? = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let rootViewController: UIViewController? = windowScene?.windows.first!.rootViewController!
+        let windowScene: UIWindowScene? = await UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let rootViewController: UIViewController? = await windowScene?.windows.first!.rootViewController!
         
         GIDSignIn.sharedInstance.configuration = config
         

@@ -30,8 +30,9 @@ final class SignInUpWithGooglePresenter: ObservableObject {
 extension SignInUpWithGooglePresenter {
     
     func onTapSignInWithGoogleButton() {
-        let rootViewController = self.interactor.makeButtonUI()
+        isShowingLoadingToast = true
         Task { @MainActor in
+            let rootViewController = await self.interactor.makeButtonUI()
             let googleResult = await self.interactor.signInWithGoogle(rootViewController: rootViewController)
             switch googleResult {
             case .success(let user):
@@ -41,7 +42,6 @@ extension SignInUpWithGooglePresenter {
                 switch firebaseResult {
                 case .success(_):
                     self.isShowingSuccessView = true
-                    self.isShowingLoadingToast = false
                 case .failure(let error):
                     setFirebaseAuthErrorMessage(error: error)
                     self.isShowingErrorMessage = true
@@ -49,10 +49,10 @@ extension SignInUpWithGooglePresenter {
             case .failure(_):
                 errorMessage = String(resource: R.string.localizable.signInWithGooleErrorMessage)
                 self.isShowingErrorMessage = true
-                self.isShowingLoadingToast = false
             }
+            
+            isShowingLoadingToast = false
         }
-        
     }
 
     private func setFirebaseAuthErrorMessage(error: Error?) {

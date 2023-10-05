@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct SignUpWithEmailButton: View {
+    let presenter: SignUpWithEmailPresenter
+    
     var body: some View {
         NavigationLink {
-            SignUpWithEmailView()
+            presenter.onTapSignUpWithEmailButton(presenter: presenter)
         } label: {
             CustomizedRoundedRectangle(color: Color.white, content: {
                 HStack {
@@ -24,11 +26,6 @@ struct SignUpWithEmailButton: View {
                 }
             })
         }
-    }
-}
-
-struct SignUpWithEmailButton_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpWithEmailButton()
+        
     }
 }

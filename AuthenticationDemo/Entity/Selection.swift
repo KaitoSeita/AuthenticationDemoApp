@@ -11,3 +11,10 @@ enum AuthenticationTopSelection {
     case signIn
     case signUp
 }
+
+enum SignUpSelection {
+    case email
+    case userInfomation
+    case questionnaire
+}
+

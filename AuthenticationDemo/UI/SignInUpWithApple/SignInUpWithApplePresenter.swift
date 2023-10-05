@@ -20,17 +20,18 @@ final class SignInUpWithApplePresenter: NSObject, ObservableObject {
     private var result: Result<User, Error>?
 
     func onTapSignInUpWithAppleButton() {
+        isShowingLoadingToast = true
         signInUpWithApple()
         switch result {
         case .success(_):
             self.isShowingSuccessView = true
-            self.isShowingLoadingToast = false
         case .failure(let error):
             setFirebaseAuthErrorMessage(error: error)
             self.isShowingErrorMessage = true
         case .none:
             break
         }
+        self.isShowingLoadingToast = false
     }
     
     public func signInUpWithApple() {

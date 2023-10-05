@@ -32,7 +32,6 @@ struct SignInWithGoogleButton: View {
             })
             .onTapGesture {
                 presenter.onTapSignInWithGoogleButton()
-                presenter.isShowingLoadingToast = true
             }
             .navigationBarBackButtonHidden(true)
             .navigationDestination(isPresented: $presenter.isShowingSuccessView, destination: {
@@ -43,11 +42,13 @@ struct SignInWithGoogleButton: View {
                     }
             })
             .toast(isPresenting: $presenter.isShowingErrorMessage, alert: {
+                // ErrorToast
                 AlertToast(displayMode: .hud ,
                            type: .systemImage(String(resource: R.string.localizable.alertSymbol), .red.opacity(0.5)),
                            subTitle:  presenter.errorMessage)
             })
             .toast(isPresenting: $presenter.isShowingLoadingToast, alert: {
+                // LoadingToast
                 AlertToast(type: .loading)
             })
     }

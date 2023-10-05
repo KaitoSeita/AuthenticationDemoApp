@@ -5,11 +5,10 @@
 //  Created by kaito-seita on 2023/09/07.
 //
 
-// メインスレッド
-
-import Foundation
 import SwiftUI
 import FirebaseAuth
+
+// FIXME: InteractorをPresenterに統合して修正 スレッドセーフ
 
 final class SignInWithEmailPresenter: ObservableObject {
     @Published var errorMessage: String
@@ -32,17 +31,17 @@ final class SignInWithEmailPresenter: ObservableObject {
 extension SignInWithEmailPresenter {
     // エラー内容をViewで表示させるためにメインスレッドで処理をさせる
     func onTapSignInButton(email: String, password: String) {
+        isShowingLoadingToast = true
         Task { @MainActor in
             let result = await signInWithEmailPassword(email: email, password: password)
             switch result {
             case .success(_):
                 isShowingSuccessView = true
-                isShowingLoadingToast = false
             case .failure(let error):
                 setErrorMessage(error: error)
                 isShowingErrorMessage = true
-                isShowingLoadingToast = false
             }
+            isShowingLoadingToast = false
         }
     }
     

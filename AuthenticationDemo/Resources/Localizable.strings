@@ -36,6 +36,7 @@
 "alertTitle" = "Error";
 "alertSymbol" = "exclamationmark.triangle";
 "successViewTitle" = "Welcome back.";
-"resetPasswordButtonTitle" = "パスワードを忘れた方はこちら";
+"resetPasswordButtonTitle" = "Forgot Password";
 "resetPasswordExplanation" = "登録済みのEメールアドレスを入力してください。
                                 入力後、送信ボタンを押して、メールが届いたら添付されているリンクをクリックして、パスワード再設定用フォームに新しいパスワードを入力してください。";
+"continueButton" = "next";
