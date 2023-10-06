@@ -15,6 +15,7 @@
 "signUpWithApple" = "Sign Up With Apple";
 "signInButton" = "Sign In";
 "signUpButton" = "Create a new account";
+"continue" = "Continue";
 "signInTitle" = "Hello.";
 "signUpTitle" = "Welcome.";
 "signInWithGooleErrorMessage" = "エラーが発生しました";
@@ -36,7 +37,13 @@
 "alertTitle" = "Error";
 "alertSymbol" = "exclamationmark.triangle";
 "successViewTitle" = "Welcome back.";
-"resetPasswordButtonTitle" = "Forgot Password";
-"resetPasswordExplanation" = "登録済みのEメールアドレスを入力してください。
-                                入力後、送信ボタンを押して、メールが届いたら添付されているリンクをクリックして、パスワード再設定用フォームに新しいパスワードを入力してください。";
-"continueButton" = "next";
+"successViewSubTitle" = "ログイン認証に成功しました";
+"resetPasswordButtonTitle" = "パスワードを忘れた方はこちら";
+"inputEmailAndPassword" = "Please enter your email and password here.";
+"passwordLimit" = "at least 6 charactors";
+"resetPasswordTitle" = "Reset your password";
+"resetPasswordSubTitle" = "Please enter your email address";
+"resetPasswordExplanation" = "届いたメールに記載のURLからパスワードを再設定してください";
+"resetPasswordSendingEmail" = "Send";
+"makePasswordExplanation" = "パスワードは6文字以上の半角英数字で設定してください";
+"inputPasswordExplanation" = "パスワードは6文字以上の半角英数字で入力してください";
