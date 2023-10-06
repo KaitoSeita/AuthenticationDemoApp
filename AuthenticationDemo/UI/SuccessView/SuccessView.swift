@@ -10,7 +10,13 @@ import RswiftResources
 
 struct SuccessView: View {
     var body: some View {
-        Text(R.string.localizable.successViewTitle)
-            .customizedFont(color: .black)
+        VStack {
+            Text(R.string.localizable.successViewTitle)
+                .font(.system(.title, design: .rounded))
+                .bold()
+            Text(R.string.localizable.successViewSubTitle)
+                .font(.system(size: 12, design: .rounded))
+                .bold()
+        }
     }
 }
