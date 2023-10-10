@@ -18,10 +18,13 @@ struct SignUpEmailForm: View {
     
     var body: some View {
         VStack(spacing: 15) {
+            Explanation()
+            HeightSpacer(height: 100)
             SignUpForm(presenter: presenter,
                        type: .email,
                        email: $email,
                        password: $password)
+            HeightSpacer(height: 15)
             SignUpForm(presenter: presenter,
                        type: .password,
                        email: $email,
@@ -32,6 +35,26 @@ struct SignUpEmailForm: View {
                        password: $reInputPasword)
             HeightSpacer(height: 30)
             ContinueButton(selection: selection, presenter: presenter, email: email, password: password, reInputPassword: reInputPasword)
+            Spacer()
+        }
+        .padding(.top, 50)
+        .customBackwardButton()
+    }
+}
+
+private struct Explanation: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(R.string.localizable.signUpWithEmail)
+                .font(.system(.title, design: .rounded))
+                .bold()
+            Text(R.string.localizable.inputEmailAndPassword)
+                .font(.system(size: 12, design: .rounded))
+                .bold()
+            HeightSpacer(height: 20)
+            Text(R.string.localizable.makePasswordExplanation)
+                .font(.system(size: 12, design: .rounded))
+                .bold()
         }
     }
 }
@@ -124,19 +147,21 @@ private struct ContinueButton: View {
     var body: some View {
         Button(action: {
             // ここで単純に次の画面への遷移フラグだけ発火(Viewもらっても意味なし)
+            // ここはnavigaionにはしないぞ！
 //            presenter.onTapContinueButton(selection: selection)
         }, label: {
             if presenter.onInputEmailAndPassword(email: email, password: password, reInputPassword: reInputPassword) {
                 CustomizedRoundedRectangle(color: Color.black, content: {
-                    Text(R.string.localizable.signInButton)
+                    Text(R.string.localizable.continue)
                         .customizedFont(color: .white)
                 })
             } else {
-                CustomizedRoundedRectangle(color: Color.white, content: {
-                    Text(R.string.localizable.signInButton)
+                CustomizedRoundedRectangle(color: .gray.opacity(0.1), content: {
+                    Text(R.string.localizable.continue)
                         .customizedFont(color: .black)
                 })
             }
         })
+        .disabled(!presenter.onInputEmailAndPassword(email: email, password: password, reInputPassword: reInputPassword))
     }
 }

@@ -7,17 +7,25 @@
 
 import SwiftUI
 
-// presenterの宣言はここ
-// presenterにselectionを持たせて, EnvironmentObjectにするとか...
-
 struct SignUpWithEmailView: View {
     @StateObject private var presenter: SignUpWithEmailPresenter
+    
+    // 画面遷移でアニメーションを適用したいためRouterは使用せずViewに直接記述
+    @State private var selection: SignUpSelection = .email
 
     init() {
         _presenter = StateObject(wrappedValue: SignUpWithEmailPresenter())
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        switch selection {
+        case .email:
+            SignUpEmailForm(presenter: presenter)
+        case .userInfomation:
+            SignUpUserInfomationForm()
+        case .questionnaire:
+            SignUpQuestionnaire()
+        }
     }
 }

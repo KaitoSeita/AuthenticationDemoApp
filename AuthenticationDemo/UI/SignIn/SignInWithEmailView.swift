@@ -24,6 +24,8 @@ struct SignInWithEmailView: View {
 
     var body: some View {
         VStack(spacing: 15) {
+            Explanation()
+            HeightSpacer(height: 100)
             SignInForm(presenter: presenter,
                        type: .email,
                        email: $email,
@@ -41,7 +43,7 @@ struct SignInWithEmailView: View {
             }
             Spacer()
         }
-        .padding(EdgeInsets(top: 120, leading: 0, bottom: 0, trailing: 0))
+        .padding(.top, 50)
         .customBackwardButton()
         .navigationDestination(isPresented: $presenter.isShowingSuccessView, destination: {
             SuccessView()
@@ -55,6 +57,23 @@ struct SignInWithEmailView: View {
         .toast(isPresenting: $presenter.isShowingLoadingToast, alert: {
             AlertToast(type: .loading)
         })
+    }
+}
+
+private struct Explanation: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(R.string.localizable.signInWithEmail)
+                .font(.system(.title, design: .rounded))
+                .bold()
+            Text(R.string.localizable.inputEmailAndPassword)
+                .font(.system(size: 12, design: .rounded))
+                .bold()
+            HeightSpacer(height: 20)
+            Text(R.string.localizable.inputPasswordExplanation)
+                .font(.system(size: 12, design: .rounded))
+                .bold()
+        }
     }
 }
 
@@ -152,7 +171,7 @@ private struct SignInButton: View {
                             .customizedFont(color: .white)
                     })
                 } else {
-                    CustomizedRoundedRectangle(color: Color.white, content: {
+                    CustomizedRoundedRectangle(color: .gray.opacity(0.1), content: {
                         Text(R.string.localizable.signInButton)
                             .customizedFont(color: .black)
                     })
@@ -164,13 +183,14 @@ private struct SignInButton: View {
 }
 
 private struct ResetPasswordButton: View {
+    let interactor = SignInWithEmailInteractor()
     
     var body: some View {
         NavigationLink(destination: {
-            ResetPasswordView()
+            ResetPasswordView(interactor: interactor)
         }, label: {
             Text(R.string.localizable.resetPasswordButtonTitle)
-                .font(.system(size: 15, design: .rounded))
+                .font(.system(size: 12, design: .rounded))
                 .bold()
                 .padding(10)
         })
