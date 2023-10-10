@@ -12,7 +12,7 @@ import GoogleSignIn
 @main
 struct AuthenticationDemoApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
+    
     var body: some Scene {
         WindowGroup {
             AuthenticationTopView()

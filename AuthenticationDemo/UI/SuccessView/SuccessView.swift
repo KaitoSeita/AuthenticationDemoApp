@@ -20,3 +20,25 @@ struct SuccessView: View {
         }
     }
 }
+
+struct SendEmailSuccessView: View {
+    
+    var body: some View {
+        VStack {
+            CloseButton()
+            HeightSpacer(height: 50)
+            Text(R.string.localizable.onTapSendEmailButton)
+                .font(.system(.title, design: .rounded))
+                .bold()
+            HeightSpacer(height: 30)
+            Text(R.string.localizable.successSendEmailSubTitle)
+                .font(.system(size: 12, design: .rounded))
+                .bold()
+            HeightSpacer(height: 30)
+            Text(R.string.localizable.reSendEmailButtonTitle)
+                .font(.system(size: 12, design: .rounded))
+                .bold()
+            Spacer()
+        }.padding(EdgeInsets(top: 25, leading: 25, bottom: 0, trailing: 25))
+    }
+}

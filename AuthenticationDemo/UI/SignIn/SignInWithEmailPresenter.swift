@@ -46,8 +46,17 @@ extension SignInWithEmailPresenter {
     }
     
     func onTapResetPasswordButton(email: String) {
-        Task {
-            await resetPassWord(email: email)
+        isShowingLoadingToast = true
+        Task { @MainActor in
+            let result = await resetPassWord(email: email)
+            switch result {
+            case .success(_):
+                isShowingSuccessView = true
+            case .failure(let error):
+                setErrorMessage(error: error)
+                isShowingErrorMessage = true
+            }
+            isShowingLoadingToast = false
         }
     }
     
@@ -73,12 +82,12 @@ extension SignInWithEmailPresenter {
         return emailCheck.evaluate(with: email)
     }
         
-    private func signInWithEmailPassword(email: String, password: String) async -> Result<User, Error>{
+    private func signInWithEmailPassword(email: String, password: String) async -> Result<User, Error> {
         return await interactor.fetchUserInfo(email: email, password: password)
     }
     
-    private func resetPassWord(email: String) async {
-//        interactor.resetPassword(email: email)
+    private func resetPassWord(email: String) async -> Result<String, Error> {
+        return await interactor.resetPassword(email: email)
     }
     
     private func setErrorMessage(error: Error?) {

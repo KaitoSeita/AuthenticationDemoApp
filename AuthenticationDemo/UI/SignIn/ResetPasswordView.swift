@@ -6,10 +6,20 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct ResetPasswordView: View {
-    let presenter: SignInWithEmailPresenter
+    @Environment(\.dismiss) var dismiss
+        
+    @StateObject private var presenter: SignInWithEmailPresenter
     
+    private let interactor: SignInWithEmailInteractor
+    
+    init(interactor: SignInWithEmailInteractor) {
+        self.interactor = interactor
+        _presenter = StateObject(wrappedValue: SignInWithEmailPresenter(interactor: interactor))
+    }
+
     @State private var email = ""
     
     var body: some View {
@@ -23,6 +33,18 @@ struct ResetPasswordView: View {
         }
         .padding(.top, 50)
         .customBackwardButton()
+        .toast(isPresenting: $presenter.isShowingErrorMessage, alert: {
+            AlertToast(displayMode: .hud ,
+                       type: .systemImage(String(resource: R.string.localizable.alertSymbol), .red.opacity(0.5)),
+                       subTitle:  presenter.errorMessage)
+        })
+        .toast(isPresenting: $presenter.isShowingLoadingToast, alert: {
+            AlertToast(type: .loading)
+        })
+        .sheet(isPresented: $presenter.isShowingSuccessView) {
+            SendEmailSuccessView()
+                .presentationDetents([.medium])
+        }
     }
 }
 
@@ -73,8 +95,8 @@ private struct SendButton: View {
     let email: String
     
     var body: some View {
-        NavigationLink(destination: {
-            
+        Button(action: {
+            presenter.onTapResetPasswordButton(email: email)
         }, label: {
             if !presenter.onInputEmail(email: email) {
                 CustomizedRoundedRectangle(color: .gray.opacity(0.1), content: {
@@ -89,11 +111,5 @@ private struct SendButton: View {
             }
         })
         .disabled(!presenter.onInputEmail(email: email))
-    }
-}
-
-private struct SendEmailSuccessView: View {
-    var body: some View {
-        Text("")
     }
 }

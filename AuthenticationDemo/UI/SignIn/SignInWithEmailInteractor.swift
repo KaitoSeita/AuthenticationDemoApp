@@ -26,4 +26,13 @@ final class SignInWithEmailInteractor {
             return .failure(error)
         }
     }
+    
+    func resetPassword(email: String) async -> Result<String, Error> {
+        do {
+            try await Auth.auth().sendPasswordReset(withEmail: email)
+            return .success("success")
+        } catch {
+            return .failure(error)
+        }
+    }
 }
