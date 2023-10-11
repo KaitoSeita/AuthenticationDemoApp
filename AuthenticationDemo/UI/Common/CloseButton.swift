@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import RswiftResources
 
 struct CloseButton: View {
+    // クローズボタンを押したらbool値を変更してdismissをonChangeで動かしたい→バインディング必要
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
@@ -22,6 +24,5 @@ struct CloseButton: View {
                     .frame(width: 25, height: 25)
             })
         }
-        .padding(.horizontal, 25)
     }
 }

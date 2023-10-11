@@ -21,6 +21,8 @@ struct ResetPasswordView: View {
     }
 
     @State private var email = ""
+    @State private var isShowingAlert = false
+    @State private var isShowingResetPasswordView = true
     
     var body: some View {
         VStack {
@@ -41,9 +43,24 @@ struct ResetPasswordView: View {
         .toast(isPresenting: $presenter.isShowingLoadingToast, alert: {
             AlertToast(type: .loading)
         })
+        .onChange(of: !isShowingResetPasswordView) { _ in
+            // 再設定メール送信完了後, サインイン画面に戻る
+            dismiss()
+        }
         .sheet(isPresented: $presenter.isShowingSuccessView) {
-            SendEmailSuccessView()
+            SendEmailSuccessView(isShowingAlert: $isShowingAlert, presenter: presenter, email: email)
                 .presentationDetents([.medium])
+                .toast(isPresenting: $presenter.isShowingErrorMessage, alert: {
+                    AlertToast(displayMode: .hud ,
+                               type: .systemImage(String(resource: R.string.localizable.alertSymbol), .red.opacity(0.5)),
+                               subTitle:  presenter.errorMessage)
+                })
+                .toast(isPresenting: $presenter.isShowingLoadingToast, alert: {
+                    AlertToast(type: .loading)
+                })
+                .onDisappear {
+                    isShowingResetPasswordView = false
+                }
         }
     }
 }
@@ -96,7 +113,7 @@ private struct SendButton: View {
     
     var body: some View {
         Button(action: {
-            presenter.onTapResetPasswordButton(email: email)
+            presenter.onTapSendEmailButton(email: email)
         }, label: {
             if !presenter.onInputEmail(email: email) {
                 CustomizedRoundedRectangle(color: .gray.opacity(0.1), content: {

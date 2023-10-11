@@ -44,10 +44,10 @@
 "resetPasswordTitle" = "Reset your password";
 "resetPasswordSubTitle" = "Please enter your email address";
 "resetPasswordExplanation" = "届いたメールに記載のURLからパスワードを再設定してください";
-"resetPasswordSendingEmail" = "Send";
+"resetPasswordSendingEmail" = "Send an e-mail";
 "makePasswordExplanation" = "パスワードは6文字以上の半角英数字で設定してください";
 "inputPasswordExplanation" = "パスワードは6文字以上の半角英数字で入力してください";
 "successSendEmailSubTitle" = "パスワード再設定用メールを送信しました\n記載されたリンクから再設定してください";
 "reSendEmailButtonTitle" = "メールが届いていない場合";
-"onTapSendEmailButton" = "Successed!";
+"onTapSendEmailButton" = "Successed.";
 "xmarkFillSymbol" = "xmark.circle.fill";

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RswiftResources
+import AlertToast
 
 struct SuccessView: View {
     var body: some View {
@@ -22,6 +23,10 @@ struct SuccessView: View {
 }
 
 struct SendEmailSuccessView: View {
+    @Binding var isShowingAlert: Bool
+    
+    let presenter: SignInWithEmailPresenter
+    let email: String
     
     var body: some View {
         VStack {
@@ -35,10 +40,35 @@ struct SendEmailSuccessView: View {
                 .font(.system(size: 12, design: .rounded))
                 .bold()
             HeightSpacer(height: 30)
+            ResendEmailButton(isShowingAlert: $isShowingAlert, presenter: presenter, email: email)
+            Spacer()
+        }
+        .padding(EdgeInsets(top: 25, leading: 25, bottom: 0, trailing: 25))
+        .alert("Resend an e-mail?", isPresented: $isShowingAlert) {
+            Button("キャンセル") { }
+            Button("送信") {
+                presenter.onTapResendEmailButton(email: email)
+            }
+        } message: {
+            Text("メールを再送信しますか？")
+        }
+    }
+}
+
+private struct ResendEmailButton: View {
+    @Binding var isShowingAlert: Bool
+    
+    let presenter: SignInWithEmailPresenter
+    let email: String
+    
+    var body: some View {
+        Button(action: {
+            isShowingAlert = true
+        }, label: {
             Text(R.string.localizable.reSendEmailButtonTitle)
+                .foregroundStyle(.blue)
                 .font(.system(size: 12, design: .rounded))
                 .bold()
-            Spacer()
-        }.padding(EdgeInsets(top: 25, leading: 25, bottom: 0, trailing: 25))
+        })
     }
 }

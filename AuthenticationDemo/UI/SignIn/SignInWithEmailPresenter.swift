@@ -8,14 +8,12 @@
 import SwiftUI
 import FirebaseAuth
 
-// FIXME: InteractorをPresenterに統合して修正 スレッドセーフ
-
 final class SignInWithEmailPresenter: ObservableObject {
     @Published var errorMessage: String
     @Published var isShowingSuccessView: Bool
     @Published var isShowingErrorMessage: Bool
     @Published var isShowingLoadingToast: Bool
-    
+
     private let interactor: SignInWithEmailInteractor
     
     init(interactor: SignInWithEmailInteractor) {
@@ -29,11 +27,12 @@ final class SignInWithEmailPresenter: ObservableObject {
 
 // MARK: SignInWithEmailPresenterのメソッド
 extension SignInWithEmailPresenter {
-    // エラー内容をViewで表示させるためにメインスレッドで処理をさせる
+
     func onTapSignInButton(email: String, password: String) {
         isShowingLoadingToast = true
         Task { @MainActor in
             let result = await signInWithEmailPassword(email: email, password: password)
+            isShowingLoadingToast = false
             switch result {
             case .success(_):
                 isShowingSuccessView = true
@@ -41,14 +40,14 @@ extension SignInWithEmailPresenter {
                 setErrorMessage(error: error)
                 isShowingErrorMessage = true
             }
-            isShowingLoadingToast = false
         }
     }
     
-    func onTapResetPasswordButton(email: String) {
+    func onTapSendEmailButton(email: String) {
         isShowingLoadingToast = true
         Task { @MainActor in
             let result = await resetPassWord(email: email)
+            isShowingLoadingToast = false
             switch result {
             case .success(_):
                 isShowingSuccessView = true
@@ -56,7 +55,22 @@ extension SignInWithEmailPresenter {
                 setErrorMessage(error: error)
                 isShowingErrorMessage = true
             }
+        }
+    }
+    
+    func onTapResendEmailButton(email: String) {
+        isShowingLoadingToast = true
+        Task { @MainActor in
+            let result = await resetPassWord(email: email)
             isShowingLoadingToast = false
+            switch result {
+            case .success(_):
+                isShowingSuccessView = false
+            case .failure(let error):
+                setErrorMessage(error: error)
+                isShowingErrorMessage = true
+                isShowingSuccessView = false
+            }
         }
     }
     
