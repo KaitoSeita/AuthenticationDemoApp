@@ -8,7 +8,18 @@
 import SwiftUI
 
 struct SignUpQuestionnaire: View {
+    let indicatorPresenter: SignUpWithEmailStepIndicatorPresenter
+    
+    @Binding var selection: SignUpSelection
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 15) {
+            Text("")
+        }
+        .onAppear {
+            indicatorPresenter.colorSelecter(selection: selection)
+        }
+        .padding(.top, 50)
+        .navigationBarBackButtonHidden(true)
     }
 }

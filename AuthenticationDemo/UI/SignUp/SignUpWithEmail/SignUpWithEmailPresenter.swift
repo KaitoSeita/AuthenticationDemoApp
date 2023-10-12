@@ -32,34 +32,6 @@ extension SignUpWithEmailPresenter {
         
     }
     
-    func onTapSignUpWithEmailButton(presenter: SignUpWithEmailPresenter) -> AnyView? {
-        return SignUpWithEmailRouter().setDestination(selection: .email, presenter: presenter)
-    }
-    
-    func onTapBackWardButton(selection: SignUpSelection, presenter: SignUpWithEmailPresenter) -> AnyView? {
-        switch selection {
-        case .email:
-            // ナビゲーションで戻りたい
-            return AnyView(EmptyView())
-        case .userInfomation:
-            return AnyView(SignUpEmailForm(presenter: presenter))
-        case .questionnaire:
-            return AnyView(SignUpUserInfomationForm())
-        }
-    }
-    
-    func onTapContinueButton(selection: SignUpSelection) -> AnyView? {
-        switch selection {
-        case .email:
-            return AnyView(SignUpUserInfomationForm())
-        case .userInfomation:
-            return AnyView(SignUpQuestionnaire())
-        case .questionnaire:
-            // ここは通信処理をして画面遷移をさせるので, なにもしないこと
-            return AnyView(EmptyView())
-        }
-    }
-    
     func onInputEmail(email: String) -> Bool {
         return isValidEmail(email: email)
     }

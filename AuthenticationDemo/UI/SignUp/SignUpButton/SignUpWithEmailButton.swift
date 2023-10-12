@@ -12,7 +12,7 @@ struct SignUpWithEmailButton: View {
     
     var body: some View {
         NavigationLink {
-            presenter.onTapSignUpWithEmailButton(presenter: presenter)
+            SignUpWithEmailView()
         } label: {
             CustomizedRoundedRectangle(color: Color.white, content: {
                 HStack {

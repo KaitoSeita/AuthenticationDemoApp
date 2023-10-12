@@ -9,23 +9,28 @@ import SwiftUI
 
 struct SignUpWithEmailView: View {
     @StateObject private var presenter: SignUpWithEmailPresenter
+    @ObservedObject private var indicatorPresenter: SignUpWithEmailStepIndicatorPresenter
     
-    // 画面遷移でアニメーションを適用したいためRouterは使用せずViewに直接記述
     @State private var selection: SignUpSelection = .email
 
     init() {
         _presenter = StateObject(wrappedValue: SignUpWithEmailPresenter())
+        _indicatorPresenter = ObservedObject(wrappedValue: SignUpWithEmailStepIndicatorPresenter())
     }
     
     var body: some View {
-        
-        switch selection {
-        case .email:
-            SignUpEmailForm(presenter: presenter)
-        case .userInfomation:
-            SignUpUserInfomationForm()
-        case .questionnaire:
-            SignUpQuestionnaire()
+        ZStack {
+            SignUpWithEmailStepIndicatorView(presenter: indicatorPresenter)
+            
+            switch selection {
+            case .email:
+                SignUpEmailForm(presenter: presenter, indicatorPresenter: indicatorPresenter, selection: $selection)
+            case .userInfomation:
+                SignUpUserInfomationForm(indicatorPresenter: indicatorPresenter, selection: $selection)
+            case .questionnaire:
+                SignUpQuestionnaire(indicatorPresenter: indicatorPresenter, selection: $selection)
+            }
+
         }
     }
 }

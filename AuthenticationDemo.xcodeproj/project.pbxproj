@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		350871932ACC702E0027D886 /* SignUpQuestionnaire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350871922ACC702E0027D886 /* SignUpQuestionnaire.swift */; };
 		354E527D2ACCF58500C66B98 /* SignUpWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E527C2ACCF58500C66B98 /* SignUpWithEmailView.swift */; };
+		35679CE92AD6335E002385A8 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679CE82AD6335E002385A8 /* ContinueButton.swift */; };
+		35679CF02AD6578F002385A8 /* SignUpWithEmailStepIndicatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679CEF2AD6578F002385A8 /* SignUpWithEmailStepIndicatorPresenter.swift */; };
+		35679CF22AD658ED002385A8 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679CF12AD658ED002385A8 /* ColorModel.swift */; };
+		35679CF82AD67505002385A8 /* View+SignUpBackwardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679CF72AD67505002385A8 /* View+SignUpBackwardButton.swift */; };
 		357C15CA2AD51356007D6103 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357C15C92AD51356007D6103 /* CloseButton.swift */; };
 		358672902ABBE66900F10606 /* SignInUpWithApplePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586728F2ABBE66900F10606 /* SignInUpWithApplePresenter.swift */; };
 		3586729A2AC1192E00F10606 /* SignInWithEmailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358672992AC1192E00F10606 /* SignInWithEmailButton.swift */; };
@@ -21,7 +25,7 @@
 		358946252ACA6284006DCBA9 /* SignUpWithEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358946242ACA6284006DCBA9 /* SignUpWithEmailPresenter.swift */; };
 		358946282ACA6292006DCBA9 /* SignUpWithEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358946272ACA6292006DCBA9 /* SignUpWithEmailInteractor.swift */; };
 		3589462A2ACA657F006DCBA9 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358946292ACA657F006DCBA9 /* ResetPasswordView.swift */; };
-		3589462D2ACA6858006DCBA9 /* SignUpWithEmailIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589462C2ACA6858006DCBA9 /* SignUpWithEmailIndicator.swift */; };
+		3589462D2ACA6858006DCBA9 /* SignUpWithEmailStepIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589462C2ACA6858006DCBA9 /* SignUpWithEmailStepIndicatorView.swift */; };
 		358946322ACA8328006DCBA9 /* SignUpEmailForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358946312ACA8328006DCBA9 /* SignUpEmailForm.swift */; };
 		358946342ACA838C006DCBA9 /* SignUpUserInfomationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358946332ACA838C006DCBA9 /* SignUpUserInfomationForm.swift */; };
 		358DCD6C2AC4482B0076524D /* View+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358DCD6B2AC4482B0076524D /* View+Shadow.swift */; };
@@ -43,7 +47,6 @@
 		3594566E2AA8E4DC00238B39 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 3594566D2AA8E4DC00238B39 /* RswiftLibrary */; };
 		359456732AA9EFA400238B39 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 359456722AA9EFA400238B39 /* Lottie */; };
 		359456762AA9F01400238B39 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 359456752AA9F01400238B39 /* PartialSheet */; };
-		359456842AB7207D00238B39 /* SignUpWithEmailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456832AB7207D00238B39 /* SignUpWithEmailRouter.swift */; };
 		359456882AB7211B00238B39 /* SignUpWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456872AB7211B00238B39 /* SignUpWithAppleButton.swift */; };
 		359456922AB7223900238B39 /* SignInTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456912AB7223900238B39 /* SignInTopView.swift */; };
 		359456962AB7227400238B39 /* SignUpTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456952AB7227400238B39 /* SignUpTopView.swift */; };
@@ -60,6 +63,10 @@
 /* Begin PBXFileReference section */
 		350871922ACC702E0027D886 /* SignUpQuestionnaire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpQuestionnaire.swift; sourceTree = "<group>"; };
 		354E527C2ACCF58500C66B98 /* SignUpWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailView.swift; sourceTree = "<group>"; };
+		35679CE82AD6335E002385A8 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
+		35679CEF2AD6578F002385A8 /* SignUpWithEmailStepIndicatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailStepIndicatorPresenter.swift; sourceTree = "<group>"; };
+		35679CF12AD658ED002385A8 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
+		35679CF72AD67505002385A8 /* View+SignUpBackwardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+SignUpBackwardButton.swift"; sourceTree = "<group>"; };
 		357C15C92AD51356007D6103 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		3586728F2ABBE66900F10606 /* SignInUpWithApplePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpWithApplePresenter.swift; sourceTree = "<group>"; };
 		358672992AC1192E00F10606 /* SignInWithEmailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailButton.swift; sourceTree = "<group>"; };
@@ -72,7 +79,7 @@
 		358946242ACA6284006DCBA9 /* SignUpWithEmailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailPresenter.swift; sourceTree = "<group>"; };
 		358946272ACA6292006DCBA9 /* SignUpWithEmailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailInteractor.swift; sourceTree = "<group>"; };
 		358946292ACA657F006DCBA9 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
-		3589462C2ACA6858006DCBA9 /* SignUpWithEmailIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailIndicator.swift; sourceTree = "<group>"; };
+		3589462C2ACA6858006DCBA9 /* SignUpWithEmailStepIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailStepIndicatorView.swift; sourceTree = "<group>"; };
 		358946312ACA8328006DCBA9 /* SignUpEmailForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailForm.swift; sourceTree = "<group>"; };
 		358946332ACA838C006DCBA9 /* SignUpUserInfomationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserInfomationForm.swift; sourceTree = "<group>"; };
 		358DCD6B2AC4482B0076524D /* View+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Shadow.swift"; sourceTree = "<group>"; };
@@ -90,7 +97,6 @@
 		3594565E2AA8C06500238B39 /* AuthenticationTopRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTopRouter.swift; sourceTree = "<group>"; };
 		359456642AA8CE1500238B39 /* SignInWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailView.swift; sourceTree = "<group>"; };
 		3594566A2AA8CE3800238B39 /* SignInWithEmailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailPresenter.swift; sourceTree = "<group>"; };
-		359456832AB7207D00238B39 /* SignUpWithEmailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailRouter.swift; sourceTree = "<group>"; };
 		359456872AB7211B00238B39 /* SignUpWithAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithAppleButton.swift; sourceTree = "<group>"; };
 		359456912AB7223900238B39 /* SignInTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTopView.swift; sourceTree = "<group>"; };
 		359456952AB7227400238B39 /* SignUpTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTopView.swift; sourceTree = "<group>"; };
@@ -128,6 +134,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35679CEE2AD6576D002385A8 /* SignUpWithIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				3589462C2ACA6858006DCBA9 /* SignUpWithEmailStepIndicatorView.swift */,
+				35679CEF2AD6578F002385A8 /* SignUpWithEmailStepIndicatorPresenter.swift */,
+			);
+			path = SignUpWithIndicator;
+			sourceTree = "<group>";
+		};
 		358672892ABA8E8900F10606 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +205,7 @@
 				358672AE2AC1436B00F10606 /* View+Spacer.swift */,
 				358DCD6B2AC4482B0076524D /* View+Shadow.swift */,
 				358DCD7C2AC46F460076524D /* View+Font.swift */,
+				35679CF72AD67505002385A8 /* View+SignUpBackwardButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,6 +223,7 @@
 			children = (
 				358DCD792AC45E9D0076524D /* RoundedRectangle.swift */,
 				357C15C92AD51356007D6103 /* CloseButton.swift */,
+				35679CE82AD6335E002385A8 /* ContinueButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -282,6 +299,7 @@
 				358DCD752AC459140076524D /* Form.swift */,
 				358946202ACA5B9D006DCBA9 /* User.swift */,
 				358946222ACA5BEA006DCBA9 /* Selection.swift */,
+				35679CF12AD658ED002385A8 /* ColorModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -312,10 +330,9 @@
 			children = (
 				354E527C2ACCF58500C66B98 /* SignUpWithEmailView.swift */,
 				358946302ACA82E5006DCBA9 /* SignUpTutorialView */,
-				359456832AB7207D00238B39 /* SignUpWithEmailRouter.swift */,
 				358946242ACA6284006DCBA9 /* SignUpWithEmailPresenter.swift */,
 				358946272ACA6292006DCBA9 /* SignUpWithEmailInteractor.swift */,
-				3589462C2ACA6858006DCBA9 /* SignUpWithEmailIndicator.swift */,
+				35679CEE2AD6576D002385A8 /* SignUpWithIndicator */,
 			);
 			path = SignUpWithEmail;
 			sourceTree = "<group>";
@@ -448,7 +465,8 @@
 				3586729E2AC1194700F10606 /* SignInWithAppleButton.swift in Sources */,
 				359456922AB7223900238B39 /* SignInTopView.swift in Sources */,
 				354E527D2ACCF58500C66B98 /* SignUpWithEmailView.swift in Sources */,
-				3589462D2ACA6858006DCBA9 /* SignUpWithEmailIndicator.swift in Sources */,
+				3589462D2ACA6858006DCBA9 /* SignUpWithEmailStepIndicatorView.swift in Sources */,
+				35679CF02AD6578F002385A8 /* SignUpWithEmailStepIndicatorPresenter.swift in Sources */,
 				358DCD7D2AC46F460076524D /* View+Font.swift in Sources */,
 				359456962AB7227400238B39 /* SignUpTopView.swift in Sources */,
 				358946232ACA5BEA006DCBA9 /* Selection.swift in Sources */,
@@ -464,6 +482,7 @@
 				358946282ACA6292006DCBA9 /* SignUpWithEmailInteractor.swift in Sources */,
 				350871932ACC702E0027D886 /* SignUpQuestionnaire.swift in Sources */,
 				3594566B2AA8CE3800238B39 /* SignInWithEmailPresenter.swift in Sources */,
+				35679CF82AD67505002385A8 /* View+SignUpBackwardButton.swift in Sources */,
 				358672A42AC11FA100F10606 /* AuthenticationTopPresenter.swift in Sources */,
 				3589462A2ACA657F006DCBA9 /* ResetPasswordView.swift in Sources */,
 				3594565F2AA8C06500238B39 /* AuthenticationTopRouter.swift in Sources */,
@@ -473,11 +492,12 @@
 				3586729A2AC1192E00F10606 /* SignInWithEmailButton.swift in Sources */,
 				358DCD6C2AC4482B0076524D /* View+Shadow.swift in Sources */,
 				35F221F52AC54DC9008DD5E9 /* SignInUpWithGoogleInteractor.swift in Sources */,
-				359456842AB7207D00238B39 /* SignUpWithEmailRouter.swift in Sources */,
+				35679CF22AD658ED002385A8 /* ColorModel.swift in Sources */,
 				3586729C2AC1193A00F10606 /* SignInWithGoogleButton.swift in Sources */,
 				358672AF2AC1436B00F10606 /* View+Spacer.swift in Sources */,
 				358946342ACA838C006DCBA9 /* SignUpUserInfomationForm.swift in Sources */,
 				3594569E2AB7F93600238B39 /* SignInWithEmailInteractor.swift in Sources */,
+				35679CE92AD6335E002385A8 /* ContinueButton.swift in Sources */,
 				359456442AA8B8D000238B39 /* AuthenticationDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

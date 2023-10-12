@@ -19,6 +19,7 @@ struct CustomizedFont: ViewModifier {
 }
 
 extension View {
+    
     func customizedFont(color: Color) -> some View {
         self.modifier(CustomizedFont(color: color))
     }

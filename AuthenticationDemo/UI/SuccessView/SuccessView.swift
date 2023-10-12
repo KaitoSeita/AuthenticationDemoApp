@@ -31,7 +31,7 @@ struct SendEmailSuccessView: View {
     var body: some View {
         VStack {
             CloseButton()
-            HeightSpacer(height: 50)
+            HeightSpacer(height: 30)
             Text(R.string.localizable.onTapSendEmailButton)
                 .font(.system(.title, design: .rounded))
                 .bold()

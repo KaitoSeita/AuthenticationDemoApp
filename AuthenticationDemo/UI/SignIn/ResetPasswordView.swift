@@ -20,7 +20,7 @@ struct ResetPasswordView: View {
         _presenter = StateObject(wrappedValue: SignInWithEmailPresenter(interactor: interactor))
     }
 
-    @State private var email = ""
+    @State private var email = "sample@email.com"
     @State private var isShowingAlert = false
     @State private var isShowingResetPasswordView = true
     
@@ -49,7 +49,7 @@ struct ResetPasswordView: View {
         }
         .sheet(isPresented: $presenter.isShowingSuccessView) {
             SendEmailSuccessView(isShowingAlert: $isShowingAlert, presenter: presenter, email: email)
-                .presentationDetents([.medium])
+                .presentationDetents([.fraction(0.35)])
                 .toast(isPresenting: $presenter.isShowingErrorMessage, alert: {
                     AlertToast(displayMode: .hud ,
                                type: .systemImage(String(resource: R.string.localizable.alertSymbol), .red.opacity(0.5)),
