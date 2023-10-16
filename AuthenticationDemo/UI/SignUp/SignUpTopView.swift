@@ -9,12 +9,7 @@ import SwiftUI
 import RswiftResources
 
 struct SignUpTopView: View {
-    @StateObject private var presenter: SignUpWithEmailPresenter
-    private let interactor = SignInUpWithGoogleInteractor()
-    
-    init() {
-        _presenter = StateObject(wrappedValue: SignUpWithEmailPresenter())
-    }
+    private let GIDinteractor = SignInUpWithGoogleInteractor()
     
     var body: some View {
         VStack(spacing: 15){
@@ -22,8 +17,8 @@ struct SignUpTopView: View {
                 .font(.system(.largeTitle, design: .rounded))
                 .bold()
             Spacer()
-            SignUpWithEmailButton(presenter: presenter)
-            SignUpWithGoogleButton(interactor: interactor)
+            SignUpWithEmailButton()
+            SignUpWithGoogleButton(interactor: GIDinteractor)
             SignUpWithAppleButton()
         }
         .padding(EdgeInsets(top: 120, leading: 0, bottom: 150, trailing: 0))

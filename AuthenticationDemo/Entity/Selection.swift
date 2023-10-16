@@ -18,3 +18,7 @@ enum SignUpSelection {
     case questionnaire
 }
 
+struct AgeSelection: Hashable {
+    var age: Int
+    var isSelected: Bool
+}

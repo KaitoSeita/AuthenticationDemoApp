@@ -9,7 +9,20 @@ import SwiftUI
 import RswiftResources
 import AlertToast
 
-struct SuccessView: View {
+struct SignInSuccessView: View {
+    var body: some View {
+        VStack {
+            Text(R.string.localizable.successViewTitle)
+                .font(.system(.title, design: .rounded))
+                .bold()
+            Text(R.string.localizable.successViewSubTitle)
+                .font(.system(size: 12, design: .rounded))
+                .bold()
+        }
+    }
+}
+
+struct SignUpSuccessView: View {
     var body: some View {
         VStack {
             Text(R.string.localizable.successViewTitle)
@@ -35,7 +48,8 @@ struct SendEmailSuccessView: View {
             Text(R.string.localizable.onTapSendEmailButton)
                 .font(.system(.title, design: .rounded))
                 .bold()
-            HeightSpacer(height: 30)
+            LottieView(name: "sendingEmail", loopMode: .playOnce)
+                .frame(width: 100, height: 100)
             Text(R.string.localizable.successSendEmailSubTitle)
                 .font(.system(size: 12, design: .rounded))
                 .bold()

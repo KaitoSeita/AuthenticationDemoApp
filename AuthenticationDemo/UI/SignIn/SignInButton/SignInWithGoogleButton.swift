@@ -35,7 +35,7 @@ struct SignInWithGoogleButton: View {
             }
             .navigationBarBackButtonHidden(true)
             .navigationDestination(isPresented: $presenter.isShowingSuccessView, destination: {
-                SuccessView()
+                SignInSuccessView()
                     .navigationBarBackButtonHidden(true)
                     .onAppear {
                         presenter.isShowingLoadingToast = false

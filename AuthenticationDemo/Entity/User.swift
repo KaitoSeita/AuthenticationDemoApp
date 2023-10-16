@@ -18,3 +18,10 @@ struct GIDUser: Identifiable {
     var idToken: String?
     var accessToken: String?
 }
+
+class SignUpUser: ObservableObject {
+    @Published var email = "sample@email.com"
+    @Published var password = "aaaaaaa"
+    @Published var userName = "taro"
+    @Published var birthDay = Date()
+}

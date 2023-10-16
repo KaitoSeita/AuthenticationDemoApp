@@ -40,6 +40,8 @@
 // MARK: Success
 "successViewTitle" = "Welcome back.";
 "successViewSubTitle" = "ログイン認証に成功しました";
+"signUpSuccessViewTitle" = "Success making an account.";
+"signUpSuccessViewSubTitle" = "アカウントが作成されました";
 
 // MARK: ResetPassword
 "resetPasswordSendingEmail" = "Send an e-mail";
@@ -51,7 +53,7 @@
 "resetPasswordTitle" = "Reset your password";
 
 // MARK: CreateProfile
-"createProfileExplanation" = "氏名と年齢を入力してください";
+"createProfileExplanation" = "ユーザー名、生年月日を設定してください";
 
 // MARK: Title
 "createProfileTitle" = "Create profile";
@@ -67,8 +69,7 @@
 // MARK: Common String
 "emailTag" = "email";
 "passwordTag" = "password";
-"firstNameTag" = "First name";
-"lastNameTag" = "Last name";
+"nameTag" = "username";
 
 // MARK: Common Symbol
 "backwardSymbol" = "arrow.uturn.backward";
@@ -80,3 +81,7 @@
 "eyeSymbol" = "eye.fill";
 "eyeSlashSymbol" = "eye.slash.fill";
 "alertSymbol" = "exclamationmark.triangle";
+"userSymbol" = "person.circle.fill";
+
+// MARK: Questionare
+

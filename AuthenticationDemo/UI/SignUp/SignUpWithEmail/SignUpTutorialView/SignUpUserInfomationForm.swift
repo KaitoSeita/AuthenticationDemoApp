@@ -11,18 +11,18 @@ struct SignUpUserInfomationForm: View {
     let indicatorPresenter: SignUpWithEmailStepIndicatorPresenter
     
     @Binding var selection: SignUpSelection
-    
-    @State private var firstName = ""
-    @State private var lastName = ""
+    @ObservedObject var user: SignUpUser
 
     var body: some View {
         VStack(spacing: 15) {
             Explanation()
-            HeightSpacer(height: 100)
-            NameForm(type: .first, firstName: $firstName, lastName: $lastName)
-            NameForm(type: .last, firstName: $firstName, lastName: $lastName)
-            
+            HeightSpacer(height: 80)
+            NameForm(user: user)
+            HeightSpacer(height: 30)
+            BirthdayDatePicker(user: user)
             Spacer()
+            ContinueButton(selection: $selection, name: user.userName)
+            HeightSpacer(height: 80)
         }
         .onAppear {
             indicatorPresenter.colorSelecter(selection: selection)
@@ -36,7 +36,7 @@ struct SignUpUserInfomationForm: View {
 private struct Explanation: View {
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             Text(R.string.localizable.createProfileTitle)
                 .font(.system(.title, design: .rounded))
                 .bold()
@@ -52,23 +52,65 @@ private struct Explanation: View {
 }
 
 private struct NameForm: View {
-    let type: InputNameType
-    
-    @Binding var firstName: String
-    @Binding var lastName: String
-    
+    @ObservedObject var user: SignUpUser
+        
     var body: some View {
         CustomizedRoundedRectangle(color: Color.white, content: {
             HStack{
-                switch type {
-                case .last:
-                    
-                    Spacer()
-                case .first:
-                    
-                    Spacer()
-                }
-            }.padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 25))
+                Image(systemName: String(resource: R.string.localizable.userSymbol))
+                    .foregroundColor(.gray.opacity(0.5))
+                    .frame(width: 10, height: 10)
+                
+                WidthSpacer(width: 20)
+
+                TextField(String(resource: R.string.localizable.nameTag), text: $user.userName)
+                    .font(.system(.body, design: .rounded))
+                    .keyboardType(.alphabet)
+                    .autocapitalization(.none)
+            }.padding(.horizontal, 25)
         })
     }
+}
+
+private struct BirthdayDatePicker: View {
+    @ObservedObject var user: SignUpUser
+    
+    var body: some View {
+        DatePicker("", selection: $user.birthDay, displayedComponents: .date)
+    }
+}
+
+private struct ContinueButton: View {
+    @Binding var selection: SignUpSelection
+        
+    let name: String
+    
+    var nameCount: Bool {
+        name.count == 0
+    }
+    
+    var body: some View {
+        Button(action: {
+            withAnimation(.linear) {
+                selection = .questionnaire
+            }
+        }, label: {
+            if !nameCount {
+                CustomizedRoundedRectangle(color: Color.black, content: {
+                    Text(R.string.localizable.continue)
+                        .customizedFont(color: .white)
+                })
+            } else {
+                CustomizedRoundedRectangle(color: .gray.opacity(0.1), content: {
+                    Text(R.string.localizable.continue)
+                        .customizedFont(color: .black)
+                })
+            }
+        })
+        .disabled(nameCount)
+    }
+}
+
+#Preview {
+    SignUpUserInfomationForm(indicatorPresenter: SignUpWithEmailStepIndicatorPresenter(), selection: .constant(.email), user: SignUpUser())
 }

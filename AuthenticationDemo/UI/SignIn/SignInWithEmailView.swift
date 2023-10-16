@@ -46,7 +46,7 @@ struct SignInWithEmailView: View {
         .padding(.top, 50)
         .customBackwardButton()
         .navigationDestination(isPresented: $presenter.isShowingSuccessView, destination: {
-            SuccessView()
+            SignInSuccessView()
                 .navigationBarBackButtonHidden(true)
         })
         .toast(isPresenting: $presenter.isShowingErrorMessage, alert: {

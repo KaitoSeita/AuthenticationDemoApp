@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct SignUpWithGoogleButton: View {
     let interactor: SignInUpWithGoogleInteractor
@@ -33,8 +34,18 @@ struct SignUpWithGoogleButton: View {
             }
             .navigationBarBackButtonHidden(true)
             .navigationDestination(isPresented: $presenter.isShowingSuccessView, destination: {
-                SuccessView()
+                SignInSuccessView()
                     .navigationBarBackButtonHidden(true)
+            })
+            .toast(isPresenting: $presenter.isShowingErrorMessage, alert: {
+                // ErrorToast
+                AlertToast(displayMode: .hud ,
+                           type: .systemImage(String(resource: R.string.localizable.alertSymbol), .red.opacity(0.5)),
+                           subTitle:  presenter.errorMessage)
+            })
+            .toast(isPresenting: $presenter.isShowingLoadingToast, alert: {
+                // LoadingToast
+                AlertToast(type: .loading)
             })
     }
 }

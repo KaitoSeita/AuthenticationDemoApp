@@ -11,8 +11,3 @@ enum InputFormType {
     case email
     case password
 }
-
-enum InputNameType {
-    case first
-    case last
-}

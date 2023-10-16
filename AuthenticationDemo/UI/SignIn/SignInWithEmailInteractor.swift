@@ -9,11 +9,11 @@ import Foundation
 import FirebaseAuth
 
 protocol SignInWithEmailInteractorProtocol {
-    func fetchUserInfo(email: String, password: String) -> Result<User, Error>
-    func resetPassword(email: String)
+    func fetchUserInfo(email: String, password: String) async -> Result<User, Error>
+    func resetPassword(email: String) async -> Result<String, Error>
 }
 
-final class SignInWithEmailInteractor {
+final class SignInWithEmailInteractor: SignInWithEmailInteractorProtocol {
     
     func fetchUserInfo(email: String, password: String) async -> Result<User, Error> {
         do {

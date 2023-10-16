@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		350871932ACC702E0027D886 /* SignUpQuestionnaire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350871922ACC702E0027D886 /* SignUpQuestionnaire.swift */; };
 		354E527D2ACCF58500C66B98 /* SignUpWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E527C2ACCF58500C66B98 /* SignUpWithEmailView.swift */; };
-		35679CE92AD6335E002385A8 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679CE82AD6335E002385A8 /* ContinueButton.swift */; };
 		35679CF02AD6578F002385A8 /* SignUpWithEmailStepIndicatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679CEF2AD6578F002385A8 /* SignUpWithEmailStepIndicatorPresenter.swift */; };
 		35679CF22AD658ED002385A8 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679CF12AD658ED002385A8 /* ColorModel.swift */; };
 		35679CF82AD67505002385A8 /* View+SignUpBackwardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679CF72AD67505002385A8 /* View+SignUpBackwardButton.swift */; };
+		35679D002AD7916B002385A8 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679CFF2AD7916B002385A8 /* LottieView.swift */; };
+		35679D042AD7991B002385A8 /* sendingEmail.json in Resources */ = {isa = PBXBuildFile; fileRef = 35679D032AD7991B002385A8 /* sendingEmail.json */; };
 		357C15CA2AD51356007D6103 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357C15C92AD51356007D6103 /* CloseButton.swift */; };
 		358672902ABBE66900F10606 /* SignInUpWithApplePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586728F2ABBE66900F10606 /* SignInUpWithApplePresenter.swift */; };
 		3586729A2AC1192E00F10606 /* SignInWithEmailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358672992AC1192E00F10606 /* SignInWithEmailButton.swift */; };
@@ -46,7 +47,6 @@
 		3594566B2AA8CE3800238B39 /* SignInWithEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594566A2AA8CE3800238B39 /* SignInWithEmailPresenter.swift */; };
 		3594566E2AA8E4DC00238B39 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 3594566D2AA8E4DC00238B39 /* RswiftLibrary */; };
 		359456732AA9EFA400238B39 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 359456722AA9EFA400238B39 /* Lottie */; };
-		359456762AA9F01400238B39 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 359456752AA9F01400238B39 /* PartialSheet */; };
 		359456882AB7211B00238B39 /* SignUpWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456872AB7211B00238B39 /* SignUpWithAppleButton.swift */; };
 		359456922AB7223900238B39 /* SignInTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456912AB7223900238B39 /* SignInTopView.swift */; };
 		359456962AB7227400238B39 /* SignUpTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359456952AB7227400238B39 /* SignUpTopView.swift */; };
@@ -63,10 +63,11 @@
 /* Begin PBXFileReference section */
 		350871922ACC702E0027D886 /* SignUpQuestionnaire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpQuestionnaire.swift; sourceTree = "<group>"; };
 		354E527C2ACCF58500C66B98 /* SignUpWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailView.swift; sourceTree = "<group>"; };
-		35679CE82AD6335E002385A8 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		35679CEF2AD6578F002385A8 /* SignUpWithEmailStepIndicatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailStepIndicatorPresenter.swift; sourceTree = "<group>"; };
 		35679CF12AD658ED002385A8 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
 		35679CF72AD67505002385A8 /* View+SignUpBackwardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+SignUpBackwardButton.swift"; sourceTree = "<group>"; };
+		35679CFF2AD7916B002385A8 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		35679D032AD7991B002385A8 /* sendingEmail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sendingEmail.json; path = ../../../../sendingEmail.json; sourceTree = "<group>"; };
 		357C15C92AD51356007D6103 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		3586728F2ABBE66900F10606 /* SignInUpWithApplePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpWithApplePresenter.swift; sourceTree = "<group>"; };
 		358672992AC1192E00F10606 /* SignInWithEmailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailButton.swift; sourceTree = "<group>"; };
@@ -125,7 +126,6 @@
 				359456552AA8B90500238B39 /* FirebaseAuth in Frameworks */,
 				3594566E2AA8E4DC00238B39 /* RswiftLibrary in Frameworks */,
 				359456732AA9EFA400238B39 /* Lottie in Frameworks */,
-				359456762AA9F01400238B39 /* PartialSheet in Frameworks */,
 				35F221EE2AC5166B008DD5E9 /* AlertToast in Frameworks */,
 				35F5E4102AC2C70200756A8D /* GoogleSignIn in Frameworks */,
 			);
@@ -143,11 +143,28 @@
 			path = SignUpWithIndicator;
 			sourceTree = "<group>";
 		};
+		35679CFB2AD7910D002385A8 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				35679D032AD7991B002385A8 /* sendingEmail.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		35679CFC2AD79114002385A8 /* Rswift */ = {
+			isa = PBXGroup;
+			children = (
+				359456982AB727F300238B39 /* Localizable.strings */,
+			);
+			path = Rswift;
+			sourceTree = "<group>";
+		};
 		358672892ABA8E8900F10606 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				35679CFC2AD79114002385A8 /* Rswift */,
+				35679CFB2AD7910D002385A8 /* Lottie */,
 				35F5E4162AC2D04C00756A8D /* Fonts */,
-				359456982AB727F300238B39 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -223,7 +240,7 @@
 			children = (
 				358DCD792AC45E9D0076524D /* RoundedRectangle.swift */,
 				357C15C92AD51356007D6103 /* CloseButton.swift */,
-				35679CE82AD6335E002385A8 /* ContinueButton.swift */,
+				35679CFF2AD7916B002385A8 /* LottieView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -391,7 +408,6 @@
 				359456542AA8B90500238B39 /* FirebaseAuth */,
 				3594566D2AA8E4DC00238B39 /* RswiftLibrary */,
 				359456722AA9EFA400238B39 /* Lottie */,
-				359456752AA9F01400238B39 /* PartialSheet */,
 				35F5E40F2AC2C70200756A8D /* GoogleSignIn */,
 				35F221ED2AC5166B008DD5E9 /* AlertToast */,
 			);
@@ -427,7 +443,6 @@
 				359456512AA8B90500238B39 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				3594566C2AA8E4DC00238B39 /* XCRemoteSwiftPackageReference "R" */,
 				359456712AA9EFA400238B39 /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				359456742AA9F01400238B39 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 				35F5E40E2AC2C70100756A8D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				35F221EC2AC5166B008DD5E9 /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
@@ -446,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3594564B2AA8B8D200238B39 /* Preview Assets.xcassets in Resources */,
+				35679D042AD7991B002385A8 /* sendingEmail.json in Resources */,
 				359456992AB727F300238B39 /* Localizable.strings in Resources */,
 				359456482AA8B8D200238B39 /* Assets.xcassets in Resources */,
 				359456572AA8B97100238B39 /* GoogleService-Info.plist in Resources */,
@@ -492,12 +508,12 @@
 				3586729A2AC1192E00F10606 /* SignInWithEmailButton.swift in Sources */,
 				358DCD6C2AC4482B0076524D /* View+Shadow.swift in Sources */,
 				35F221F52AC54DC9008DD5E9 /* SignInUpWithGoogleInteractor.swift in Sources */,
+				35679D002AD7916B002385A8 /* LottieView.swift in Sources */,
 				35679CF22AD658ED002385A8 /* ColorModel.swift in Sources */,
 				3586729C2AC1193A00F10606 /* SignInWithGoogleButton.swift in Sources */,
 				358672AF2AC1436B00F10606 /* View+Spacer.swift in Sources */,
 				358946342ACA838C006DCBA9 /* SignUpUserInfomationForm.swift in Sources */,
 				3594569E2AB7F93600238B39 /* SignInWithEmailInteractor.swift in Sources */,
-				35679CE92AD6335E002385A8 /* ContinueButton.swift in Sources */,
 				359456442AA8B8D000238B39 /* AuthenticationDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -738,14 +754,6 @@
 				minimumVersion = 4.0.0;
 			};
 		};
-		359456742AA9F01400238B39 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 		35F221EC2AC5166B008DD5E9 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/elai950/AlertToast.git";
@@ -788,11 +796,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 359456712AA9EFA400238B39 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
-		};
-		359456752AA9F01400238B39 /* PartialSheet */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 359456742AA9F01400238B39 /* XCRemoteSwiftPackageReference "PartialSheet" */;
-			productName = PartialSheet;
 		};
 		35F221ED2AC5166B008DD5E9 /* AlertToast */ = {
 			isa = XCSwiftPackageProductDependency;

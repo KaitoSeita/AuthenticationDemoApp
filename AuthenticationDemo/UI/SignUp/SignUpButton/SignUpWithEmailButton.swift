@@ -2,17 +2,17 @@
 //  SignUpWithEmailButton.swift
 //  AuthenticationDemo
 //
-//  Created by セイタカイト on 2023/09/26.
+//  Created by kaito-seita on 2023/09/26.
 //
 
 import SwiftUI
 
 struct SignUpWithEmailButton: View {
-    let presenter: SignUpWithEmailPresenter
+    private let interactor: SignUpWithEmailInteractor = SignUpWithEmailInteractor()
     
     var body: some View {
         NavigationLink {
-            SignUpWithEmailView()
+            SignUpWithEmailView(interactor: interactor)
         } label: {
             CustomizedRoundedRectangle(color: Color.white, content: {
                 HStack {
@@ -26,6 +26,5 @@ struct SignUpWithEmailButton: View {
                 }
             })
         }
-        
     }
 }

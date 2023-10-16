@@ -49,7 +49,7 @@ struct ResetPasswordView: View {
         }
         .sheet(isPresented: $presenter.isShowingSuccessView) {
             SendEmailSuccessView(isShowingAlert: $isShowingAlert, presenter: presenter, email: email)
-                .presentationDetents([.fraction(0.35)])
+                .presentationDetents([.fraction(0.5)])
                 .toast(isPresenting: $presenter.isShowingErrorMessage, alert: {
                     AlertToast(displayMode: .hud ,
                                type: .systemImage(String(resource: R.string.localizable.alertSymbol), .red.opacity(0.5)),

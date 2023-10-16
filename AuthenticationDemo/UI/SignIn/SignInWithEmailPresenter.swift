@@ -25,7 +25,6 @@ final class SignInWithEmailPresenter: ObservableObject {
     }
 }
 
-// MARK: SignInWithEmailPresenterのメソッド
 extension SignInWithEmailPresenter {
 
     func onTapSignInButton(email: String, password: String) {

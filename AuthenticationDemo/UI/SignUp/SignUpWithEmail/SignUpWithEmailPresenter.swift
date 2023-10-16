@@ -5,31 +5,41 @@
 //  Created by kaito-seita on 2023/10/02.
 //
 
-// SignUpTopViewからemailに来る時, Navigationの遷移で来る. その際, 戻るボタンは廃止してオリジナルのボタンを配置(そのままのボタンを使用すると一気にTopViewに戻ってしまうため)
-
 import SwiftUI
 import FirebaseAuth
 
 final class SignUpWithEmailPresenter: ObservableObject {
-    @Published var selection: SignUpSelection
     @Published var errorMessage: String
     @Published var isShowingSuccessView: Bool
     @Published var isShowingErrorMessage: Bool
     @Published var isShowingLoadingToast: Bool
     
-    init() {
+    private let interactor: SignUpWithEmailInteractor
+    
+    init(interactor: SignUpWithEmailInteractor) {
         errorMessage = ""
         isShowingSuccessView = false
         isShowingErrorMessage = false
         isShowingLoadingToast = false
-        selection = .email
+        self.interactor = interactor
     }
 }
 
 extension SignUpWithEmailPresenter {
     
     func onTapSignUpButton(email: String, password: String) {
-        
+        isShowingLoadingToast = true
+        Task { @MainActor in
+            let result = await signUpWithEmailAndPassword(email: email, password: password)
+            isShowingLoadingToast = false
+            switch result {
+            case .success(_):
+                isShowingSuccessView = true
+            case .failure(let error):
+                setErrorMessage(error: error)
+                isShowingErrorMessage = true
+            }
+        }
     }
     
     func onInputEmail(email: String) -> Bool {
@@ -38,6 +48,10 @@ extension SignUpWithEmailPresenter {
     
     func onInputEmailAndPassword(email: String, password: String, reInputPassword: String) -> Bool {
         return isValidEmailAndPassword(email: email, password: password, reInputPassword: reInputPassword)
+    }
+    
+    private func signUpWithEmailAndPassword(email: String, password: String) async -> Result<User, Error> {
+        return await interactor.makeUser(email: email, password: password)
     }
     
     private func isValidEmailAndPassword(email: String, password: String, reInputPassword: String) -> Bool {

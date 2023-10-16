@@ -19,6 +19,8 @@ struct SignUpWithEmailStepIndicatorView: View {
                         .frame(width: 100, height: 20)
                         .foregroundColor(color.color.opacity(0.85))
                         .grayShadow()
+                    // ここにswitchのセレクション状態によって間にてんてんを配置するか否かを設定する
+                    
                 }
             }
             Spacer()

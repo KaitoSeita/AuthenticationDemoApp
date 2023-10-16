@@ -13,9 +13,8 @@ struct SignUpEmailForm: View {
     let indicatorPresenter: SignUpWithEmailStepIndicatorPresenter
     
     @Binding var selection: SignUpSelection
-    
-    @State private var email = "sample@email.com"
-    @State private var password = "aaaaaaa"
+    @ObservedObject var user: SignUpUser
+
     @State private var reInputPasword = "aaaaaaa"
     
     var body: some View {
@@ -24,20 +23,20 @@ struct SignUpEmailForm: View {
             HeightSpacer(height: 100)
             SignUpForm(presenter: presenter,
                        type: .email,
-                       email: $email,
-                       password: $password)
+                       email: $user.email,
+                       password: $user.password)
             HeightSpacer(height: 15)
             SignUpForm(presenter: presenter,
                        type: .password,
-                       email: $email,
-                       password: $password)
+                       email: $user.email,
+                       password: $user.password)
             SignUpForm(presenter: presenter,
                        type: .password,
-                       email: $email,
+                       email: $user.email,
                        password: $reInputPasword)
-            HeightSpacer(height: 30)
-            ContinueButton(selection: $selection, presenter: presenter, email: email, password: password, reInputPassword: reInputPasword)
             Spacer()
+            ContinueButton(selection: $selection, presenter: presenter, email: user.email, password: user.password, reInputPassword: reInputPasword)
+            HeightSpacer(height: 80)
         }
         .padding(.top, 70)
         .customBackwardButton()
@@ -49,7 +48,7 @@ struct SignUpEmailForm: View {
 
 private struct Explanation: View {
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             Text(R.string.localizable.signUpWithEmail)
                 .font(.system(.title, design: .rounded))
                 .bold()
@@ -119,7 +118,7 @@ private struct SignUpForm: View {
                             isShowingPassword.toggle()
                         }
                 }
-            }.padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 25))
+            }.padding(.horizontal, 25)
         })
     }
 }
@@ -142,3 +141,32 @@ private struct PasswordForm: View {
     }
 }
 
+private struct ContinueButton: View {
+    @Binding var selection: SignUpSelection
+    
+    let presenter: SignUpWithEmailPresenter
+    let email: String
+    let password: String
+    let reInputPassword: String
+    
+    var body: some View {
+        Button(action: {
+            withAnimation(.linear) {
+                selection = .userInfomation                
+            }
+        }, label: {
+            if presenter.onInputEmailAndPassword(email: email, password: password, reInputPassword: reInputPassword) {
+                CustomizedRoundedRectangle(color: Color.black, content: {
+                    Text(R.string.localizable.continue)
+                        .customizedFont(color: .white)
+                })
+            } else {
+                CustomizedRoundedRectangle(color: .gray.opacity(0.1), content: {
+                    Text(R.string.localizable.continue)
+                        .customizedFont(color: .black)
+                })
+            }
+        })
+        .disabled(!presenter.onInputEmailAndPassword(email: email, password: password, reInputPassword: reInputPassword))
+    }
+}
