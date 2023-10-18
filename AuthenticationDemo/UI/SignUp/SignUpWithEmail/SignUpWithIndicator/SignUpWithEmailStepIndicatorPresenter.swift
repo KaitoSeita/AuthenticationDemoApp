@@ -20,7 +20,7 @@ final class SignUpWithEmailStepIndicatorPresenter: ObservableObject {
             colorItems = [ColorModel(color: .black), ColorModel(color: .gray), ColorModel(color: .gray)]
         case .userInfomation:
             colorItems = [ColorModel(color: .black), ColorModel(color: .black), ColorModel(color: .gray)]
-        case .questionnaire:
+        case .confirmation:
             colorItems = [ColorModel(color: .black), ColorModel(color: .black), ColorModel(color: .black)]
         }
     }

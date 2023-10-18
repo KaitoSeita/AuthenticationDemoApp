@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		350871932ACC702E0027D886 /* SignUpQuestionnaire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350871922ACC702E0027D886 /* SignUpQuestionnaire.swift */; };
+		350871932ACC702E0027D886 /* SignUpConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350871922ACC702E0027D886 /* SignUpConfirmation.swift */; };
 		350E2B7C2ADE64E000EADB03 /* authentication.json in Resources */ = {isa = PBXBuildFile; fileRef = 350E2B7B2ADE64E000EADB03 /* authentication.json */; };
 		3532A1662ADF6B13008E51DB /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 3532A1642ADF6B13008E51DB /* success.json */; };
 		3532A1672ADF6B13008E51DB /* checkmark.json in Resources */ = {isa = PBXBuildFile; fileRef = 3532A1652ADF6B13008E51DB /* checkmark.json */; };
@@ -65,7 +65,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		350871922ACC702E0027D886 /* SignUpQuestionnaire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpQuestionnaire.swift; sourceTree = "<group>"; };
+		350871922ACC702E0027D886 /* SignUpConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpConfirmation.swift; sourceTree = "<group>"; };
 		350E2B7B2ADE64E000EADB03 /* authentication.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = authentication.json; path = ../../../../authentication.json; sourceTree = "<group>"; };
 		3532A1642ADF6B13008E51DB /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = success.json; path = ../../../../success.json; sourceTree = "<group>"; };
 		3532A1652ADF6B13008E51DB /* checkmark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = checkmark.json; path = ../../../../checkmark.json; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 			children = (
 				358946312ACA8328006DCBA9 /* SignUpEmailForm.swift */,
 				358946332ACA838C006DCBA9 /* SignUpUserInfomationForm.swift */,
-				350871922ACC702E0027D886 /* SignUpQuestionnaire.swift */,
+				350871922ACC702E0027D886 /* SignUpConfirmation.swift */,
 			);
 			path = SignUpTutorialView;
 			sourceTree = "<group>";
@@ -504,7 +504,7 @@
 				359456652AA8CE1500238B39 /* SignInWithEmailView.swift in Sources */,
 				359456462AA8B8D000238B39 /* AuthenticationTopView.swift in Sources */,
 				358946282ACA6292006DCBA9 /* SignUpWithEmailInteractor.swift in Sources */,
-				350871932ACC702E0027D886 /* SignUpQuestionnaire.swift in Sources */,
+				350871932ACC702E0027D886 /* SignUpConfirmation.swift in Sources */,
 				3594566B2AA8CE3800238B39 /* SignInWithEmailPresenter.swift in Sources */,
 				35679CF82AD67505002385A8 /* View+SignUpBackwardButton.swift in Sources */,
 				358672A42AC11FA100F10606 /* AuthenticationTopPresenter.swift in Sources */,

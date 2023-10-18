@@ -15,7 +15,7 @@ enum AuthenticationTopSelection {
 enum SignUpSelection {
     case email
     case userInfomation
-    case questionnaire
+    case confirmation
 }
 
 struct AgeSelection: Hashable {

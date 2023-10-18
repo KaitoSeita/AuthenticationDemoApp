@@ -31,11 +31,11 @@ struct SignUpWithEmailView: View {
             
             switch selection {
             case .email:
-                SignUpEmailForm(presenter: presenter, indicatorPresenter: indicatorPresenter, selection: $selection, user: user)
+                SignUpEmailForm(user: user, selection: $selection, presenter: presenter, indicatorPresenter: indicatorPresenter)
             case .userInfomation:
-                SignUpUserInfomationForm(indicatorPresenter: indicatorPresenter, selection: $selection, user: user)
-            case .questionnaire:
-                SignUpQuestionnaire(presenter: presenter, indicatorPresenter: indicatorPresenter, selection: $selection, user: user)
+                SignUpUserInfomationForm(user: user, selection: $selection, indicatorPresenter: indicatorPresenter)
+            case .confirmation:
+                SignUpConfirmation(presenter: presenter, user: user, selection: $selection, indicatorPresenter: indicatorPresenter)
             }
         }
     }
