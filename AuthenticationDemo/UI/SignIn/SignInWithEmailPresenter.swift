@@ -13,7 +13,7 @@ final class SignInWithEmailPresenter: ObservableObject {
     @Published var isShowingSuccessView: Bool
     @Published var isShowingErrorMessage: Bool
     @Published var isShowingLoadingToast: Bool
-
+    
     private let interactor: SignInWithEmailInteractor
     
     init(interactor: SignInWithEmailInteractor) {

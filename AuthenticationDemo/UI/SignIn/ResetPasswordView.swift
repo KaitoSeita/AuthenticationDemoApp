@@ -35,29 +35,17 @@ struct ResetPasswordView: View {
         }
         .padding(.top, 50)
         .customBackwardButton()
-        .toast(isPresenting: $presenter.isShowingErrorMessage, alert: {
-            AlertToast(displayMode: .hud ,
-                       type: .systemImage(String(resource: R.string.localizable.alertSymbol), .red.opacity(0.5)),
-                       subTitle:  presenter.errorMessage)
-        })
-        .toast(isPresenting: $presenter.isShowingLoadingToast, alert: {
-            AlertToast(type: .loading)
-        })
+        .toast(isShowingErrorMessage: $presenter.isShowingErrorMessage, isShowingLoadingToast: $presenter.isShowingLoadingToast, errorMessage: presenter.errorMessage)
         .onChange(of: !isShowingResetPasswordView) { _ in
             // 再設定メール送信完了後, サインイン画面に戻る
             dismiss()
         }
         .sheet(isPresented: $presenter.isShowingSuccessView) {
             SendEmailSuccessView(isShowingAlert: $isShowingAlert, presenter: presenter, email: email)
+                .presentationCornerRadius(20)
+                .presentationDragIndicator(.visible)
                 .presentationDetents([.fraction(0.5)])
-                .toast(isPresenting: $presenter.isShowingErrorMessage, alert: {
-                    AlertToast(displayMode: .hud ,
-                               type: .systemImage(String(resource: R.string.localizable.alertSymbol), .red.opacity(0.5)),
-                               subTitle:  presenter.errorMessage)
-                })
-                .toast(isPresenting: $presenter.isShowingLoadingToast, alert: {
-                    AlertToast(type: .loading)
-                })
+                .toast(isShowingErrorMessage: $presenter.isShowingErrorMessage, isShowingLoadingToast: $presenter.isShowingLoadingToast, errorMessage: presenter.errorMessage)
                 .onDisappear {
                     isShowingResetPasswordView = false
                 }

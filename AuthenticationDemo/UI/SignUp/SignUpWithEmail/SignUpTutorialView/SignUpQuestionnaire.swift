@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AlertToast
 
 struct SignUpQuestionnaire: View {
     @ObservedObject var presenter: SignUpWithEmailPresenter
@@ -26,19 +25,13 @@ struct SignUpQuestionnaire: View {
         }
         .padding(.top, 50)
         .signUpBackwardButton(selection: $selection)
-        .navigationBarBackButtonHidden(true)
         .navigationDestination(isPresented: $presenter.isShowingSuccessView, destination: {
-            SignInSuccessView()
+            SignUpSuccessView()
                 .navigationBarBackButtonHidden(true)
         })
-        .toast(isPresenting: $presenter.isShowingErrorMessage, alert: {
-            AlertToast(displayMode: .hud ,
-                       type: .systemImage(String(resource: R.string.localizable.alertSymbol), .red.opacity(0.5)),
-                       subTitle:  presenter.errorMessage)
-        })
-        .toast(isPresenting: $presenter.isShowingLoadingToast, alert: {
-            AlertToast(type: .loading)
-        })
+        .toast(isShowingErrorMessage: $presenter.isShowingErrorMessage,
+               isShowingLoadingToast: $presenter.isShowingLoadingToast,
+               errorMessage: presenter.errorMessage)
     }
 }
 

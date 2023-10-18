@@ -10,8 +10,8 @@ import RswiftResources
 import AlertToast
 
 struct SignInWithEmailView: View {
-    @State private var email = ""
-    @State private var password = ""
+    @State private var email = "sample@email.com"
+    @State private var password = "aaaaaaaa"
         
     @ObservedObject private var presenter: SignInWithEmailPresenter
     
@@ -49,14 +49,9 @@ struct SignInWithEmailView: View {
             SignInSuccessView()
                 .navigationBarBackButtonHidden(true)
         })
-        .toast(isPresenting: $presenter.isShowingErrorMessage, alert: {
-            AlertToast(displayMode: .hud ,
-                       type: .systemImage(String(resource: R.string.localizable.alertSymbol), .red.opacity(0.5)),
-                       subTitle:  presenter.errorMessage)
-        })
-        .toast(isPresenting: $presenter.isShowingLoadingToast, alert: {
-            AlertToast(type: .loading)
-        })
+        .toast(isShowingErrorMessage: $presenter.isShowingErrorMessage,
+               isShowingLoadingToast: $presenter.isShowingLoadingToast,
+               errorMessage: presenter.errorMessage)
     }
 }
 

@@ -41,15 +41,8 @@ struct SignInWithGoogleButton: View {
                         presenter.isShowingLoadingToast = false
                     }
             })
-            .toast(isPresenting: $presenter.isShowingErrorMessage, alert: {
-                // ErrorToast
-                AlertToast(displayMode: .hud ,
-                           type: .systemImage(String(resource: R.string.localizable.alertSymbol), .red.opacity(0.5)),
-                           subTitle:  presenter.errorMessage)
-            })
-            .toast(isPresenting: $presenter.isShowingLoadingToast, alert: {
-                // LoadingToast
-                AlertToast(type: .loading)
-            })
+            .toast(isShowingErrorMessage: $presenter.isShowingErrorMessage,
+                   isShowingLoadingToast: $presenter.isShowingLoadingToast,
+                   errorMessage: presenter.errorMessage)
     }
 }
