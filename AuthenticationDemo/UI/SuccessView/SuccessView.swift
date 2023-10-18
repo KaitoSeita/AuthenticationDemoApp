@@ -11,26 +11,38 @@ import AlertToast
 
 struct SignInSuccessView: View {
     var body: some View {
-        VStack {
-            Text(R.string.localizable.successViewTitle)
-                .font(.system(.title, design: .rounded))
-                .bold()
-            Text(R.string.localizable.successViewSubTitle)
-                .font(.system(size: 12, design: .rounded))
-                .bold()
+        ZStack {
+            VStack {
+                Text(R.string.localizable.signInSuccessViewTitle)
+                    .font(.system(.title, design: .rounded))
+                    .bold()
+                Text(R.string.localizable.signInSuccessViewSubTitle)
+                    .font(.system(size: 12, design: .rounded))
+                    .bold()
+                LottieView(name: "checkmark", loopMode: .playOnce)
+                    .frame(width: 200, height: 200)
+            }
+            LottieView(name: "success", loopMode: .playOnce)
+                .frame(width: 300, height: 300)
         }
     }
 }
 
 struct SignUpSuccessView: View {
     var body: some View {
-        VStack {
-            Text(R.string.localizable.successViewTitle)
-                .font(.system(.title, design: .rounded))
-                .bold()
-            Text(R.string.localizable.successViewSubTitle)
-                .font(.system(size: 12, design: .rounded))
-                .bold()
+        ZStack {
+            VStack {
+                Text(R.string.localizable.signUpSuccessViewTitle)
+                    .font(.system(.title, design: .rounded))
+                    .bold()
+                Text(R.string.localizable.signUpSuccessViewSubTitle)
+                    .font(.system(size: 12, design: .rounded))
+                    .bold()
+                LottieView(name: "checkmark", loopMode: .playOnce)
+                    .frame(width: 200, height: 200)
+            }
+            LottieView(name: "success", loopMode: .playOnce)
+                .frame(width: 300, height: 300)
         }
     }
 }
@@ -49,7 +61,7 @@ struct SendEmailSuccessView: View {
                 .font(.system(.title, design: .rounded))
                 .bold()
             LottieView(name: "sendingEmail", loopMode: .playOnce)
-                .frame(width: 100, height: 100)
+                .frame(width: 120, height: 120)
             Text(R.string.localizable.successSendEmailSubTitle)
                 .font(.system(size: 12, design: .rounded))
                 .bold()

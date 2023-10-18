@@ -23,6 +23,9 @@ struct AuthenticationTopView: View {
                     .font(.system(.largeTitle, design: .rounded))
                     .bold()
                 Spacer()
+                LottieView(name: "authentication", loopMode: .playOnce)
+                    .frame(width: 200, height: 200)
+                Spacer()
                 SignInButton(presenter: presenter)
                 SignUpButton(presenter: presenter)
             }
