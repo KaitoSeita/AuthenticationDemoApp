@@ -19,7 +19,7 @@ FirebaseAuthを使用したサインインおよびサインアップのデモ�
 ### VIPER
 [VIPER 公式サイト](https://cheesecakelabs.com/blog/ios-project-architecture-using-viper/)
 ### 概要
-VIPERアーキテクチャとは、View、Interactor、Presenter、Entity、Routerの5つから構成される。
+VIPERアーキテクチャとは、View、Interactor、Presenter、Entity、Routerの5つから構成されます。
 - View  
 ユーザーのアクションを検知してPresenterに通知し、Presenterからデータを取得する
 - Presenter  
