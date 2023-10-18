@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct SignUpUserInfomationForm: View {
-    let indicatorPresenter: SignUpWithEmailStepIndicatorPresenter
+    @ObservedObject var user: SignUpUser
     
     @Binding var selection: SignUpSelection
-    @ObservedObject var user: SignUpUser
 
+    let indicatorPresenter: SignUpWithEmailStepIndicatorPresenter
+    
     var body: some View {
         VStack(spacing: 15) {
-            Explanation()
+            Explanation()            
             HeightSpacer(height: 80)
             NameForm(user: user)
             HeightSpacer(height: 30)
@@ -29,14 +30,13 @@ struct SignUpUserInfomationForm: View {
         }
         .signUpBackwardButton(selection: $selection)
         .padding(.top, 70)
-        .navigationBarBackButtonHidden(true)
     }
 }
 
 private struct Explanation: View {
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(R.string.localizable.createProfileTitle)
                 .font(.system(.title, design: .rounded))
                 .bold()
@@ -58,8 +58,9 @@ private struct NameForm: View {
         CustomizedRoundedRectangle(color: Color.white, content: {
             HStack{
                 Image(systemName: String(resource: R.string.localizable.userSymbol))
+                    .resizable()
                     .foregroundColor(.gray.opacity(0.5))
-                    .frame(width: 10, height: 10)
+                    .frame(width: 25, height: 25)
                 
                 WidthSpacer(width: 20)
 
@@ -75,8 +76,51 @@ private struct NameForm: View {
 private struct BirthdayDatePicker: View {
     @ObservedObject var user: SignUpUser
     
+    @State private var isShowingDatePicker = false
+    
+    let dateLimit = Calendar(identifier: .gregorian).date(from: DateComponents(year: 2010, month: 1, day: 1))!
+    let formatter = DateFormatter()
+    
+    init(user: SignUpUser) {
+        self.user = user
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.dateStyle = .long
+    }
+    
     var body: some View {
-        DatePicker("", selection: $user.birthDay, displayedComponents: .date)
+        CustomizedRoundedRectangle(color: Color.white, content: {
+            HStack {
+                Image(systemName: String(resource: R.string.localizable.calendarSymbol))
+                    .resizable()
+                    .foregroundColor(.gray.opacity(0.5))
+                    .frame(width: 25, height: 25)
+                
+                WidthSpacer(width: 20)
+                
+                Text(formatter.string(from: user.birthdayDate))
+                    .foregroundColor(.black)
+                    .font(.system(size: 16, design: .rounded))
+                    .bold()
+                Spacer()
+            }.padding(.horizontal, 25)
+        })
+        .onTapGesture {
+            isShowingDatePicker.toggle()
+        }
+        .sheet(isPresented: $isShowingDatePicker, content: {
+            HStack {
+                DatePicker("",
+                           selection: $user.birthdayDate,
+                           in: ...dateLimit,
+                           displayedComponents: .date)
+                .datePickerStyle(.wheel)
+                .presentationCornerRadius(20)
+                .presentationDragIndicator(.visible)
+                .environment(\.locale, Locale(identifier: "ja_JP"))
+                .presentationDetents([.fraction(0.5)])
+                WidthSpacer(width: 35)
+            }
+        })
     }
 }
 
@@ -92,7 +136,7 @@ private struct ContinueButton: View {
     var body: some View {
         Button(action: {
             withAnimation(.linear) {
-                selection = .questionnaire
+                selection = .confirmation
             }
         }, label: {
             if !nameCount {
@@ -109,8 +153,4 @@ private struct ContinueButton: View {
         })
         .disabled(nameCount)
     }
-}
-
-#Preview {
-    SignUpUserInfomationForm(indicatorPresenter: SignUpWithEmailStepIndicatorPresenter(), selection: .constant(.email), user: SignUpUser())
 }

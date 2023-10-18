@@ -9,14 +9,15 @@ import SwiftUI
 import RswiftResources
 
 struct SignUpEmailForm: View {
-    let presenter: SignUpWithEmailPresenter
-    let indicatorPresenter: SignUpWithEmailStepIndicatorPresenter
+    @ObservedObject var user: SignUpUser
     
     @Binding var selection: SignUpSelection
-    @ObservedObject var user: SignUpUser
-
+    
     @State private var reInputPasword = "aaaaaaa"
     
+    let presenter: SignUpWithEmailPresenter
+    let indicatorPresenter: SignUpWithEmailStepIndicatorPresenter
+        
     var body: some View {
         VStack(spacing: 15) {
             Explanation()
@@ -48,7 +49,7 @@ struct SignUpEmailForm: View {
 
 private struct Explanation: View {
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(R.string.localizable.signUpWithEmail)
                 .font(.system(.title, design: .rounded))
                 .bold()

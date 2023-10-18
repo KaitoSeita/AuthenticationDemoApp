@@ -1,5 +1,5 @@
 //
-//  NavigationStack+BackwardButton.swift
+//  View+NavigationBackwardButton.swift
 //  AuthenticationDemo
 //
 //  Created by kaito-seita on 2023/09/27.

@@ -22,7 +22,7 @@ struct SignUpBackwardButton: ViewModifier {
                                     selection = .email
                                 case .userInfomation:
                                     selection = .email
-                                case .questionnaire:
+                                case .confirmation:
                                     selection = .userInfomation
                                 }
                             }
@@ -32,6 +32,7 @@ struct SignUpBackwardButton: ViewModifier {
                     ).tint(.black)
                 }
             }
+            .navigationBarBackButtonHidden(true)
     }
 }
 
