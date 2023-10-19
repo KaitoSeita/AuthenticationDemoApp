@@ -44,7 +44,8 @@ final class SignInWithEmailInteractor: SignInWithEmailInteractorProtocol {
     }
 }
 ```
-※一部抜粋しています
+※一部抜粋しています  
+非同期での通信処理においてdo-catch文でエラー処理を記述し、Result型でPresenterに通知します。
 - **Presenter**  
 Viewから受け取ったイベント通知を元に、RouterやInteractorに対して画面遷移やデータ通信の依頼を行ったり、データに関する処理を行って、結果をViewに返却する
 ```
