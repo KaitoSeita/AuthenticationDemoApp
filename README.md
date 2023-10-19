@@ -87,7 +87,8 @@ extension SignInWithEmailPresenter {
     }
 }
 ```
-※一部抜粋しています
+※一部抜粋しています  
+Viewで呼び出されるメソッドはViewにおけるイベントに対応した命名をし、Interactorへのデータ取得依頼に関するメソッドはprivateで通信処理に対応する命名をします。
 - **Router**  
 Presenterから受けた依頼に対して画面遷移を実行する
 ```
