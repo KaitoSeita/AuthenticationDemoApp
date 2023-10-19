@@ -32,10 +32,13 @@ struct SignUpWithEmailView: View {
             switch selection {
             case .email:
                 SignUpEmailForm(user: user, selection: $selection, presenter: presenter, indicatorPresenter: indicatorPresenter)
+                    .transition(presenter.transition)
             case .userInfomation:
-                SignUpUserInfomationForm(user: user, selection: $selection, indicatorPresenter: indicatorPresenter)
+                SignUpUserInfomationForm(user: user, selection: $selection, presenter: presenter, indicatorPresenter: indicatorPresenter)
+                    .transition(presenter.transition)
             case .confirmation:
                 SignUpConfirmation(presenter: presenter, user: user, selection: $selection, indicatorPresenter: indicatorPresenter)
+                    .transition(presenter.transition)
             }
         }
     }

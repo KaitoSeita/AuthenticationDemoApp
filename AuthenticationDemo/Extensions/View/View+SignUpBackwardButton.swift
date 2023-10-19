@@ -10,13 +10,16 @@ import SwiftUI
 struct SignUpBackwardButton: ViewModifier {
     @Binding var selection: SignUpSelection
     
+    let presenter: SignUpWithEmailPresenter
+    
     func body(content: Content) -> some View {
         content
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(
                         action: {
-                            withAnimation(.linear){
+                            presenter.onTapTransitionButton(direction: .back)
+                            withAnimation(.easeOut(duration: 0.3)){
                                 switch selection {
                                 case .email:
                                     selection = .email
@@ -38,7 +41,7 @@ struct SignUpBackwardButton: ViewModifier {
 
 extension View {
     
-    func signUpBackwardButton(selection: Binding<SignUpSelection>) -> some View {
-        self.modifier(SignUpBackwardButton(selection: selection))
+    func signUpBackwardButton(selection: Binding<SignUpSelection>, presenter: SignUpWithEmailPresenter) -> some View {
+        self.modifier(SignUpBackwardButton(selection: selection, presenter: presenter))
     }
 }

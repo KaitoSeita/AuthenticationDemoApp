@@ -152,8 +152,9 @@ private struct ContinueButton: View {
     
     var body: some View {
         Button(action: {
-            withAnimation(.linear) {
-                selection = .userInfomation                
+            presenter.onTapTransitionButton(direction: .forward)
+            withAnimation(.easeOut(duration: 0.3)) {
+                selection = .userInfomation
             }
         }, label: {
             if presenter.onInputEmailAndPassword(email: email, password: password, reInputPassword: reInputPassword) {

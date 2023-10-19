@@ -13,17 +13,17 @@ struct SignUpWithEmailStepIndicatorView: View {
     var body: some View {
         VStack {
             HeightSpacer(height: 25)
-            HStack(spacing: 20){
+            HStack {
                 ForEach(presenter.colorItems){ color in
                     Circle()
-                        .frame(width: 100, height: 20)
+                        .frame(width: 15, height: 10)
                         .foregroundColor(color.color.opacity(0.85))
                         .grayShadow()
-                    // ここにswitchのセレクション状態によって間にてんてんを配置するか否かを設定する
-                    
                 }
             }
             Spacer()
         }
     }
 }
+
+// .emailの場合 → 左だけアニメーション動作でてんてん , .userInformationの場合 → 左はてんてんで右はアニメーション動作でてんてん

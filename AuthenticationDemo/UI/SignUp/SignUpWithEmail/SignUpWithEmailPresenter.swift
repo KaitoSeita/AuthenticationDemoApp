@@ -13,6 +13,7 @@ final class SignUpWithEmailPresenter: ObservableObject {
     @Published var isShowingSuccessView: Bool
     @Published var isShowingErrorMessage: Bool
     @Published var isShowingLoadingToast: Bool
+    @Published var transition: AnyTransition
     
     private let interactor: SignUpWithEmailInteractor
     
@@ -21,6 +22,7 @@ final class SignUpWithEmailPresenter: ObservableObject {
         isShowingSuccessView = false
         isShowingErrorMessage = false
         isShowingLoadingToast = false
+        transition = AnyTransition.identity
         self.interactor = interactor
     }
 }
@@ -39,6 +41,16 @@ extension SignUpWithEmailPresenter {
                 setErrorMessage(error: error)
                 isShowingErrorMessage = true
             }
+        }
+    }
+    
+    func onTapTransitionButton(direction: TransitionDirection) {
+        
+        switch direction {
+        case .back:
+            transition = AnyTransition.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)).combined(with: .opacity)
+        case .forward:
+            transition = AnyTransition.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)).combined(with: .opacity)
         }
     }
     
