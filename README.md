@@ -20,18 +20,94 @@ FirebaseAuthを使用したサインインおよびサインアップのデモ�
 [VIPER 公式サイト](https://cheesecakelabs.com/blog/ios-project-architecture-using-viper/)
 ### 概要
 VIPERアーキテクチャとは、View、Interactor、Presenter、Entity、Routerの5つから構成されます。
-- View  
+- **View**  
 ユーザーのアクションを検知してPresenterに通知し、Presenterからデータを取得する
-- Presenter  
-Viewから受け取ったイベント通知を元に、RouterやInteractorに対して画面遷移やデータ通信の依頼を行ったり、データに関する処理を行って、結果をViewに返却する
-- Interactor  
+- **Interactor**  
 Presenterから受けたデータ取得依頼に対して、APIを通じてサーバと通信し、結果をPresenterに返す
-- Entity  
-データの構造を定義する
-- Router  
+```
+protocol SignInWithEmailInteractorProtocol {
+    func fetchUserInfo(email: String, password: String) async -> Result<User, Error>
+}
+
+final class SignInWithEmailInteractor: SignInWithEmailInteractorProtocol {
+    
+    func fetchUserInfo(email: String, password: String) async -> Result<User, Error> {
+        do {
+            let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            let userInfo = User(id: result.user.uid,
+                                displayName: result.user.displayName ?? "",
+                                email: result.user.email ?? "")
+            return .success(userInfo)
+        } catch {
+            return .failure(error)
+        }
+    }
+}
+```
+※一部抜粋しています
+- **Presenter**  
+Viewから受け取ったイベント通知を元に、RouterやInteractorに対して画面遷移やデータ通信の依頼を行ったり、データに関する処理を行って、結果をViewに返却する
+```
+final class SignInWithEmailPresenter: ObservableObject {
+    @Published var errorMessage: String
+    @Published var isShowingSuccessView: Bool
+    @Published var isShowingErrorMessage: Bool
+    @Published var isShowingLoadingToast: Bool
+    
+    private let interactor: SignInWithEmailInteractor
+    
+    init(interactor: SignInWithEmailInteractor) {
+        errorMessage = ""
+        isShowingSuccessView = false
+        isShowingErrorMessage = false
+        isShowingLoadingToast = false
+        self.interactor = interactor
+    }
+}
+
+extension SignInWithEmailPresenter {
+
+    func onTapSignInButton(email: String, password: String) {
+        isShowingLoadingToast = true
+        Task { @MainActor in
+            let result = await signInWithEmailPassword(email: email, password: password)
+            isShowingLoadingToast = false
+            switch result {
+            case .success(_):
+                isShowingSuccessView = true
+            case .failure(let error):
+                setErrorMessage(error: error)
+                isShowingErrorMessage = true
+            }
+        }
+    }
+
+    private func signInWithEmailPassword(email: String, password: String) async -> Result<User, Error> {
+        return await interactor.fetchUserInfo(email: email, password: password)
+    }
+}
+```
+※一部抜粋しています
+- **Router**  
 Presenterから受けた依頼に対して画面遷移を実行する
+```
+struct AuthenticationTopRouter {
+
+    func setDestination(selection: AuthenticationTopSelection) -> AnyView? {
+        switch selection {
+        case .signIn:
+            return AnyView(SignInTopView())
+        case .signUp:
+            return AnyView(SignUpTopView())
+        }
+    }
+}
+```
+- **Entity**  
+データの構造を定義する
 ### （正直な感想）
 SwiftUIで記述しましたが、ファイルの構造が複雑化しやすく、SwiftUIならばMVVMやMVCといったもう少し簡単なアーキテクチャの方が記述しやすいように感じました。
+一方で、役割を分割して小さくすることで不具合の把握や修正などがしやすいという印象も受けました。
 ## 動作例
 
-## コード例
+## 
