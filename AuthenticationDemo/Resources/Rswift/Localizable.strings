@@ -6,9 +6,6 @@
   
 */
 
-// resourceの命名が適当すぎるから統一的なものに変更をする
-// 再度整理し直す
-
 // MARK: Top
 "appTitle" = "Authentication\nDemo App";
 
@@ -19,6 +16,7 @@
 "signInButton" = "Sign In";
 "signInTitle" = "Hello.";
 "inputPasswordExplanation" = "パスワードは6文字以上の半角英数字で入力してください";
+"inputEmailAndPassword" = "Please enter your email and password here.";
 
 // MARK: SignUp
 "signUpWithEmail" = "Sign Up With Email";
@@ -46,33 +44,30 @@
 "signUpSuccessViewSubTitle" = "アカウントが作成されました";
 
 // MARK: ResetPassword
+"resetPasswordTitle" = "Reset your password";
+"resetPasswordSubTitle" = "Please enter your email here.";
+"resetPasswordButtonTitle" = "パスワードを忘れた方はこちら";
 "resetPasswordSendingEmail" = "Send an e-mail";
 "onTapSendEmailButton" = "Successed.";
 "resetPasswordExplanation" = "届いたメールに記載のURLからパスワードを再設定してください";
 "successSendEmailSubTitle" = "パスワード再設定用メールを送信しました\n記載されたリンクから再設定してください";
 "reSendEmailButtonTitle" = "メールが届いていない場合";
-"resetPasswordButtonTitle" = "パスワードを忘れた方はこちら";
-"resetPasswordTitle" = "Reset your password";
 
-// MARK: Explanation
-"createProfileExplanation" = "ユーザー名、生年月日を設定してください";
-"confirmationExplanation" = "入力した内容に間違いがないかどうか確認してください";
-
-// MARK: Title
+// MARK: CreateProfile
 "createProfileTitle" = "Create profile";
-"confirmationTitle" = "Confirmation";
-"alertTitle" = "Error";
-
-// MARK: SubTitle
 "createProfileSubTitle" = "Please enter your name and age here.";
+"createProfileExplanation" = "ユーザー名、生年月日を設定してください";
+
+// MARK: Confirmation
+"confirmationTitle" = "Confirmation";
 "confirmationSubTitle" = "Please reconfirm the information you entered";
-"inputEmailAndPassword" = "Please enter your email and password here.";
-"resetPasswordSubTitle" = "Please enter your email here.";
+"confirmationExplanation" = "入力した内容に間違いがないかどうか確認してください";
 
 // MARK: Common String
 "emailTag" = "email";
 "passwordTag" = "password";
 "nameTag" = "username";
+"alertTitle" = "Error";
 
 // MARK: Common Symbol
 "backwardSymbol" = "arrow.uturn.backward";
