@@ -12,23 +12,26 @@ struct SignUpUserInfomationForm: View {
     
     @Binding var selection: SignUpSelection
 
+    let presenter: SignUpWithEmailPresenter
     let indicatorPresenter: SignUpWithEmailStepIndicatorPresenter
     
     var body: some View {
         VStack(spacing: 15) {
             Explanation()            
             HeightSpacer(height: 80)
-            NameForm(user: user)
-            HeightSpacer(height: 30)
-            BirthdayDatePicker(user: user)
+            VStack(alignment: .leading) {
+                NameForm(user: user)
+                HeightSpacer(height: 40)
+                BirthdayDatePicker(user: user)
+            }
             Spacer()
-            ContinueButton(selection: $selection, name: user.userName)
+            ContinueButton(selection: $selection, presenter: presenter, name: user.userName)
             HeightSpacer(height: 80)
         }
         .onAppear {
             indicatorPresenter.colorSelecter(selection: selection)
         }
-        .signUpBackwardButton(selection: $selection)
+        .signUpBackwardButton(selection: $selection, presenter: presenter)
         .padding(.top, 70)
     }
 }
@@ -55,21 +58,20 @@ private struct NameForm: View {
     @ObservedObject var user: SignUpUser
         
     var body: some View {
-        CustomizedRoundedRectangle(color: Color.white, content: {
-            HStack{
-                Image(systemName: String(resource: R.string.localizable.userSymbol))
-                    .resizable()
-                    .foregroundColor(.gray.opacity(0.5))
-                    .frame(width: 25, height: 25)
-                
-                WidthSpacer(width: 20)
-
-                TextField(String(resource: R.string.localizable.nameTag), text: $user.userName)
-                    .font(.system(.body, design: .rounded))
-                    .keyboardType(.alphabet)
-                    .autocapitalization(.none)
-            }.padding(.horizontal, 25)
-        })
+        HStack{
+            Image(systemName: String(resource: R.string.localizable.userSymbol))
+                .resizable()
+                .foregroundColor(.gray.opacity(0.5))
+                .frame(width: 25, height: 25)
+            
+            WidthSpacer(width: 20)
+            
+            TextField(String(resource: R.string.localizable.nameTag), text: $user.userName)
+                .font(.title)
+                .fontWeight(.heavy)
+                .keyboardType(.alphabet)
+                .autocapitalization(.none)
+        }.padding(.horizontal, 50)
     }
 }
 
@@ -88,22 +90,21 @@ private struct BirthdayDatePicker: View {
     }
     
     var body: some View {
-        CustomizedRoundedRectangle(color: Color.white, content: {
-            HStack {
-                Image(systemName: String(resource: R.string.localizable.calendarSymbol))
-                    .resizable()
-                    .foregroundColor(.gray.opacity(0.5))
-                    .frame(width: 25, height: 25)
-                
-                WidthSpacer(width: 20)
-                
-                Text(formatter.string(from: user.birthdayDate))
-                    .foregroundColor(.black)
-                    .font(.system(size: 16, design: .rounded))
-                    .bold()
-                Spacer()
-            }.padding(.horizontal, 25)
-        })
+        HStack {
+            Image(systemName: String(resource: R.string.localizable.calendarSymbol))
+                .resizable()
+                .foregroundColor(.gray.opacity(0.5))
+                .frame(width: 25, height: 25)
+            
+            WidthSpacer(width: 20)
+            
+            Text(formatter.string(from: user.birthdayDate))
+                .foregroundColor(.black)
+                .font(.title)
+                .fontWeight(.heavy)
+            Spacer()
+        }
+        .padding(.horizontal, 50)
         .onTapGesture {
             isShowingDatePicker.toggle()
         }
@@ -127,6 +128,7 @@ private struct BirthdayDatePicker: View {
 private struct ContinueButton: View {
     @Binding var selection: SignUpSelection
         
+    let presenter: SignUpWithEmailPresenter
     let name: String
     
     var nameCount: Bool {
@@ -135,7 +137,8 @@ private struct ContinueButton: View {
     
     var body: some View {
         Button(action: {
-            withAnimation(.linear) {
+            presenter.onTapTransitionButton(direction: .forward)
+            withAnimation(.easeOut(duration: 0.3)) {
                 selection = .confirmation
             }
         }, label: {

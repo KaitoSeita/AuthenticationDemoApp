@@ -18,7 +18,8 @@ struct SignUpConfirmation: View {
     var body: some View {
         VStack(spacing: 15) {
             Explanation()
-            
+            HeightSpacer(height: 30)
+            Confirmation(user: user)
             Spacer()
             SignUpButton(user: user, presenter: presenter)
             HeightSpacer(height: 80)
@@ -27,7 +28,7 @@ struct SignUpConfirmation: View {
             indicatorPresenter.colorSelecter(selection: selection)
         }
         .padding(.top, 70)
-        .signUpBackwardButton(selection: $selection)
+        .signUpBackwardButton(selection: $selection, presenter: presenter)
         .navigationDestination(isPresented: $presenter.isShowingSuccessView, destination: {
             SignUpSuccessView()
                 .navigationBarBackButtonHidden(true)
@@ -59,12 +60,60 @@ private struct Explanation: View {
 private struct Confirmation: View {
     @ObservedObject var user: SignUpUser
     
+    let formatter = DateFormatter()
+    
+    init(user: SignUpUser) {
+        self.user = user
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.dateStyle = .long
+    }
+
     var body: some View {
-        VStack(spacing: 15) {
+        VStack(alignment: .leading, spacing: 40) {
+            // Email
             HStack {
+                Image(systemName: String(resource: R.string.localizable.emailSymbol))
+                    .resizable()
+                    .foregroundColor(.gray.opacity(0.5))
+                    .frame(width: 25, height: 17.5)
                 
+                WidthSpacer(width: 20)
+                
+                Text(user.email)
+                    .frame(maxWidth: 300)
+                    .font(.headline)
+                    .fontWeight(.heavy)
             }
-        }
+            // username
+            HStack{
+                Image(systemName: String(resource: R.string.localizable.userSymbol))
+                    .resizable()
+                    .foregroundColor(.gray.opacity(0.5))
+                    .frame(width: 25, height: 25)
+                
+                WidthSpacer(width: 20)
+                
+                Text(user.userName)
+                    .frame(maxWidth: 300)
+                    .font(.headline)
+                    .fontWeight(.heavy)
+            }
+            // Birthday
+            HStack {
+                Image(systemName: String(resource: R.string.localizable.calendarSymbol))
+                    .resizable()
+                    .foregroundColor(.gray.opacity(0.5))
+                    .frame(width: 25, height: 25)
+                
+                WidthSpacer(width: 20)
+                
+                Text(formatter.string(from: user.birthdayDate))
+                    .frame(maxWidth: 300)
+                    .font(.headline)
+                    .fontWeight(.heavy)
+                Spacer()
+            }
+        }.padding(.horizontal, 50)
     }
 }
 
