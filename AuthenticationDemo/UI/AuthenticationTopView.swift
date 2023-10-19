@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import RswiftResources
 
 // MARK: Default View
 struct AuthenticationTopView: View {

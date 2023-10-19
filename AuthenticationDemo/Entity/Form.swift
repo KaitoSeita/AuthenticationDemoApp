@@ -5,7 +5,7 @@
 //  Created by kaito-seita on 2023/09/27.
 //
 
-import Foundation
+import SwiftUI
 
 enum InputFormType {
     case email

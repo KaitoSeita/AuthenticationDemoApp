@@ -5,7 +5,6 @@
 //  Created by kaito-seita on 2023/09/18.
 //
 
-import Foundation
 import FirebaseAuth
 
 protocol SignInWithEmailInteractorProtocol {

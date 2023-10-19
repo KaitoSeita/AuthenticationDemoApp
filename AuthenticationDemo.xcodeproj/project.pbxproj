@@ -12,6 +12,7 @@
 		3532A1662ADF6B13008E51DB /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 3532A1642ADF6B13008E51DB /* success.json */; };
 		3532A1672ADF6B13008E51DB /* checkmark.json in Resources */ = {isa = PBXBuildFile; fileRef = 3532A1652ADF6B13008E51DB /* checkmark.json */; };
 		3532A16A2AE11DF5008E51DB /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3532A1692AE11DF5008E51DB /* Transition.swift */; };
+		3532A16D2AE132D8008E51DB /* UIApplication+CloseKeyboad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3532A16C2AE132D8008E51DB /* UIApplication+CloseKeyboad.swift */; };
 		354E527D2ACCF58500C66B98 /* SignUpWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E527C2ACCF58500C66B98 /* SignUpWithEmailView.swift */; };
 		35679CF02AD6578F002385A8 /* SignUpWithEmailStepIndicatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679CEF2AD6578F002385A8 /* SignUpWithEmailStepIndicatorPresenter.swift */; };
 		35679CF22AD658ED002385A8 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679CF12AD658ED002385A8 /* ColorModel.swift */; };
@@ -71,6 +72,7 @@
 		3532A1642ADF6B13008E51DB /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = success.json; path = ../../../../success.json; sourceTree = "<group>"; };
 		3532A1652ADF6B13008E51DB /* checkmark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = checkmark.json; path = ../../../../checkmark.json; sourceTree = "<group>"; };
 		3532A1692AE11DF5008E51DB /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		3532A16C2AE132D8008E51DB /* UIApplication+CloseKeyboad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+CloseKeyboad.swift"; sourceTree = "<group>"; };
 		354E527C2ACCF58500C66B98 /* SignUpWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailView.swift; sourceTree = "<group>"; };
 		35679CEF2AD6578F002385A8 /* SignUpWithEmailStepIndicatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailStepIndicatorPresenter.swift; sourceTree = "<group>"; };
 		35679CF12AD658ED002385A8 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		358672A62AC1396700F10606 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3532A16C2AE132D8008E51DB /* UIApplication+CloseKeyboad.swift */,
 				358DCD6D2AC448410076524D /* View */,
 			);
 			path = Extensions;
@@ -485,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3532A16D2AE132D8008E51DB /* UIApplication+CloseKeyboad.swift in Sources */,
 				3532A16A2AE11DF5008E51DB /* Transition.swift in Sources */,
 				358DCD712AC44BFA0076524D /* View+NavigationBackwardButton.swift in Sources */,
 				358DCD852AC4A0ED0076524D /* SuccessView.swift in Sources */,

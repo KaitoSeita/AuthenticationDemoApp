@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import RswiftResources
 
 struct SignInWithEmailButton: View {
     private let interactor: SignInWithEmailInteractor = SignInWithEmailInteractor()

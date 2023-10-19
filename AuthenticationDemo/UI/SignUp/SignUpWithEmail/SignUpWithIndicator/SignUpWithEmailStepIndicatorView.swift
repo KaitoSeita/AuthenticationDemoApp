@@ -25,5 +25,3 @@ struct SignUpWithEmailStepIndicatorView: View {
         }
     }
 }
-
-// .emailの場合 → 左だけアニメーション動作でてんてん , .userInformationの場合 → 左はてんてんで右はアニメーション動作でてんてん

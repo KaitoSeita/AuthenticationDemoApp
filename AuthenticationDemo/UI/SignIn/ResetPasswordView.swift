@@ -45,10 +45,12 @@ struct ResetPasswordView: View {
                 .presentationCornerRadius(20)
                 .presentationDragIndicator(.visible)
                 .presentationDetents([.fraction(0.5)])
+                .presentationBackground(Material.ultraThinMaterial)
                 .toast(isShowingErrorMessage: $presenter.isShowingErrorMessage, isShowingLoadingToast: $presenter.isShowingLoadingToast, errorMessage: presenter.errorMessage)
                 .onDisappear {
                     isShowingResetPasswordView = false
                 }
+            
         }
     }
 }

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import RswiftResources
 import AlertToast
 
 struct SignInWithEmailView: View {

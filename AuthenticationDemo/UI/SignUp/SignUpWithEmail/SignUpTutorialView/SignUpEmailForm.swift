@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import RswiftResources
 
 struct SignUpEmailForm: View {
     @ObservedObject var user: SignUpUser

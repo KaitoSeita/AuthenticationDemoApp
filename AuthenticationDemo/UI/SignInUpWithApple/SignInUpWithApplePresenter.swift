@@ -8,7 +8,6 @@
 import AuthenticationServices
 import CryptoKit
 import FirebaseAuth
-import RswiftResources
 
 final class SignInUpWithApplePresenter: NSObject, ObservableObject {
     @Published var isShowingSuccessView = false

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import RswiftResources
 
 struct CloseButton: View {
     // クローズボタンを押したらbool値を変更してdismissをonChangeで動かしたい→バインディング必要

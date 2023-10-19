@@ -119,6 +119,7 @@ private struct BirthdayDatePicker: View {
                 .presentationDragIndicator(.visible)
                 .environment(\.locale, Locale(identifier: "ja_JP"))
                 .presentationDetents([.fraction(0.5)])
+                .presentationBackground(Material.ultraThinMaterial)
                 WidthSpacer(width: 35)
             }
         })
