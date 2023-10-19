@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		350871932ACC702E0027D886 /* SignUpConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350871922ACC702E0027D886 /* SignUpConfirmation.swift */; };
-		350E2B7C2ADE64E000EADB03 /* authentication.json in Resources */ = {isa = PBXBuildFile; fileRef = 350E2B7B2ADE64E000EADB03 /* authentication.json */; };
-		3532A1662ADF6B13008E51DB /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 3532A1642ADF6B13008E51DB /* success.json */; };
-		3532A1672ADF6B13008E51DB /* checkmark.json in Resources */ = {isa = PBXBuildFile; fileRef = 3532A1652ADF6B13008E51DB /* checkmark.json */; };
 		3532A16A2AE11DF5008E51DB /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3532A1692AE11DF5008E51DB /* Transition.swift */; };
 		3532A16D2AE132D8008E51DB /* UIApplication+CloseKeyboad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3532A16C2AE132D8008E51DB /* UIApplication+CloseKeyboad.swift */; };
+		3544F03C2AE13ADB007F4DB4 /* sendingEmail.json in Resources */ = {isa = PBXBuildFile; fileRef = 3544F0382AE13ADB007F4DB4 /* sendingEmail.json */; };
+		3544F03D2AE13ADB007F4DB4 /* checkmark.json in Resources */ = {isa = PBXBuildFile; fileRef = 3544F0392AE13ADB007F4DB4 /* checkmark.json */; };
+		3544F03E2AE13ADB007F4DB4 /* authentication.json in Resources */ = {isa = PBXBuildFile; fileRef = 3544F03A2AE13ADB007F4DB4 /* authentication.json */; };
+		3544F03F2AE13ADB007F4DB4 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 3544F03B2AE13ADB007F4DB4 /* success.json */; };
 		354E527D2ACCF58500C66B98 /* SignUpWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E527C2ACCF58500C66B98 /* SignUpWithEmailView.swift */; };
 		35679CF02AD6578F002385A8 /* SignUpWithEmailStepIndicatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679CEF2AD6578F002385A8 /* SignUpWithEmailStepIndicatorPresenter.swift */; };
 		35679CF22AD658ED002385A8 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679CF12AD658ED002385A8 /* ColorModel.swift */; };
 		35679CF82AD67505002385A8 /* View+SignUpBackwardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679CF72AD67505002385A8 /* View+SignUpBackwardButton.swift */; };
 		35679D002AD7916B002385A8 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679CFF2AD7916B002385A8 /* LottieView.swift */; };
-		35679D042AD7991B002385A8 /* sendingEmail.json in Resources */ = {isa = PBXBuildFile; fileRef = 35679D032AD7991B002385A8 /* sendingEmail.json */; };
 		35679D0D2ADCF321002385A8 /* View+AlertToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35679D0C2ADCF321002385A8 /* View+AlertToast.swift */; };
 		357C15CA2AD51356007D6103 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357C15C92AD51356007D6103 /* CloseButton.swift */; };
 		358672902ABBE66900F10606 /* SignInUpWithApplePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586728F2ABBE66900F10606 /* SignInUpWithApplePresenter.swift */; };
@@ -68,17 +68,17 @@
 
 /* Begin PBXFileReference section */
 		350871922ACC702E0027D886 /* SignUpConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpConfirmation.swift; sourceTree = "<group>"; };
-		350E2B7B2ADE64E000EADB03 /* authentication.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = authentication.json; path = ../../../../authentication.json; sourceTree = "<group>"; };
-		3532A1642ADF6B13008E51DB /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = success.json; path = ../../../../success.json; sourceTree = "<group>"; };
-		3532A1652ADF6B13008E51DB /* checkmark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = checkmark.json; path = ../../../../checkmark.json; sourceTree = "<group>"; };
 		3532A1692AE11DF5008E51DB /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		3532A16C2AE132D8008E51DB /* UIApplication+CloseKeyboad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+CloseKeyboad.swift"; sourceTree = "<group>"; };
+		3544F0382AE13ADB007F4DB4 /* sendingEmail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sendingEmail.json; sourceTree = "<group>"; };
+		3544F0392AE13ADB007F4DB4 /* checkmark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checkmark.json; sourceTree = "<group>"; };
+		3544F03A2AE13ADB007F4DB4 /* authentication.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = authentication.json; sourceTree = "<group>"; };
+		3544F03B2AE13ADB007F4DB4 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
 		354E527C2ACCF58500C66B98 /* SignUpWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailView.swift; sourceTree = "<group>"; };
 		35679CEF2AD6578F002385A8 /* SignUpWithEmailStepIndicatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailStepIndicatorPresenter.swift; sourceTree = "<group>"; };
 		35679CF12AD658ED002385A8 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
 		35679CF72AD67505002385A8 /* View+SignUpBackwardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+SignUpBackwardButton.swift"; sourceTree = "<group>"; };
 		35679CFF2AD7916B002385A8 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		35679D032AD7991B002385A8 /* sendingEmail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sendingEmail.json; path = ../../../../sendingEmail.json; sourceTree = "<group>"; };
 		35679D0C2ADCF321002385A8 /* View+AlertToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AlertToast.swift"; sourceTree = "<group>"; };
 		357C15C92AD51356007D6103 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		3586728F2ABBE66900F10606 /* SignInUpWithApplePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpWithApplePresenter.swift; sourceTree = "<group>"; };
@@ -158,10 +158,10 @@
 		35679CFB2AD7910D002385A8 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				3532A1652ADF6B13008E51DB /* checkmark.json */,
-				3532A1642ADF6B13008E51DB /* success.json */,
-				350E2B7B2ADE64E000EADB03 /* authentication.json */,
-				35679D032AD7991B002385A8 /* sendingEmail.json */,
+				3544F03A2AE13ADB007F4DB4 /* authentication.json */,
+				3544F0392AE13ADB007F4DB4 /* checkmark.json */,
+				3544F0382AE13ADB007F4DB4 /* sendingEmail.json */,
+				3544F03B2AE13ADB007F4DB4 /* success.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -470,14 +470,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3544F03C2AE13ADB007F4DB4 /* sendingEmail.json in Resources */,
+				3544F03D2AE13ADB007F4DB4 /* checkmark.json in Resources */,
 				3594564B2AA8B8D200238B39 /* Preview Assets.xcassets in Resources */,
-				35679D042AD7991B002385A8 /* sendingEmail.json in Resources */,
 				359456992AB727F300238B39 /* Localizable.strings in Resources */,
+				3544F03F2AE13ADB007F4DB4 /* success.json in Resources */,
 				359456482AA8B8D200238B39 /* Assets.xcassets in Resources */,
-				3532A1662ADF6B13008E51DB /* success.json in Resources */,
-				350E2B7C2ADE64E000EADB03 /* authentication.json in Resources */,
 				359456572AA8B97100238B39 /* GoogleService-Info.plist in Resources */,
-				3532A1672ADF6B13008E51DB /* checkmark.json in Resources */,
+				3544F03E2AE13ADB007F4DB4 /* authentication.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
