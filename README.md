@@ -17,7 +17,8 @@ FirebaseAuthを使用したサインインおよびサインアップのデモ�
 コードはSourceTreeを使用してGithubと連携して、細かい機能が完成するタイミングでその都度コミットを行うことで、大きなエラーが発生した場合に戻って対処できるように管理しました。
 ## アーキテクチャ
 ### VIPER
-[VIPER 公式サイト](https://cheesecakelabs.com/blog/ios-project-architecture-using-viper/)
+![VIPER](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/c8d9cac7-6161-4cae-99af-9ec45b10d091)
+[VIPER 公式サイト](https://cheesecakelabs.com/blog/ios-project-architecture-using-viper/)から引用
 ### 概要
 VIPERアーキテクチャとは、View、Interactor、Presenter、Entity、Routerの5つから構成されます。
 - **View**  
