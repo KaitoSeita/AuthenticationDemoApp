@@ -111,6 +111,7 @@ struct AuthenticationTopRouter {
 ### （正直な感想）
 SwiftUIで記述しましたが、ファイルの構造が複雑化しやすく、SwiftUIならばMVVMやMVCといったもう少し簡単なアーキテクチャの方が記述しやすいように感じました。
 一方で、役割を分割して小さくすることで不具合の把握や修正などがしやすいという印象も受けました。
-## 動作例
-
-## 
+## 動作フロー図
+![FlowImage](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/6d4ca559-f29e-46ec-af81-a6caa69f3472)
+※GoogleおよびAppleの画面はUI作成にほとんど関係しないため省略していますが、実際に動作するコードは記述してあります。
+## 具体的な動作とそのコードについて
