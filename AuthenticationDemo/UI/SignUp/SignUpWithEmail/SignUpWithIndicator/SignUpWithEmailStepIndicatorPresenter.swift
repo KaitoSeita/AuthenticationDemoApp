@@ -14,7 +14,7 @@ final class SignUpWithEmailStepIndicatorPresenter: ObservableObject {
         colorSelecter(selection: .email)
     }
     
-    func colorSelecter(selection: SignUpSelection){
+    func colorSelecter(selection: SignUpSelection) {
         switch selection {
         case .email:
             colorItems = [ColorModel(color: .black), ColorModel(color: .gray), ColorModel(color: .gray)]

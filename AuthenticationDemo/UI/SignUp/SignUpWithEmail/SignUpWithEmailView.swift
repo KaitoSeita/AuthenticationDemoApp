@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// MARK: EnvironmentObjectを使用するとSwitch文で再描画を繰り返してしまって値の保持ができないのでStateObjectで管理
-
 struct SignUpWithEmailView: View {
     @ObservedObject private var presenter: SignUpWithEmailPresenter
     @ObservedObject private var indicatorPresenter: SignUpWithEmailStepIndicatorPresenter

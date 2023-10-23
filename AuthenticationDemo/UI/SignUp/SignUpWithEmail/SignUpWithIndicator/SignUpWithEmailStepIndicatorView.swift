@@ -14,7 +14,7 @@ struct SignUpWithEmailStepIndicatorView: View {
         VStack {
             HeightSpacer(height: 25)
             HStack {
-                ForEach(presenter.colorItems){ color in
+                ForEach(presenter.colorItems) { color in
                     Circle()
                         .frame(width: 15, height: 10)
                         .foregroundColor(color.color.opacity(0.85))
