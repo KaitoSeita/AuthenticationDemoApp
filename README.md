@@ -235,6 +235,7 @@ extension SignInWithEmailPresenter {
     }
 }
 ```
+Interactorで記述した非同期処理の通信に関するメソッドを呼び出して、返却された結果からUIに対する操作などを行うようにしている。
 ##### Interactor
 ```
 protocol SignInWithEmailInteractorProtocol {
@@ -257,3 +258,4 @@ final class SignInWithEmailInteractor: SignInWithEmailInteractorProtocol {
     }
 }
 ```
+Presenterにて成功/失敗で場合分けできるようにResult型で結果を返却する。エラー処理はdo-catch文で記述することで比較的整然としたコードとなりました。
