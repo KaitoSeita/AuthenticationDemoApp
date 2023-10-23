@@ -158,12 +158,14 @@ struct SignUpWithEmailView: View {
 Viewではステップインジケーターと画面をZStackで構成しており、各Viewには自然な画面の切り替わりをさせるためにtransitionを採用しています。また、Viewの切り替わりのタイミングでAnimationを適用させたいのでVIPERアーキテクチャの概要で示したようなRouterはあえて使用しませんでした。
 各Viewからメールアドレスやパスワード、ユーザーネーム、誕生日などに対して参照したり書き込みを行う際に、@EnvironmentObjectを使用すればいいと当初は考えていましたが、このViewはswitchの切り替わりによってView自体が再描画されるようになっているため、
 再描画の度に保持していた値がリセットされてしまうことがわかったので、@StateObjectとして初回表示の際のみの初期化とすることで画面遷移が発生しても値を保持することができるようになりました。
-#### ステップインジケーター(SignUpWithEmailStepIndicatorView)
+### ステップインジケーター(SignUpWithEmailStepIndicatorView)
 
-#### データ通信処理の際のUI
+
+### データ通信処理の際のUI
 |成功時|エラー時|
 |:-:|:-:|
-|![SignInSuccess](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/bedc254f-86b9-4aae-972b-93f5266b71d5)|![SignInError](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/980a50d3-3e12-44cc-8187-e0c35e2a1c0a)|
+|![SignInSuccess](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/bedc254f-86b9-4aae-972b-93f5266b71d5)|![SignInError](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/980a50d3-3e12-44cc-8187-e0c35e2a1c0a)|  
+
 サインインボタンをタップすることで以下のonTapSignInButtonというメソッドが呼ばれ、通信処理の成功/失敗によってUIに変更を加える仕様となっています。
 ```
 extension SignInWithEmailPresenter {
