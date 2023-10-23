@@ -161,3 +161,26 @@ Viewではステップインジケーターと画面をZStackで構成してお�
 #### ステップインジケーター(SignUpWithEmailStepIndicatorView)
 
 #### データ通信処理の際のUI
+|成功時|エラー時|
+|:-:|:-:|
+|![SignInSuccess](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/bedc254f-86b9-4aae-972b-93f5266b71d5)|![SignInError](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/980a50d3-3e12-44cc-8187-e0c35e2a1c0a)|
+サインインボタンをタップすることで以下のonTapSignInButtonというメソッドが呼ばれ、通信処理の成功/失敗によってUIに変更を加える仕様となっています。
+```
+extension SignInWithEmailPresenter {
+
+    func onTapSignInButton(email: String, password: String) {
+        isShowingLoadingToast = true
+        Task { @MainActor in
+            let result = await signInWithEmailPassword(email: email, password: password)
+            isShowingLoadingToast = false
+            switch result {
+            case .success(_):
+                isShowingSuccessView = true
+            case .failure(let error):
+                setErrorMessage(error: error)
+                isShowingErrorMessage = true
+            }
+        }
+    }
+}
+```
