@@ -118,7 +118,7 @@ SwiftUIで記述しましたが、ファイルの構造が複雑化しやすく�
 ### サインアップ画面の画面遷移
 ![SignUpWithEmailView](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/05f21b28-eeba-4fc9-b1ff-e88600ce02dd)  
 サインアップ画面ではステップインジケーターを導入するために、NavigationStackの採用を見送り、独自で画面が切り替わるように記述しました。この画面に移る際とサインアップの成功画面へ移る際の画面遷移ではNavigationStackを使用しています。
-#### サインアップ画面で画面の切り替えを行うView(SignUpWithEmailView)
+#### サインアップ画面で画面の切り替えを行うViewのコード
 ```
 struct SignUpWithEmailView: View {
     @ObservedObject private var presenter: SignUpWithEmailPresenter
@@ -159,14 +159,63 @@ Viewではステップインジケーターと画面をZStackで構成してお�
 各Viewからメールアドレスやパスワード、ユーザーネーム、誕生日などに対して参照したり書き込みを行う際に、@EnvironmentObjectを使用すればいいと当初は考えていましたが、このViewはswitchの切り替わりによってView自体が再描画されるようになっているため、
 再描画の度に保持していた値がリセットされてしまうことがわかったので、@StateObjectとして初回表示の際のみの初期化とすることで画面遷移が発生しても値を保持することができるようになりました。
 ### ステップインジケーター(SignUpWithEmailStepIndicatorView)
+各画面をenumでcaseとして保持し、そのcaseに応じたColorの構造体配列を返すというメソッドをPresenterで作成し、画面遷移のたびに呼び出すという仕組みにしています。  
+  
+![StepIndicator](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/05b18897-e09f-489a-9ca3-851fa867438a)
+#### インジケーターのコード
+##### View
+```
+struct SignUpWithEmailStepIndicatorView: View {
+    @ObservedObject var presenter: SignUpWithEmailStepIndicatorPresenter
 
-
+    var body: some View {
+        VStack {
+            HeightSpacer(height: 25)
+            HStack {
+                ForEach(presenter.colorItems){ color in
+                    Circle()
+                        .frame(width: 15, height: 10)
+                        .foregroundColor(color.color.opacity(0.85))
+                        .grayShadow()
+                }
+            }
+            Spacer()
+        }
+    }
+}
+```
+ForEachで配列が保持しているColorを取り出し、Circleを表示して色を指定するようにしています。
+##### Presenter
+```
+final class SignUpWithEmailStepIndicatorPresenter: ObservableObject {
+    @Published var colorItems: [ColorModel] = []
+    
+    init() {
+        colorSelecter(selection: .email)
+    }
+    
+    func colorSelecter(selection: SignUpSelection)　{
+        switch selection {
+        case .email:
+            colorItems = [ColorModel(color: .black), ColorModel(color: .gray), ColorModel(color: .gray)]
+        case .userInfomation:
+            colorItems = [ColorModel(color: .black), ColorModel(color: .black), ColorModel(color: .gray)]
+        case .confirmation:
+            colorItems = [ColorModel(color: .black), ColorModel(color: .black), ColorModel(color: .black)]
+        }
+    }
+}
+```
+PresenterにColorを設定するメソッドを用意して、画面遷移が発生するタイミング(Continueボタンをタップするときや戻るボタンをタップするとき)でメソッドを呼び出し、@Publishedでラップされた変数を更新しています。
 ### データ通信処理の際のUI
 |成功時|エラー時|
 |:-:|:-:|
 |![SignInSuccess](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/bedc254f-86b9-4aae-972b-93f5266b71d5)|![SignInError](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/980a50d3-3e12-44cc-8187-e0c35e2a1c0a)|  
 
-サインインボタンをタップすることで以下のonTapSignInButtonというメソッドが呼ばれ、通信処理の成功/失敗によってUIに変更を加える仕様となっています。
+サインインボタンをタップすることでonTapSignInButtonというメソッドが呼ばれ、通信処理の成功/失敗によってUIに変更を加える仕様となっています。
+非同期処理はSwift Concurrencyのasync/awaitで記述しています。
+#### 非同期処理を含む通信処理部分のコード
+##### Presenter
 ```
 extension SignInWithEmailPresenter {
 
@@ -182,6 +231,28 @@ extension SignInWithEmailPresenter {
                 setErrorMessage(error: error)
                 isShowingErrorMessage = true
             }
+        }
+    }
+}
+```
+##### Interactor
+```
+protocol SignInWithEmailInteractorProtocol {
+    func fetchUserInfo(email: String, password: String) async -> Result<User, Error>
+    func resetPassword(email: String) async -> Result<String, Error>
+}
+
+final class SignInWithEmailInteractor: SignInWithEmailInteractorProtocol {
+    
+    func fetchUserInfo(email: String, password: String) async -> Result<User, Error> {
+        do {
+            let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            let userInfo = User(id: result.user.uid,
+                                displayName: result.user.displayName ?? "",
+                                email: result.user.email ?? "")
+            return .success(userInfo)
+        } catch {
+            return .failure(error)
         }
     }
 }
