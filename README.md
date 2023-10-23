@@ -158,4 +158,6 @@ struct SignUpWithEmailView: View {
 Viewではステップインジケーターと画面をZStackで構成しており、各Viewには自然な画面の切り替わりをさせるためにtransitionを採用しています。また、Viewの切り替わりのタイミングでAnimationを適用させたいのでVIPERアーキテクチャの概要で示したようなRouterはあえて使用しませんでした。
 各Viewからメールアドレスやパスワード、ユーザーネーム、誕生日などに対して参照したり書き込みを行う際に、@EnvironmentObjectを使用すればいいと当初は考えていましたが、このViewはswitchの切り替わりによってView自体が再描画されるようになっているため、
 再描画の度に保持していた値がリセットされてしまうことがわかったので、@StateObjectとして初回表示の際のみの初期化とすることで画面遷移が発生しても値を保持することができるようになりました。
-#### 
+#### ステップインジケーター(SignUpWithEmailStepIndicatorView)
+
+#### データ通信処理の際のUI
