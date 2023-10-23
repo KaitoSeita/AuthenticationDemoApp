@@ -115,3 +115,47 @@ SwiftUIで記述しましたが、ファイルの構造が複雑化しやすく�
 ![FlowImage](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/6d4ca559-f29e-46ec-af81-a6caa69f3472)
 ※GoogleおよびAppleの画面はUI作成にほとんど関係しないため省略していますが、実際に動作するコードは記述してあります。
 ## 具体的な動作とそのコードについて
+### サインアップ画面の画面遷移
+![SignUpWithEmailView](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/05f21b28-eeba-4fc9-b1ff-e88600ce02dd)  
+サインアップ画面ではステップインジケーターを導入するために、NavigationStackの採用を見送り、独自で画面が切り替わるように記述しました。この画面に移る際とサインアップの成功画面へ移る際の画面遷移ではNavigationStackを使用しています。
+#### サインアップ画面で画面の切り替えを行うView(SignUpWithEmailView)
+```
+struct SignUpWithEmailView: View {
+    @ObservedObject private var presenter: SignUpWithEmailPresenter
+    @ObservedObject private var indicatorPresenter: SignUpWithEmailStepIndicatorPresenter
+    
+    @StateObject var user: SignUpUser = SignUpUser()
+    
+    @State private var selection: SignUpSelection = .email
+    
+    let interactor: SignUpWithEmailInteractor
+
+    init(interactor: SignUpWithEmailInteractor) {
+        self.interactor = interactor
+        _presenter = ObservedObject(wrappedValue: SignUpWithEmailPresenter(interactor: interactor))
+        _indicatorPresenter = ObservedObject(wrappedValue: SignUpWithEmailStepIndicatorPresenter())
+    }
+    
+    var body: some View {
+        ZStack {
+            SignUpWithEmailStepIndicatorView(presenter: indicatorPresenter)
+            
+            switch selection {
+            case .email:
+                SignUpEmailForm(user: user, selection: $selection, presenter: presenter, indicatorPresenter: indicatorPresenter)
+                    .transition(presenter.transition)
+            case .userInfomation:
+                SignUpUserInfomationForm(user: user, selection: $selection, presenter: presenter, indicatorPresenter: indicatorPresenter)
+                    .transition(presenter.transition)
+            case .confirmation:
+                SignUpConfirmation(presenter: presenter, user: user, selection: $selection, indicatorPresenter: indicatorPresenter)
+                    .transition(presenter.transition)
+            }
+        }
+    }
+}
+```
+Viewではステップインジケーターと画面をZStackで構成しており、各Viewには自然な画面の切り替わりをさせるためにtransitionを採用しています。また、Viewの切り替わりのタイミングでAnimationを適用させたいのでVIPERアーキテクチャの概要で示したようなRouterはあえて使用しませんでした。
+各Viewからメールアドレスやパスワード、ユーザーネーム、誕生日などに対して参照したり書き込みを行う際に、@EnvironmentObjectを使用すればいいと当初は考えていましたが、このViewはswitchの切り替わりによってView自体が再描画されるようになっているため、
+再描画の度に保持していた値がリセットされてしまうことがわかったので、@StateObjectとして初回表示の際のみの初期化とすることで画面遷移が発生しても値を保持することができるようになりました。
+#### 
