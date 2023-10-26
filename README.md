@@ -20,12 +20,12 @@ FirebaseAuthを使用したサインインおよびサインアップのデモ�
 ![VIPER](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/c8d9cac7-6161-4cae-99af-9ec45b10d091)
 [VIPER 公式サイト](https://cheesecakelabs.com/blog/ios-project-architecture-using-viper/)から引用
 ### 概要
-VIPERアーキテクチャとは、View、Interactor、Presenter、Entity、Routerの5つから構成されます。
+VIPERアーキテクチャとは、`View`、`Interactor`、`Presenter`、`Entity`、`Router`の5つから構成されます。
 - **View**  
-ユーザーのアクションを検知してPresenterに通知し、Presenterからデータを取得する
+ユーザーのアクションを検知して`Presenter`に通知し、`Presenter`からデータを取得する
 - **Interactor**  
-Presenterから受けたデータ取得依頼に対して、APIを通じてサーバと通信し、結果をPresenterに返す
-```
+`Presenter`から受けたデータ取得依頼に対して、APIを通じてサーバと通信し、結果を`Presenter`に返す
+```Swift
 protocol SignInWithEmailInteractorProtocol {
     func fetchUserInfo(email: String, password: String) async -> Result<User, Error>
 }
@@ -46,10 +46,10 @@ final class SignInWithEmailInteractor: SignInWithEmailInteractorProtocol {
 }
 ```
 ※一部抜粋しています  
-非同期での通信処理においてdo-catch文でエラー処理を記述し、Result型でPresenterに通知します。
+非同期での通信処理において`do-catch文`でエラー処理を記述し、`Result型`で`Presenter`に通知します。
 - **Presenter**  
-Viewから受け取ったイベント通知を元に、RouterやInteractorに対して画面遷移やデータ通信の依頼を行ったり、データに関する処理を行って、結果をViewに返却する
-```
+`View`から受け取ったイベント通知を元に、`Router`や`Interactor`に対して画面遷移やデータ通信の依頼を行ったり、データに関する処理を行って、結果をViewに返却する
+```Swift
 final class SignInWithEmailPresenter: ObservableObject {
     @Published var errorMessage: String
     @Published var isShowingSuccessView: Bool
@@ -90,10 +90,10 @@ extension SignInWithEmailPresenter {
 }
 ```
 ※一部抜粋しています  
-Viewで呼び出されるメソッドはViewにおけるイベントに対応した命名をし、Interactorへのデータ取得依頼に関するメソッドはprivateで通信処理に対応する命名をします。
+`View`で呼び出されるメソッドはViewにおけるイベントに対応した命名をし、`Interactor`へのデータ取得依頼に関するメソッドは`private`で通信処理に対応する命名をします。
 - **Router**  
 Presenterから受けた依頼に対して画面遷移を実行する
-```
+```Swift
 struct AuthenticationTopRouter {
 
     func setDestination(selection: AuthenticationTopSelection) -> AnyView? {
@@ -117,9 +117,9 @@ SwiftUIで記述しましたが、ファイルの構造が複雑化しやすく�
 ## 具体的な動作とそのコードについて
 ### サインアップ画面の画面遷移
 ![SignUpWithEmailView](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/05f21b28-eeba-4fc9-b1ff-e88600ce02dd)  
-サインアップ画面ではステップインジケーターを導入するために、NavigationStackの採用を見送り、独自で画面が切り替わるように記述しました。この画面に移る際とサインアップの成功画面へ移る際の画面遷移ではNavigationStackを使用しています。
+サインアップ画面ではステップインジケーターを導入するために、`NavigationStack`の採用を見送り、独自で画面が切り替わるように記述しました。この画面に移る際とサインアップの成功画面へ移る際の画面遷移では`NavigationStack`を使用しています。
 #### サインアップ画面で画面の切り替えを行うViewのコード
-```
+```Swift
 struct SignUpWithEmailView: View {
     @ObservedObject private var presenter: SignUpWithEmailPresenter
     @ObservedObject private var indicatorPresenter: SignUpWithEmailStepIndicatorPresenter
@@ -155,16 +155,16 @@ struct SignUpWithEmailView: View {
     }
 }
 ```
-Viewではステップインジケーターと画面をZStackで構成しており、各Viewには自然な画面の切り替わりをさせるためにtransitionを採用しています。また、Viewの切り替わりのタイミングでAnimationを適用させたいのでVIPERアーキテクチャの概要で示したようなRouterはあえて使用しませんでした。
-各Viewからメールアドレスやパスワード、ユーザーネーム、誕生日などに対して参照したり書き込みを行う際に、@EnvironmentObjectを使用すればいいと当初は考えていましたが、このViewはswitchの切り替わりによってView自体が再描画されるようになっているため、
-再描画の度に保持していた値がリセットされてしまうことがわかったので、@StateObjectとして初回表示の際のみの初期化とすることで画面遷移が発生しても値を保持することができるようになりました。
+`View`ではステップインジケーターと画面を`ZStack`で構成しており、各Viewには自然な画面の切り替わりをさせるために`transition`を採用しています。また、Viewの切り替わりのタイミングでAnimationを適用させたいのでVIPERアーキテクチャの概要で示したようなRouterはあえて使用しませんでした。
+各Viewからメールアドレスやパスワード、ユーザーネーム、誕生日などに対して参照したり書き込みを行う際に、`@EnvironmentObject`を使用すればいいと当初は考えていましたが、このViewは`switch`の切り替わりによってView自体が再描画されるようになっているため、
+再描画の度に保持していた値がリセットされてしまうことがわかったので、`@StateObject`として初回表示の際のみの初期化とすることで画面遷移が発生しても値を保持することができるようになりました。
 ### ステップインジケーター(SignUpWithEmailStepIndicatorView)
 各画面をenumでcaseとして保持し、そのcaseに応じたColorの構造体配列を返すというメソッドをPresenterで作成し、画面遷移のたびに呼び出すという仕組みにしています。  
   
 ![StepIndicator](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/05b18897-e09f-489a-9ca3-851fa867438a)
 #### インジケーターのコード
 ##### View
-```
+```Swift
 struct SignUpWithEmailStepIndicatorView: View {
     @ObservedObject var presenter: SignUpWithEmailStepIndicatorPresenter
 
@@ -184,9 +184,9 @@ struct SignUpWithEmailStepIndicatorView: View {
     }
 }
 ```
-ForEachで配列が保持しているColorを取り出し、Circleを表示して色を指定するようにしています。
+`ForEach`で配列が保持している`Color`を取り出し、`Circle`を表示して色を指定するようにしています。
 ##### Presenter
-```
+```Swift
 final class SignUpWithEmailStepIndicatorPresenter: ObservableObject {
     @Published var colorItems: [ColorModel] = []
     
@@ -206,17 +206,17 @@ final class SignUpWithEmailStepIndicatorPresenter: ObservableObject {
     }
 }
 ```
-PresenterにColorを設定するメソッドを用意して、画面遷移が発生するタイミング(Continueボタンをタップするときや戻るボタンをタップするとき)でメソッドを呼び出し、@Publishedでラップされた変数を更新しています。
+`Presenter`に`Color`を設定するメソッドを用意して、画面遷移が発生するタイミング(Continueボタンをタップするときや戻るボタンをタップするとき)でメソッドを呼び出し、`@Published`でラップされた変数を更新しています。
 ### データ通信処理の際のUI
 |成功時|エラー時|
 |:-:|:-:|
 |![SignInSuccess](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/bedc254f-86b9-4aae-972b-93f5266b71d5)|![SignInError](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/980a50d3-3e12-44cc-8187-e0c35e2a1c0a)|  
 
-サインインボタンをタップすることでonTapSignInButtonというメソッドが呼ばれ、通信処理の成功/失敗によってUIに変更を加える仕様となっています。
-非同期処理はSwift Concurrencyのasync/awaitで記述しています。
+サインインボタンをタップすることで`onTapSignInButton`というメソッドが呼ばれ、通信処理の成功/失敗によってUIに変更を加える仕様となっています。
+非同期処理はSwiftConcurrencyのasync/awaitで記述しています。
 #### 非同期処理を含む通信処理部分のコード
 ##### Presenter
-```
+```Swift
 extension SignInWithEmailPresenter {
 
     func onTapSignInButton(email: String, password: String) {
@@ -235,9 +235,9 @@ extension SignInWithEmailPresenter {
     }
 }
 ```
-Interactorで記述した非同期処理の通信に関するメソッドを呼び出して、返却された結果からUIに対する操作などを行うようにしている。
+`Interactor`で記述した非同期処理の通信に関するメソッドを呼び出して、返却された結果からUIに対する操作などを行うようにしています。UI処理を含んでいるので、`Task`に対して`MainActor`を付与してメインスレッドでUIの変更が行えるようにしています。
 ##### Interactor
-```
+```Swift
 protocol SignInWithEmailInteractorProtocol {
     func fetchUserInfo(email: String, password: String) async -> Result<User, Error>
     func resetPassword(email: String) async -> Result<String, Error>
@@ -258,4 +258,37 @@ final class SignInWithEmailInteractor: SignInWithEmailInteractorProtocol {
     }
 }
 ```
-Presenterにて成功/失敗で場合分けできるようにResult型で結果を返却する。エラー処理はdo-catch文で記述することで比較的整然としたコードとなりました。
+`Presenter`にて成功/失敗で場合分けできるように`Result型`で結果を返却する。エラー処理は`do-catch文`で記述することで比較的整然としたコードとなりました。
+### extension
+`extension`を使用することで共通で使用しているコードを簡素化することができるため、積極的に活用しています。
+#### NavigationStackにおける戻るボタン
+```Swift
+struct CustomBackwardButton: ViewModifier {
+    
+    @Environment(\.dismiss) var dismiss
+
+    func body(content: Content) -> some View {
+        content
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(
+                        action: {
+                            dismiss()
+                        }, label: {
+                            Image(systemName: String(resource: R.string.localizable.backwardSymbol))
+                        }
+                    ).tint(.black)
+                }
+            }
+    }
+}
+
+extension View {
+    
+    func customBackwardButton() -> some View {
+        self.modifier(CustomBackwardButton())
+    }
+}
+```
+`Modifier`として記述することで、`.customBackwardButton`と1行追加するだけでUIを変更できるようにしました。
