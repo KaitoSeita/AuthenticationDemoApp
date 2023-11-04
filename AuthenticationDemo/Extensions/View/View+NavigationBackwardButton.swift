@@ -16,6 +16,8 @@ struct CustomBackwardButton: ViewModifier {
 
     func body(content: Content) -> some View {
         content
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .contentShape(Rectangle())
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
