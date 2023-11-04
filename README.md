@@ -267,8 +267,13 @@ struct CustomBackwardButton: ViewModifier {
     
     @Environment(\.dismiss) var dismiss
 
+    private let edgeWidth: Double = 30
+    private let baseDragWidth: Double = 30    
+
     func body(content: Content) -> some View {
         content
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .contentShape(Rectangle())
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -281,6 +286,13 @@ struct CustomBackwardButton: ViewModifier {
                     ).tint(.black)
                 }
             }
+            .gesture (
+                DragGesture().onChanged { value in
+                    if value.startLocation.x < edgeWidth && value.translation.width > baseDragWidth {
+                        dismiss()
+                    }
+                }
+            )
     }
 }
 
@@ -292,3 +304,10 @@ extension View {
 }
 ```
 `Modifier`として記述することで、`.customBackwardButton`と1行追加するだけでUIを変更できるようにしました。
+`DragGesture`を追加してエッジスワイプを導入しました。`NavigationStack`は標準でエッジスワイプがありますが、`.navigationBarBackButtonHidden(true)`を記述してしまうとその機能が失われてしまうので、この機能をできるだけ再現してUXを向上させるために導入しました。
+これについてはQiitaの記事で詳しくまとめているのでご参照いただけると幸いです。
+
+https://qiita.com/kaito-seita/items/5c847be63fd4748b58e3    
+https://qiita.com/kaito-seita/items/083831ff99b69a6af207
+
+また、`frame`と`contentShape`を指定して`VStack`の大きさを画面全体に拡大して、`Gesture`が画面全体で検知できるようにしています。
