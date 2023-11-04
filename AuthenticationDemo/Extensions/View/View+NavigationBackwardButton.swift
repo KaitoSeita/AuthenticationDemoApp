@@ -10,6 +10,9 @@ import SwiftUI
 struct CustomBackwardButton: ViewModifier {
     
     @Environment(\.dismiss) var dismiss
+    
+    private let edgeWidth: Double = 30
+    private let baseDragWidth: Double = 30
 
     func body(content: Content) -> some View {
         content
@@ -25,6 +28,13 @@ struct CustomBackwardButton: ViewModifier {
                     ).tint(.black)
                 }
             }
+            .gesture (
+                DragGesture().onChanged { value in
+                    if value.startLocation.x < edgeWidth && value.translation.width > baseDragWidth {
+                        dismiss()
+                    }
+                }
+            )
     }
 }
 
