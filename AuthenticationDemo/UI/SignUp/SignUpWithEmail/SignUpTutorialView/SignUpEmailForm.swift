@@ -12,7 +12,7 @@ struct SignUpEmailForm: View {
     
     @Binding var selection: SignUpSelection
     
-    @State private var reInputPasword = "aaaaaaa"
+    @State private var reInputPasword = ""
     
     let presenter: SignUpWithEmailPresenter
     let indicatorPresenter: SignUpWithEmailStepIndicatorPresenter

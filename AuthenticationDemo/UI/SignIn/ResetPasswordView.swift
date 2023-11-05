@@ -20,7 +20,7 @@ struct ResetPasswordView: View {
         _presenter = StateObject(wrappedValue: SignInWithEmailPresenter(interactor: interactor))
     }
 
-    @State private var email = "sample@email.com"
+    @State private var email = ""
     @State private var isShowingAlert = false
     @State private var isShowingResetPasswordView = true
     
