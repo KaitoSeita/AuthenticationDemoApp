@@ -6,22 +6,26 @@ Language：Swift
 ### ライブラリ
 - FirebaseAuth
 - R.Swift  
-文字列や画像などの静的リソースを型安全で管理するために使用するコード生成ツール
+文字列や画像などの静的リソースを型安全で管理するために使用するコード生成ツール    
+導入方法についてQiitaに掲載しています    
+[【SwiftUI】画像や文字列を型安全で管理するライブラリのR.Swiftを使ってみる](https://qiita.com/kaito-seita/items/97c656b2daf2c0e1b4be)
 - AlertToast  
 ローディング時の表示やエラー時のトースト表示で使用するライブラリ
 - Lottie  
-jsonファイルを使用してアニメーションを表示するライブラリ
+jsonファイルを使用してアニメーションを表示するライブラリ    
+導入方法についてQiitaに掲載しています    
+[【SwiftUI】Lottieを使ってアニメーションを簡単に実装してみた](https://qiita.com/kaito-seita/items/f0327faa5d649da44249)
 ## 概要
 FirebaseAuthを使用したサインインおよびサインアップのデモアプリです。Email、Google、Appleの3つで登録できるようにしています。
 アーキテクチャに基づいたコーディング、非同期処理の実装、ViewModifierの利用、R.SwiftやLottieなどのライブラリの活用をしました。
 コードはSourceTreeを使用してGithubと連携して、細かい機能が完成するタイミングでその都度コミットを行うことで、大きなエラーが発生した場合に戻って対処できるように管理しました。
-## 開発の経緯
-就業型のインターンシップに参加させていただいた際に学ばせていただいたことを以前に開発していた認証アプリに導入してすぐにアウトプットしてみたいということで開発しました。テストコードなどを導入することができていませんが、今後学習を進めて導入したいと考えています。
+## 開発の背景
+就業型のインターンシップに参加させていただいた際に学ばせていただいたことを[以前に開発していた認証アプリ](https://github.com/KaitoSeita/AuthDemoApp)に導入してすぐにアウトプットしてみたいということで開発しました。テストコードなどを導入することができていませんが、今後学習を進めて導入したいと考えています。
 ## アーキテクチャ
 ### VIPER
 ![VIPER](https://github.com/KaitoSeita/AuthenticationDemoApp/assets/113151647/c8d9cac7-6161-4cae-99af-9ec45b10d091)
 [VIPER 公式サイト](https://cheesecakelabs.com/blog/ios-project-architecture-using-viper/)から引用
-### 概要
+### アーキテクチャの概要
 VIPERアーキテクチャとは、`View`、`Interactor`、`Presenter`、`Entity`、`Router`の5つから構成されます。
 - **View**  
 ユーザーのアクションを検知して`Presenter`に通知し、`Presenter`からデータを取得する
