@@ -9,7 +9,7 @@ import SwiftUI
 import AlertToast
 
 struct SignInWithEmailView: View {
-    @State private var email = ""
+    @State private var email = "sample@email.com"
     @State private var password = ""
         
     @ObservedObject private var presenter: SignInWithEmailPresenter

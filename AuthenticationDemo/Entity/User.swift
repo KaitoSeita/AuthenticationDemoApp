@@ -20,8 +20,8 @@ struct GIDUser: Identifiable {
 }
 
 class SignUpUser: ObservableObject {
-    @Published var email = ""
-    @Published var password = ""
-    @Published var userName = ""
-    @Published var birthdayDate = Calendar(identifier: .gregorian).date(from: DateComponents(year: 2000, month: 1, day: 1))!
+    @Published var email = "example@email.com"
+    @Published var password = "aaaaaa"
+    @Published var userName = "Kaito Seita"
+    @Published var birthdayDate = Calendar(identifier: .gregorian).date(from: DateComponents(year: 2001, month: 7, day: 29))!
 }
